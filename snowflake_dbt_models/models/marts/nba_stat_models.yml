@@ -1,0 +1,58 @@
+version: 2
+## ALL Int/Fct Model Tests ##
+models:
+  - name: platform_analytics_goal_perf_w_strategies_test
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - geo_company_id
+            - goal_id
+            - goal_type
+            - enabled
+            - reporting_date
+            - country_code
+            - goal_title
+            - goal_deleted
+            - goal_key
+
+  - name: platform_analytics_dim_perpetua_amazon_goals
+    config:
+      tags: "perpetua_amazon_goals"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - geo_company_id
+            - goal_id
+            - enabled
+            - goal_type
+            - goal_deleted
+            - goal_source
+            - effective_start_date
+
+  - name: perpetua_amazon_historical_goal_active_dates
+    config:
+      tags: "perpetua_amazon_goals"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - geo_company_id
+            - effective_start_date
+            - goal_id
+            - enabled
+    columns:
+      - name: geo_company_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('platform_analytics_dim_perpetua_amazon_goals')
+              field: geo_company_id
+
+  - name: perpetua_amazon_goal_performance_testing_goalcard
+    +post-hook: "SELECT * FROM {{('sponsored_products_goal_performance_coverage')}}"
+    config:
+      tags: "perpetua_amazon_goals"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - geo_company_id
+            - goal_id
