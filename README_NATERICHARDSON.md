@@ -1,4 +1,5 @@
-<img width="90" height="125" alt="Vasa_Summer_2024" src="https://github.com/user-attachments/assets/dabdc83b-5dd2-4b66-a120-5dc0e9902e53" />
+<img width="125" height="125" alt="Vasa_Summer_2024" src="https://github.com/user-attachments/assets/dabdc83b-5dd2-4b66-a120-5dc0e9902e53" />
+
 # Public Repository for Data Science
 
 ## *This is my full project repository with apps, research &amp; working model pipelines*
