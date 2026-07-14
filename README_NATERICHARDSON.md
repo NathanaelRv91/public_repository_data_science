@@ -1,4 +1,4 @@
-<img width="266" height="220" alt="family" src="https://github.com/user-attachments/assets/cad8dda6-db31-4e8d-bde6-c60ef9bfbccf" />
+<img width="255" height="240" alt="family" src="https://github.com/user-attachments/assets/cad8dda6-db31-4e8d-bde6-c60ef9bfbccf" />
 <img width="255" height="255" alt="Vasa_Summer_2024" src="https://github.com/user-attachments/assets/dabdc83b-5dd2-4b66-a120-5dc0e9902e53" /> 
 
 **I am a Father and Business Professional FIRST! Then I am a fitness athlete and passionate model builder for Retail Commerce and Custom Reporting professionally. I am pursuing new opportunities as a Data Scientist in the field and would love for you to checkout my personal repository which showcases my unique skillsets! Looking forward to talking soon.** :white_check_mark:
