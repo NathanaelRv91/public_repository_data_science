@@ -34,11 +34,6 @@ online_retailers.sort_values(by = ['BANNERNAME','FORMATNAME','YEAR'], inplace = 
 online_retailers['ly_netsales'] = online_retailers['NETSALES'].shift(1, fill_value = 0)
 
 for i in range(len(online_retailers)):
-    if online_retailers.loc[i,'BANNERNAME'] == 'biglots.com':
-        online_retailers.loc[i, 'BANNERNAME'] = 'BigLots.com'
-    else:
-        pass
-for i in range(len(online_retailers)):
     if online_retailers.loc[i,'YEAR_int'] > 2024:
         online_retailers.loc[i,'NETSALES_yoy_retailer'] = ((online_retailers.loc[i,'NETSALES']/online_retailers.loc[i,'ly_netsales'])-1).round(6)
     else:
