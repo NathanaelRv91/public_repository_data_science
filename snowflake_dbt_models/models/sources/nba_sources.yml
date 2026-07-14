@@ -5,13 +5,16 @@ sources:
     database: player_data
     schema: player_master_data
     tables:
-      - name: per_game_stats
+      - name: player_list
         columns:
-          - name: player_id
+          - name: id
             tests:
               - not_null
-      - name: per_season_career_stats
-      
-
+      - name: player_details
+        columns:
+          - name: id
+            tests:
+              - not_null
+          
     database: reports
     
