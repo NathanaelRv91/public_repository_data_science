@@ -267,8 +267,8 @@ mass_merch_model['YEAR'] = pd.to_datetime(mass_merch_model['YEAR'])
 print(mass_merch_model['YEAR'].dtype == np.dtype('datetime64[ns]'))
 session.write_pandas(
     df= mass_merch_model, 
-    table_name = "PRNGSUBCATEGORYDATA_TEST2", 
-    database = "PRNG_STAGE",
+    table_name = "PRODUCTION_TABLE", 
+    database = "PRODUCTION_DB",
     schema = "PUBLIC",
     auto_create_table = True,
     overwrite = True,
