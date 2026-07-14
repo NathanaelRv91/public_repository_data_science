@@ -48,7 +48,7 @@ headers = {
 }
 response = requests.get(url_wb)
 data = response.text
-print(data)
+data.to_xml('payload_for_population.xml')
 
 
 ### ICP API Raw Work
@@ -59,4 +59,6 @@ headers_icp = {
 
 response_icp = requests.get(url_wb_icp)
 data_icp = response_icp.text
-print(data_icp)
+data_icp.json()
+    
+
