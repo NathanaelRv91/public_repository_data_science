@@ -2,6 +2,14 @@ import pandasdmx
 import io
 import pandas as pd
 import requests
+import pandas as pd
+import numpy as np
+import datetime
+import json
+import xml.etree.ElementTree as ET
+import xmltodict
+import xml.dom.minidom
+import sdmx
 
 oecd_raw = requests.get('https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN10@DF_TABLE5A_T500,2.0/A.JPN.S14......XDC.V..?startPeriod>2018&dimensionAtObservation=AllDimensions&format=csvfilewithlabels')
 df = pd.read_csv(io.StringIO(oecd_raw.text))
@@ -31,3 +39,24 @@ for i in rmm:
         print(f"An unexpected error occurred: {err}")
 
 df_main.to_csv('updated_oecd_raw_api_transaction_data.csv')
+
+
+
+url_wb = "https://api.worldbank.org/v2/sdmx/rest/data/WDI/A.SP_POP_TOTL.CAN+USA+RUS/?startperiod=2018&endPeriod=2024"
+headers = {
+"Accept": "application/vnd.sdmx.data+json;version=1.0.0-wd"
+}
+response = requests.get(url_wb)
+data = response.text
+print(data)
+
+
+### ICP API Raw Work
+url_wb_icp = "https://databank.worldbank.org/embed/ICP-2021-Cycle/id/3a11040d?inf=n"
+headers_icp = {
+"Accept": "application/vnd.sdmx.data+json;version=1.0.0-wd"
+}
+
+response_icp = requests.get(url_wb_icp)
+data_icp = response_icp.text
+print(data_icp)
