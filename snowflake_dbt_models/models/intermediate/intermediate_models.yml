@@ -1,26 +1,22 @@
 version: 2
 
-sources:
-  - name: snowflake_db_nba_stats
-    database: nba_stats
-    schema: player_intermediate_models
-    tables:
-      - name: player_primary_stats
-        config:
-        tags: "perpetua_amazon_goals"
+models:
+  - name: player_primary_stats
+    config:
+    tags: "perpetua_amazon_goals"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - season_id
+            - player_id
+            - team_id
+    freshness:
+        warn_after:
+          count: 500
+          period: hour
+    loaded_at_field: last_updated_timestamp
+    columns:
+      - name: player_id
         tests:
-          - dbt_utils.unique_combination_of_columns:
-              combination_of_columns:
-                - season_id
-                - player_id
-                - team_id
-        freshness:
-           warn_after:
-             count: 500
-             period: hour
-        loaded_at_field: last_updated_timestamp
-        columns:
-          - name: player_id
-            tests:
-              - not_null
+          - not_null
               
