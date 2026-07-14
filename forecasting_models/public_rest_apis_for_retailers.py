@@ -60,5 +60,6 @@ headers_icp = {
 response_icp = requests.get(url_wb_icp)
 data_icp = response_icp.text
 data_icp.json()
+data_icp.to_json("icp_report.json", orient="records", indent=4)
     
 
