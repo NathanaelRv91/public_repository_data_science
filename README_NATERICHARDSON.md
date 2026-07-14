@@ -4,6 +4,7 @@
 **I am a Father and Business Professional FIRST! Then I am a fitness athlete and passionate model builder for Retail Commerce and Custom Reporting professionally. I am pursuing new opportunities as a Data Scientist in the field and would love for you to checkout my personal repository which showcases my unique skillsets! Looking forward to talking soon.** :white_check_mark:
 
 ## :telephone_receiver: (970)-584-4345
+## :envelope: nathanaelrv91@gmail.com
 
 # Public Repository for Data Science
 
