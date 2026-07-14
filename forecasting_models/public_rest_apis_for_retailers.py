@@ -3,6 +3,12 @@ import io
 import pandas as pd
 import requests
 
+oecd_raw = requests.get('https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN10@DF_TABLE5A_T500,2.0/A.JPN.S14......XDC.V..?startPeriod>2018&dimensionAtObservation=AllDimensions&format=csvfilewithlabels')
+df = pd.read_csv(io.StringIO(oecd_raw.text))
+oecd_raw = pd.Series(oecd_raw)
+## We can turn this into a dataframe to analyze with other reports from OECD or World Bank ##
+japan_report = japan_report[japan_report.TIME_PERIOD >= 2019]
+
 df = japan_report.copy()
 ## USE a list of all COICOP markets for iterations #
 rmm = ['AUS','AUT','BEL','BGR','BRA','CAN','CHE','CHL','CMR','COL','CRI','CZE','DEU','DNK','ESP','EST','FIN','FRA','GBR','GRC','HKG','HRV','HUN','IDN','IRL','ISL','ISR','ITA','JPN','KOR','LTU','LUX','LVA','MEX','NLD','NOR','NZL','POL','PRT','ROU','RUS','SEN','SVK','SVN','SWE','TUR','USA']
