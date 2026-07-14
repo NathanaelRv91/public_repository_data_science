@@ -1,1 +1,43 @@
 
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'snowflake_db_nba_data'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'default'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:        
+  - "target"
+  - "dbt_packages"
+  - "tests"
+
+on-run-start: "INSERT INTO NBA_DB.REPORTS.DBT_AUDITS (audit_type) VALUES ('run_start')"
+
+on-run-end: "INSERT INTO NBA_DB.REPORTS.DBT_AUDITS (audit_type) VALUES ('run_end')"
+
+models:  
+
+  pre-hook: "INSERT INTO RAW.JAFFLE_SHOP.DBT_AUDITS (audit_type) VALUES ('model_start')"
+  post-hook: "INSERT INTO RAW.JAFFLE_SHOP.DBT_AUDITS (audit_type) VALUES ('model_end')"
+
+  snowflake_db_nba_data:
+    
+    staging:
+      +materialized: view
+  
+    marts:
+      +materialized: table
