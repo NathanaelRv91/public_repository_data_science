@@ -10,7 +10,7 @@
 
 ## *This is my full project repository with apps, research &amp; working model pipelines*
   - **forecasting_models** :file_folder: Projects for Global Retail Spend (offline vs online) by Market OR Retailer
-  - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data
+  - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
            &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
             &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build.
     
