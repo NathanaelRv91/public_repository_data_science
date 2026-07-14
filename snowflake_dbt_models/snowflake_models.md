@@ -6,5 +6,5 @@
   * Snowflake DBT Models that are curated for end-user delivery via Power BI, Streamlit Apps & UI Chatbots.
   * Semantic Layers that are embedded into the Agents that use tool schemas to render detailed player & team-level responses to native language business user interactions
 
-  $${\color{red}This\space is\space red\space text}$$
+  $${\color{red}This\space PROJECT\space is\space NOT\space Finished\space text}$$
   
