@@ -3,11 +3,11 @@ snowflake_db_nba_data:
   outputs:
     dev:
       type: snowflake
-      account: abc12345.us-east-1      # Your Snowflake account identifier (exclude .snowflakecomputing.com)
-      user: your_username             # Snowflake username (not your email)
-      password: your_password         # Snowflake password
-      role: transformer_role          # The Snowflake role dbt should assume
-      warehouse: transforming_wh      # The virtual warehouse used for compute
-      database: analytics             # The target database where tables are built
-      schema: dbt_jdoe                # Your development schema (usually dbt_<initial><lastname>)
+      account: my_account.us-east-1  
+      user: nathanaelrv0415         
+      password: <my_password>     
+      role: transformer_role          
+      warehouse: compute_wh     
+      database: nba_db          
+      schema: stats_analysis               
       threads: 4   
