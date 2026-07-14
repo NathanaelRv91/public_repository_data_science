@@ -3,7 +3,7 @@ version: 2
 models:
   - name: player_primary_stats
     config:
-    tags: "perpetua_amazon_goals"
+    tags: "nba_player_stats_analysis"
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
