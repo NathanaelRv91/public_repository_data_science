@@ -1,4 +1,4 @@
-import requests # Python 3.6
+import requests # Python 3.10
 import pandas as pd
 import download_data as dd
 
