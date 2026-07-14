@@ -2,8 +2,8 @@
 
 {{ config(target_schema = 'player_data',
 strategy = 'check',
-unique_key = 'player_id',
-check_cols = ['is_retired','game_id'],
+unique_key = ['player_id','season_id'],
+check_cols = ['is_active'],
 invalidate_hard_deletes = True
 )}}
 
