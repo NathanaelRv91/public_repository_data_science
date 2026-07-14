@@ -13,6 +13,7 @@ sources:
               combination_of_columns:
                 - season_id
                 - player_id
+                - team_id
         freshness:
            warn_after:
              count: 500
