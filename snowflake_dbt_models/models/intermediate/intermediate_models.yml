@@ -3,7 +3,7 @@ version: 2
 models:
   - name: player_primary_stats
     config:
-    tags: "nba_player_stats_analysis"
+    tags: "nba_player_statistics"
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
