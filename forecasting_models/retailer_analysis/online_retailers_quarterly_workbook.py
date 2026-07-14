@@ -1,4 +1,4 @@
-mport snowflake.connector
+import snowflake.connector
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
