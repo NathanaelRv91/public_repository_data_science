@@ -9,5 +9,5 @@ snowflake_db_nba_data:
       role: transformer_role          
       warehouse: compute_wh     
       database: nba_db          
-      schema: stats_analysis               
+      schema: reports               
       threads: 4   
