@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: snowflake_db_nba_data
+    database: player_data
+    schema: player_master_data
+    tables:
+      - name: per_game_stats
+        columns:
+          - name: player_id
+            tests:
+              - not_null
+      - name: per_season_career_stats
+      
+
+    database: reports
+    
