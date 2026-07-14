@@ -1,38 +1,18 @@
 -- This model version provides a view of models with JINJA logic if we want to merge total perf with ad_unit specific data --
-{% set ad_units = ["sponsored_brands","sponsored_display","sponsored_products"] %}
+{% set seasons = [2023,2024,2025] %}
 --
---PERPETUA Combined Product Performance for all Perpetua Geo Companies
+--NBA last 3 seasons are used to get the latest player profile stats for ACTIVE players ONLY. 
 --
-WITH augmented_exchange_rates AS (
-SELECT country_code,
-       from_currency,
-       to_currency,
-       exchange_rate,
-       date
-FROM {{ ref('exchange_rates_source') }}
-JOIN {{ ref('country_currency_mapping') }} ON from_currency = currency_code
-WHERE to_currency = "USD"
-),
-all_product_perf AS (
-SELECT
-    *,
-     'sponsored_brands' AS product_ad_type
-FROM {{ ref('perpetua_amazon_sb_product_performance_basic') }}
-
-UNION ALL
-SELECT
-    *,
-    'sponsored_display' AS product_ad_type
-FROM {{ ref('perpetua_amazon_sd_product_performance_basic')}}
-
-UNION ALL
-SELECT
-    *,
-    'sponsored_products' AS product_ad_type
-FROM {{ ref('perpetua_amazon_sp_product_performance_basic') }}
+WITH team_map AS (
+SELECT a.*, 
+       b.team_name,
+       b.team_owner_name
+FROM {{ ref('team_seed') }} a
+JOIN {{ ref('player_master_stat_data') }} b ON a.team_id = b.team_id
+              AND a.season_id = b.season_id
 ),
 
-rolled_up_perf AS (
+rolled_up_player_perf AS (
        SELECT organization_name,
        country_code,
        company_name,
@@ -127,21 +107,6 @@ total_asin_sales AS (
    WHERE (EXTRACT (year from date) >= EXTRACT(year from CURRENT_DATE())-1)
    GROUP BY 1,2,3,4,5,6,7,8,9,10,11),
 
-perpetua_managed1 AS (
-SELECT DISTINCT asin, geo_company_id,
-perpetua_managed
-FROM {{ref('perpetua_amazon_combined_product_performance_basic')}}
-),
-
-perpetua_managed2 AS (
-  SELECT *,
-  RANK() OVER(PARTITION by ASIN, geo_company_id ORDER BY perpetua_managed DESC) as rank_product
-  FROM perpetua_managed1
-),
-
-perpetua_managed AS (
-       SELECT * FROM perpetua_managed2 WHERE rank_product = 1
-)
 
 SELECT * FROM total_asin_sales
 UNION ALL
