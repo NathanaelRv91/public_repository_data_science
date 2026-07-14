@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: snowflake_db_nba_data
+  - name: nba_source_data
     database: nba_db
     schema: player_data
     tables:
@@ -29,5 +29,14 @@ sources:
             tests:
               - not_null
               - unique
+      schema: reports
+      tables:
+        - name: game_report
+          columns:
+            - name: game_date
+            - name: game_id
+              tests:
+                - unique
+                - not_null
       
     
