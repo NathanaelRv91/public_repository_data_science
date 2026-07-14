@@ -4,8 +4,6 @@
 
 {% macro default__test_relationships_where(model, column_name, to, field, from_condition="1=1", to_condition="1=1") %}
 
-{# T-SQL has no boolean data type so we use 1=1 which returns TRUE #}
-{# ref https://stackoverflow.com/a/7170753/3842610 #}
 
 with left_table as (
 
