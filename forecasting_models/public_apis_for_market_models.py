@@ -64,3 +64,69 @@ def conv_gdp(df):
     df.drop('ERI_rate', axis=1, inplace=True)
 
     return df
+
+
+def pull_wb():
+
+    # pull GDP and consumer spending data from the World Bank
+    df = wb.data.DataFrame(['NE.CON.PRVT.CN', 'NE.CON.PRVT.ZS', 'NY.GDP.MKTP.CN'], time=range(1980, 2022),
+                           labels=True).reset_index()
+
+    # create year column, rename columns and variables, and reduce data set to necessary years only
+    df.drop(['Series', 'Country'], axis=1, inplace=True)
+    df = pd.melt(df, id_vars=['economy', 'series'], var_name='Year')
+    df = pd.pivot_table(df, values=['value'], index=['economy', 'Year'], columns=['series']).reset_index()
+    df.columns = ['Market', 'Year', 'CS_WB', 'CS_pct_WB', 'GDP_WB']
+
+    # convert number formats into percentages and millions
+    df['CS_pct_WB'] = df['CS_pct_WB']/100
+    df['GDP_WB'] = df['GDP_WB']/1000000
+    df['CS_WB'] = df['CS_WB']/1000000
+
+    # adjust year formatting
+    df['Year'] = df['Year'].str.slice(2, 6)
+    df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
+
+    for i in range(len(df)):
+        if df.loc[i, 'Market'] == 'SOM':
+            if df.loc[i, 'Year'] == 2013:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 19283.8
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 19283.8
+            elif df.loc[i, 'Year'] == 2014:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 20230.9542
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 20230.9542
+            elif df.loc[i, 'Year'] == 2015:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 22254.2525
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 22254.2525
+            elif df.loc[i, 'Year'] == 2016:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 23061.785
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 23061.785
+            elif df.loc[i, 'Year'] == 2017:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 23098.66
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 23098.66
+            elif df.loc[i, 'Year'] == 2018:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 23954.1844
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 23954.1844
+            elif df.loc[i, 'Year'] == 2019:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 25063.75
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 25063.75
+            elif df.loc[i, 'Year'] == 2020:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 25761
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 25761
+            elif df.loc[i, 'Year'] == 2021:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 26039.0096
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 26039.0096
+            elif df.loc[i, 'Year'] == 2022:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 26039.0096
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 26039.0096
+            elif df.loc[i, 'Year'] == 2023:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 28055
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 28055
+            elif df.loc[i, 'Year'] == 2024:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 29932.23
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 29932.23
+            elif df.loc[i, 'Year'] == 2025:
+                df.loc[i, 'CS_WB'] = df.loc[i, 'CS_WB'] / 32435.66
+                df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 32435.66
+    df.to_csv('wb_cleaned.csv')
+    return df
