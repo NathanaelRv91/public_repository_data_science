@@ -130,3 +130,40 @@ def pull_wb():
                 df.loc[i, 'GDP_WB'] = df.loc[i, 'GDP_WB'] / 32435.66
     df.to_csv('wb_cleaned.csv')
     return df
+
+# pull data from Eurostat via API
+def pull_euro(series, coicop_lkp):
+    # call Eurostat API
+    df = eurostat.get_data_df(series)
+    df = df[df.unit == 'CP_MNAC']
+    df.drop('unit', axis=1, inplace=True)
+
+    # transform Eurostat GDP data into long format with specific variables we need
+    if series == 'nama_10_gdp':
+
+        # reduce data frame to only consumer spending and GDP variables
+        df = df[df.na_item.isin(['P31_S14_S15', 'B1GQ'])]
+
+        # create column for year, GDP, and consumer spending and rename the columns
+        df = pd.melt(df, id_vars=['na_item', 'geo\\time'], var_name='Year')
+        df = pd.pivot_table(df, values=['value'], index=['geo\\time', 'Year'], columns=['na_item']).reset_index()
+        df.columns = ['Market', 'Year', 'GDP_EURO', 'CS_EURO']
+
+        # calculate consumer spending share of GDP
+        df['CS_pct_EURO'] = df['CS_EURO']/df['GDP_EURO']  # do we use this at all?
+
+        df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
+        df.to_csv('euro_gdp_cleaned.csv')
+
+    # transform Eurostat consumer spending data into long format with specific variables we need
+    if series == 'nama_10_co3_p3':
+
+        # align category ids by merging Eurostat consumer spending data with the Eurostat coicop lookup
+        df = pd.merge(left=df, right=coicop_lkp, how='left', on='coicop')
+        df.rename(columns={'geo\\time': 'Market'}, inplace=True)
+
+        # create a column for year and rename the columns
+        df = pd.melt(df, id_vars=['Market', 'coicop', 'description'], var_name='Year')
+        df.columns = ['Market', 'coicop', 'Transaction', 'Year', 'CS_EURO']
+        df.to_csv('euro_cs_cleaned.csv')
+    return df
