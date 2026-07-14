@@ -1,2 +1,3 @@
-# public_repository_data_science
-This is my full project repository with apps, research &amp; working model pipelines
+# Public Repository for Data Science
+
+## *This is my full project repository with apps, research &amp; working model pipelines*
