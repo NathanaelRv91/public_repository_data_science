@@ -1,21 +1,14 @@
 version: 2
 ## ALL Int/Fct Model Tests ##
 models:
-  - name: platform_analytics_goal_perf_w_strategies_test
+  - name: nba_game_statistics_all_time
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - geo_company_id
-            - goal_id
-            - goal_type
-            - enabled
-            - reporting_date
-            - country_code
-            - goal_title
-            - goal_deleted
-            - goal_key
+            - season_id
+            - game_id
 
-  - name: platform_analytics_dim_perpetua_amazon_goals
+  - name: nba_player_statistics_all_time
     config:
       tags: "perpetua_amazon_goals"
     tests:
