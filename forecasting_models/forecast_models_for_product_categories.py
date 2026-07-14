@@ -1,4 +1,4 @@
-# Import python packages
+# Snowpark Model that runs server-side from calculated market profiles ## 
 import pandas as pd
 import numpy as np 
 from datetime import date
