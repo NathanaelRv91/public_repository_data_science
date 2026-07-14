@@ -14,6 +14,6 @@
   - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
            &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
             &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build.
-      * Data is funneled into player per-season stats with totals & averages
+      * Data is funnelled into player per-season stats with totals & averages
       * Data is Transformed into career level stats and merged into static data for: career accolades & player profiles
     
