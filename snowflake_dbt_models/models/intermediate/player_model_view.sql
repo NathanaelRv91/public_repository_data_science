@@ -1,4 +1,5 @@
 
+## merge our all time stats into our career profiles ## 
 create or replace view PRNG_STAGE.PUBLIC.PRODUCTCATEGORYDATA(
 	MARKETNAME,
 	RETAILERNAME,
