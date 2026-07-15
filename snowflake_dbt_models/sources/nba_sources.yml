@@ -32,15 +32,52 @@ sources:
           - name: teamscore
             description: 
           - name: opponentscore
-          - name: 
-          - name: 
-          - name: 
-          - name: 
-          - name: 
-          - name: 
-          - name: 
-          - name: 
-          - name: 
+          - name: assists
+          - name: blocks
+          - name: steals
+          - name: fieldgoalsattempted
+          - name: fieldgoalsmade
+          - name: fieldgoalspercentage
+          - name: threepointersattempted
+          - name: threepointersmade
+          - name: threpointerspercentage
+          - name: freethrowsattempted
+          - name: freethrowsmade
+          - name: freethrowspercentage
+          - name: reboundsdefensive
+          - name: reboundsoffensive
+          - name: reboundstotal
+          - name: foulspersonal
+          - name: turnovers
+          - name: plusminuspoints
+          - name: numminutes
+          - name: q1points
+          - name: q2points
+          - name: q3points
+          - name: q4points
+          - name: benchpoints
+          - name: biggestlead
+          - name: biggestscoringrun
+          - name: leadchanges
+          - name: pointsfastbreak
+          - name: pointsfromturnovers
+          - name: pointsinthepaint
+          - name: pointssecondchance
+          - name: timestied
+          - name: timeoutsremaining
+          - name: seasonwins
+          - name: seasonlosses
+          - name: coachid
+          - name: gametype
+          - name: gamelabel
+          - name: gamesublabel
+          - name: seriesgamenumber
+          - name: seed
+          - name: ot1points
+          - name: ot2points
+          - name: ottotalpoints
+          - name: gamedate
+            description: timestamp of the date of the game
       - name: all_time_player_statistics
         description: we combine the first set of data from 'all_time_player_statistics_90's with 
                 'all_time_player_statistics_00s' to render a full table that we feed into our intermediate models. 
