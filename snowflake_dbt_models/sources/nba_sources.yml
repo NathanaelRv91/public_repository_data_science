@@ -23,6 +23,12 @@ sources:
                 - player_id
                 - team_id
                 - game_id
+        columns:
+          - name: player_id
+            tests:
+              - relationships:
+                  to: ref('player_details')
+                  field: personid
   - name: player_sources
     description: Player list of all players in history with a unique profile. This schema includes the alternative dataset we use for secondary player stat profiles. 
     database: 'nba_db'
