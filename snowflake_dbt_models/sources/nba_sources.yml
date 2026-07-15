@@ -146,6 +146,7 @@ sources:
     schema: player_data
     tables:
       - name: player_list
+        description: this is a simple list of all players in NBA history. It's less comprehensive so we only use it as a flag for active vs inactive players by full_name when we are missing career data
       - name: player_details
         tests:
           - dbt_utils.unique_combination_of_columns:
