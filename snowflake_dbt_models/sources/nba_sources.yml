@@ -24,6 +24,7 @@ sources:
                 - team_id
                 - game_id
   - name: player_sources
+    description: Player list of all players in history with a unique profile. This schema includes the alternative dataset we use for secondary player stat profiles. 
     database: 'nba_db'
     schema: player_data
     tables:
@@ -37,6 +38,7 @@ sources:
         columns: 
           - name: 
   - name: team_sources
+    description: unique team records along with a full history of when teams were founded, changed cities or joined the NBA from the ABA. 
     database: 'nba_db'
     schema: team_data
     tables:
