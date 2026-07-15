@@ -23,7 +23,7 @@ sources:
                 - player_id
                 - team_id
                 - game_id
-    name: player_sources
+  - name: player_sources
     schema: player_data
     tables:
       - name: player_list
@@ -31,8 +31,11 @@ sources:
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
-                - player_id
-                - first_name
+                 - player_id
+                 - first_name
+        columns: 
+          - name: 
+  - name: team_sources
     schema: team_data
     tables:
       - name: team_list
@@ -40,16 +43,27 @@ sources:
           - name: ID
             description: primary key for joining the team dimensions to our fact tables with player/team stats.
           - name: abbreviation
+          - name: full_name
+            description: full team name as it appears in the media & on sports shows. 
           - name: city
           - name: state
           - name: year_founded
             description: The 4 digit year the team started (YYYY). This includes the pre-merger leagues. 
       - name: team_details
       - name: team_history
+        description: This table contains all records by teamid for when they changed leagues or cities. We can track ABA history and map to a player that played before the 1976 merger
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
-                - team_id
-                - year_end
+                - teamid
+                - seasonactivetil
+        columns: 
+          - name: teamid
+          - name: seasonactivetil
+          - name: league
+          - name: teamcity
+          - name: teamname
+          - name: teamabbrev
+          - name: seasonfounded
       
     
