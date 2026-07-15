@@ -1,42 +1,46 @@
 version: 2
 
 sources:
-  - name: nba_source_data
-    database: nba_db
+  - name: 
+    config:
+      freshness: # default freshness
+        warn_after: { count: 12, period: hour }
+        error_after: { count: 24, period: hour }
+      loaded_at_field: last_game_updated
+    description: statistical data that includes game level stats for both players and teams since 1946
+    database: 'nba_db'
+    schema: reports
+    tables:
+      - name: all_time_player_statistics_90s
+      - name: all_time_player_statistics_00s
+      - name: all_time_team_statistics
+      - name: all_time_player_statistics
+        description: we combine the first set of data from 'all_time_player_statistics_90's with 
+                'all_time_player_statistics_00s' to render a full table that we feed into our intermediate models. 
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - player_id
+                - team_id
+                - game_id
     schema: player_data
     tables:
       - name: player_list
-        columns:
-          - name: id
-            tests:
-              - not_null
       - name: player_details
-        columns:
-          - name: id
-            tests:
-              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - player_id
+                - first_name
     schema: team_data
     tables:
       - name: team_list
-        columns:
-          - name: team_name
-            tests:
-              - not_null
-              - unique
       - name: team_details
-        columns:
-          - name: team_name
-            tests:
-              - not_null
-              - unique
-      schema: reports
-      tables:
-        - name: game_report
-          columns:
-            - name: game_date
-            - name: game_id
-              tests:
-                - unique
-                - not_null
+      - name: team_history
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - team_id
+                - year_end
       
     
