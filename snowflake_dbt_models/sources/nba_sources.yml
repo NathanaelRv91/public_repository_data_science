@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: 
+  - name: nba_reporting_sources
     config:
       freshness: # default freshness
         warn_after: { count: 12, period: hour }
@@ -23,6 +23,7 @@ sources:
                 - player_id
                 - team_id
                 - game_id
+    name: player_sources
     schema: player_data
     tables:
       - name: player_list
