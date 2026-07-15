@@ -147,6 +147,13 @@ sources:
     tables:
       - name: player_list
         description: this is a simple list of all players in NBA history. It's less comprehensive so we only use it as a flag for active vs inactive players by full_name when we are missing career data
+        columns: 
+          - name: id
+          - name: full_name
+          - name: first_name
+          - name: last_name
+          - name: is_active
+            description: is a Binary (0/1) indicator of whether or not the player is active and still playing
       - name: player_details
         tests:
           - dbt_utils.unique_combination_of_columns:
