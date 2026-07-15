@@ -1,4 +1,4 @@
--- This model version provides a view of models with JINJA logic if we want to merge total perf with ad_unit specific data --
+-- This model version provides a view of models with JINJA logic if we want to merge player/team data with historical profiles and more categorical information for our AI model --
 {% set seasons = [2023,2024,2025] %}
 --
 --NBA last 3 seasons are used to get the latest player profile stats for ACTIVE players ONLY. 
@@ -13,23 +13,8 @@ JOIN {{ ref('player_master_stat_data') }} b ON a.team_id = b.team_id
 ),
 
 rolled_up_player_perf AS (
-       SELECT organization_name,
-       country_code,
-       company_name,
-       suffixless_company_name,
-       currency_code,
-       --email,
-       asin,
-       asin_title,
-       product_id,
-       brand,
-       geo_company_id,
-       reporting_date,
-       SUM(attributed_sales) AS total_attributed_sales,
-       SUM(attributed_spend) AS total_attributed_spend,
-       SUM(CASE WHEN perpetua_managed = True THEN attributed_sales ELSE 0 END) as total_managed_ad_sales,
-       SUM(CASE WHEN perpetua_managed = True THEN attributed_spend ELSE 0 END) as total_managed_ad_spend,
-
+       SELECT 
+       -- Player name
     {% for ad_id in ad_units %}
        SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN attributed_sales ELSE 0 END) AS {{ad_id}}_attributed_sales,
     {% endfor %}
