@@ -72,7 +72,7 @@ sources:
           - name: fromyear
             description: the rookie year for the player. 
           - name: toyear
-            description: the last year the player played. So if the field was 2002; the player played their last game in spring 2023. 
+            description: the last year the player played. So if the field was 2002; the player played their last game in spring 2023. The default value for an active player is 2100.
   - name: team_sources
     description: unique team records along with a full history of when teams were founded, changed cities or joined the NBA from the ABA. 
     database: 'nba_db'
