@@ -93,6 +93,39 @@ sources:
               - relationships:
                   to: ref('player_details')
                   field: personid
+          - name: 
+          - name: 
+          - name:
+          - name:
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name:
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name:
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
        - name: game_report
          description: our second game data table that can be used to gather any missing information from the primary source table: 'all_time_team_statistics'
        - name: game_report_other_stats
