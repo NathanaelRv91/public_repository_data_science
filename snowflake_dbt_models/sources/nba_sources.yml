@@ -94,6 +94,25 @@ sources:
           - name: year_founded
             description: The 4 digit year the team started (YYYY). This includes the pre-merger leagues. 
       - name: team_details
+        description: any other context we want to provide for each team by player or team (only) in our models
+        columns: 
+          - name: team_id 
+            description: primary key to join to 'team_list' before we can add all company dimensions to our stat models
+          - name: abbreviation
+          - name: city
+          - name: arena
+          - name: arenacapacity
+          - name: owner
+          - name: generalmanager
+          - name: headcoach
+          - name: dleagueaffiliation
+            description: if we have a player with a team and dleagueflag = 1, we can lookup their d-league team name.
+          - name: facebook
+            description: url to the team's homepage on the social platform
+          - name: instagram
+            description: url to the team's homepage on the social platform
+          - name: twitter
+            description: url to the team's homepage on the social platform
       - name: team_history
         description: This table contains all records by teamid for when they changed leagues or cities. We can track ABA history and map to a player that played before the 1976 merger
         tests:
