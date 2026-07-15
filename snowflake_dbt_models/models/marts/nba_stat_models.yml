@@ -11,6 +11,7 @@ models:
             - game_id
 
   - name: nba_player_statistics_all_time
+    +post-hook: "SELECT * FROM {{('player_list')}} WHERE is_active = 1"
     config:
       tags: "nba_all_time_stats"
     tests:
