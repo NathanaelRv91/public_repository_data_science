@@ -53,6 +53,16 @@ sources:
             escription: binary 0/1 indicator of whether or not the player every played the forward position
           - name: center
             description: binary 0/1 indicator of whether or not the player every played the center position
+          - name: dleagueflag
+            description: binary 0/1 indicator of whether or not the player every played in the D-league
+          - name: nbaflag
+            description: binary 0/1 indicator of whether or not the player every played in the NBA
+          - name: draftround
+            description: what round the player was drafted in the year they were drafted. 
+          - name: draftyear
+            description: what year the player was drafted. 
+          - name: draftnumber
+            description: what number the player was in the year they were drafted. 
   - name: team_sources
     description: unique team records along with a full history of when teams were founded, changed cities or joined the NBA from the ABA. 
     database: 'nba_db'
