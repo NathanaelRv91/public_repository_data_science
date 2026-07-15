@@ -36,6 +36,14 @@ sources:
     schema: team_data
     tables:
       - name: team_list
+        columns: 
+          - name: ID
+            description: primary key for joining the team dimensions to our fact tables with player/team stats.
+          - name: abbreviation
+          - name: city
+          - name: state
+          - name: year_founded
+            description: The 4 digit year the team started (YYYY). This includes the pre-merger leagues. 
       - name: team_details
       - name: team_history
         tests:
