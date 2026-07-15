@@ -93,11 +93,12 @@ sources:
               - relationships:
                   to: ref('player_details')
                   field: personid
-          - name: 
-          - name: 
-          - name:
-          - name:
-          - name: 
+          - name: index
+          - name: first_name
+          - name: last_name
+          - name: game_id
+          - name: game_date
+            description: timestamp we use to pull the game year from. We use a month filter to ensure we get the season correct
           - name: 
           - name: 
           - name: 
