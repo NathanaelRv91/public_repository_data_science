@@ -14,6 +14,33 @@ sources:
       - name: all_time_player_statistics_90s
       - name: all_time_player_statistics_00s
       - name: all_time_team_statistics
+        description: the source we use to compbine primary game stats with player per-game & season stats. 
+        columns: 
+          - name: gameid
+          - name: gamedatetimeest
+          - name: teamcity
+          - name: teamname
+          - name: teamid
+            description: primary key for combining our team stats with individual player stats
+          - name: opponentteamcity
+          - name: opponentteamname
+          - name: opponentteamid
+          - name: home
+            description: binary (0/1) indicator of whether the game was a home game (1) or not (0).
+          - name: win
+            description: inary (0/1) indicator of whether the game was won (1) or lost (0). We aggregate on this value to find season winning pct
+          - name: teamscore
+            description: 
+          - name: opponentscore
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
+          - name: 
       - name: all_time_player_statistics
         description: we combine the first set of data from 'all_time_player_statistics_90's with 
                 'all_time_player_statistics_00s' to render a full table that we feed into our intermediate models. 
