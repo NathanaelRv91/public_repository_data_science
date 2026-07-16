@@ -32,7 +32,7 @@ models:
           - relationships:
               to: ref('team_list_source')
 
-  - name: player_master_report
+  - name: player_performance_master_report
     +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
     config:
       tags: "nba_reporting_models"
