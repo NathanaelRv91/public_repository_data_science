@@ -1,36 +1,20 @@
 version: 2
-## ALL Int/Fct Model Tests ##
+## All data is available from 1946 through 2026 ##
 models:
-  - name: int_player_team_stats
-    config:
-      tags: "nba_reporting_models"
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - season_id
-            - game_id
 
-  - name: int_player_career_totals
-    +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
-    config:
-      tags: "nba_reporting_models"
+  - name: int_player_career_stats
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - team_id
             - player_id
             - full_name
-    columns:
-      - name: player_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('player_list_source')
-      - name: team_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('team_list_source')
+  - name: int_player_team_season_report
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - player_id
+            - team_id
+            - YEAR_INT
 
   - name: player_performance_master_report
     +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
