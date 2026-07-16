@@ -5,8 +5,11 @@
 --
 WITH team_mapped AS (
 SELECT a.*, 
-       b.team_name,
-       b.team_owner_name
+       b.abbreviation,
+       b.city, 
+       b.state, 
+       b.full_name, 
+       b.year_founded
 FROM {{ ref('all_time_player_statistics_source') }} a
 JOIN {{ ref('team_list_soruce') }} b ON a.player_team_id = b.id
 LEFT JOIN {{ ref('team_details_source')}} c
