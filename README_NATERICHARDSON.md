@@ -18,7 +18,9 @@
       * Data is funnelled into player per-season stats with totals & averages
       * Data is Transformed into career level stats and merged into static data for: career accolades & player profiles
   - **ad_hoc_analysis** :file_folder: This folder contains my older work that was when I was starting out as an analyst 5 years ago. I have build custom dashboards in Looker, Power BI & Have setup my personal website with Wordpress over the past few years. In this folder you will find:
-       * Data for the top 30 NBA players of all time with a weighted/normalized point system. Here's the LinkedIn Project  &#8659;
+       * Data for the top 30 NBA players of all time with a weighted/normalized point system. The 30 players are integrated into my full data pipeline for NBA Analysis  &#8659;
+         <img width="337" height="353" alt="Screenshot (2714)" src="https://github.com/user-attachments/assets/f7b2fd8f-3ac5-477e-8230-85965fa1387c" />
+
 
   - **custom seller account performance from Amazon & Walmart** :chart_with_upwards_trend: Customized Dashboards for clients on contract for YoY%, MoM%, PoP%. Here's an export of a custom dashoard I built for a client that reports on over 100 distinct companies in 7 markets. 
     [Copy_of_Premium_Advertising_&_Traffic_Report.pdf](https://github.com/user-attachments/files/30092885/Copy_of_Premium_Advertising_._Traffic_Report.pdf)
