@@ -1,7 +1,7 @@
 version: 2
 ## ALL Int/Fct Model Tests ##
 models:
-  - name: nba_game_statistics_all_time
+  - name: int_player_team_stats
     config:
       tags: "nba_all_time_stats"
     tests:
