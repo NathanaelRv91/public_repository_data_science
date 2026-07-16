@@ -1,3 +1,4 @@
+
 <img width="255" height="255" alt="family" src="https://github.com/user-attachments/assets/cad8dda6-db31-4e8d-bde6-c60ef9bfbccf" />
 <img width="255" height="255" alt="Vasa_Summer_2024" src="https://github.com/user-attachments/assets/dabdc83b-5dd2-4b66-a120-5dc0e9902e53" /> 
 
@@ -18,5 +19,6 @@
       * Data is Transformed into career level stats and merged into static data for: career accolades & player profiles
   - **ad_hoc_analysis** :file_folder: This folder contains my older work that was when I was starting out as an analyst 5 years ago. I have build custom dashboards in Looker, Power BI & Have setup my personal website with Wordpress over the past few years. In this folder you will find:
        * Data for the top 30 NBA players of all time with a weighted/normalized point system. Here's the LinkedIn Project  &#8659;
+         <img width="612" height="581" alt="Screenshot 2025-07-29 190636" src="https://github.com/user-attachments/assets/73ccdd94-8ff2-483d-8210-660579fe1af5" />
          
     
