@@ -1,5 +1,4 @@
 import pandas as pd
-#from langchain.tools import BaseTool,tool
 from langchain.agents import create_agent
 from smolagents import CodeAgent, ToolCallingAgent, LiteLLMModel,tool
 from pydantic import BaseModel, Field
@@ -28,8 +27,7 @@ def review_data(df: pd.DataFrame) -> str:
             """
     return f"Columns: {list(df.columns)}\nShape: {df.shape}\nFirst 5 rows:\n{df.head(5).to_string()}"
 
-#my_tools = [review_data]
-# 4. Initialize the agent with your tool and local model
+# 4. Initialize the agent with a data summary tool that uses the prompt to explore
 agent = CodeAgent(
     tools =[review_data],
     model = model,
