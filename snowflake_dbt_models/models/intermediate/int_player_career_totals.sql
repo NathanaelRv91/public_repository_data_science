@@ -24,11 +24,12 @@ WITH career_stats as (
     SUM(pt3_att) AS career_pt3_fga, 
     SUM(pt3_fgm) AS career_pt3_fgm, 
     DIV0(SUM(pt3_fgm),SUM(pt3_fga)) AS career_3pt_pct,
-    
+    SUM(fta) as career_fta, 
+    SUM(ftm) AS career_ftm, 
+    DIV0(SUM(ftm),SUM(fta)) AS career_ft_pct
   
-  
-
-
+  FROM {{ ref('int_player_team_stats')}} 
+  GROUP BY 1
   )
 
 SELECT a.*. 
