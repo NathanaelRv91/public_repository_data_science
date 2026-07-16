@@ -1,13 +1,13 @@
 default:
-  target: dev
   outputs:
     dev:
+      account: mnzavfe-mm97348
+      database: NBA_DB
+      password: **********Ncr2027!
+      role: ACCOUNTADMIN
+      schema: REPORTS
+      threads: 4
       type: snowflake
-      account: my_account.us-east-1  
-      user: nathanaelrv0415         
-      password: <my_password>     
-      role: transformer_role          
-      warehouse: compute_wh     
-      database: nba_db          
-      schema: reports               
-      threads: 4   
+      user: *********6858841
+      warehouse: COMPUTE_WH
+  target: dev
