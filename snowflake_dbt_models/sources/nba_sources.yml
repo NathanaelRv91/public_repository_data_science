@@ -14,8 +14,8 @@ sources:
       - name: all_time_player_statistics_90s
       - name: all_time_player_statistics_00s
       - name: all_time_team_statistics
-        description: the source we use to compbine primary game stats with player per-game & season stats. 
-        columns: 
+        description: the source we use to combine primary game stats with player per-game & season stats.
+        columns:
           - name: gameid
           - name: gamedatetimeest
           - name: teamcity
@@ -30,7 +30,7 @@ sources:
           - name: win
             description: inary (0/1) indicator of whether the game was won (1) or lost (0). We aggregate on this value to find season winning pct
           - name: teamscore
-            description: 
+            description:
           - name: opponentscore
           - name: assists
           - name: blocks
@@ -80,7 +80,7 @@ sources:
             description: timestamp of the date of the game
       - name: all_time_player_statistics
         description: we combine the first set of data from 'all_time_player_statistics_90's with 
-                'all_time_player_statistics_00s' to render a full table that we feed into our intermediate models. 
+                'all_time_player_statistics_00s' to render a full table that we feed into our intermediate models.
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
@@ -136,18 +136,18 @@ sources:
           - name: game_timestamp
           - name: YEAR_INT
             description: we pull the 4 digit year (YYYY) so we can map our game data for players to the team stat table(s)
-       - name: game_report
-         description: our second game data table that can be used to gather any missing information from the primary source table: 'all_time_team_statistics'
-       - name: game_report_other_stats
-         description: contains secondary stats that we can pull in for more context once we have a fully functional front-end model that's queryable
+      - name: game_report
+        description: "our second game data table that can be used to gather any missing information from the primary source table: 'all_time_team_statistics'"
+      - name: game_report_other_stats
+        description: contains secondary stats that we can pull in for more context once we have a fully functional front-end model that's queryable
   - name: player_sources
-    description: Player list of all players in history with a unique profile. This schema includes the alternative dataset we use for secondary player stat profiles. 
+    description: Player list of all players in history with a unique profile. This schema includes the alternative dataset we use for secondary player stat profiles.
     database: 'nba_db'
     schema: player_data
     tables:
       - name: player_list
         description: this is a simple list of all players in NBA history. It's less comprehensive so we only use it as a flag for active vs inactive players by full_name when we are missing career data
-        columns: 
+        columns:
           - name: id
           - name: full_name
           - name: first_name
@@ -160,22 +160,22 @@ sources:
               combination_of_columns:
                  - player_id
                  - first_name
-        columns: 
+        columns:
           - name: personid
             description: primary key to map each player to their performance stats in the 'all_time_player_statistics' table.
           - name: firstname
           - name: lastname
           - name: birthdate
-          - name: school 
+          - name: school
           - name: heightinches
           - name: bodyweightlbs
           - name: country
             description: Where the player was born and location before joining the NBA.
           - name: jersey
           - name: guard
-            escription: binary 0/1 indicator of whether or not the player every played the guard position
+            description: binary 0/1 indicator of whether or not the player every played the guard position
           - name: forward
-            escription: binary 0/1 indicator of whether or not the player every played the forward position
+            description: binary 0/1 indicator of whether or not the player every played the forward position
           - name: center
             description: binary 0/1 indicator of whether or not the player every played the center position
           - name: dleagueflag
@@ -183,35 +183,35 @@ sources:
           - name: nbaflag
             description: binary 0/1 indicator of whether or not the player every played in the NBA
           - name: draftround
-            description: what round the player was drafted in the year they were drafted. 
+            description: what round the player was drafted in the year they were drafted.
           - name: draftyear
-            description: what year the player was drafted. 
+            description: what year the player was drafted.
           - name: draftnumber
-            description: what number the player was in the year they were drafted. 
+            description: what number the player was in the year they were drafted.
           - name: fromyear
-            description: the rookie year for the player. 
+            description: the rookie year for the player.
           - name: toyear
             description: the last year the player played. So if the field was 2002; the player played their last game in spring 2023. The default value for an active player is 2100.
   - name: team_sources
-    description: unique team records along with a full history of when teams were founded, changed cities or joined the NBA from the ABA. 
+    description: unique team records along with a full history of when teams were founded, changed cities or joined the NBA from the ABA.
     database: 'nba_db'
     schema: team_data
     tables:
       - name: team_list
-        columns: 
+        columns:
           - name: ID
             description: primary key for joining the team dimensions to our fact tables with player/team stats.
           - name: abbreviation
           - name: full_name
-            description: full team name as it appears in the media & on sports shows. 
+            description: full team name as it appears in the media & on sports shows.
           - name: city
           - name: state
           - name: year_founded
-            description: The 4 digit year the team started (YYYY). This includes the pre-merger leagues. 
+            description: The 4 digit year the team started (YYYY). This includes the pre-merger leagues.
       - name: team_details
         description: any other context we want to provide for each team by player or team (only) in our models
-        columns: 
-          - name: team_id 
+        columns:
+          - name: team_id
             description: primary key to join to 'team_list' before we can add all company dimensions to our stat models
           - name: abbreviation
           - name: city
@@ -235,7 +235,7 @@ sources:
               combination_of_columns:
                 - teamid
                 - seasonactivetil
-        columns: 
+        columns:
           - name: teamid
           - name: seasonactivetil
           - name: league
@@ -243,5 +243,4 @@ sources:
           - name: teamname
           - name: teamabbrev
           - name: seasonfounded
-      
     
