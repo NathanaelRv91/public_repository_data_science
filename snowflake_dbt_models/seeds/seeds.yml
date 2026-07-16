@@ -4,5 +4,7 @@ seeds:
   - name: nba_allstar_report
     description: sources our allstar data by player to integrate into regular season stats
   - name: player_career_accolades
-    description: lists our top 32 players for 'all-time best' analysis in ad-hoc toolsversion: 2
+    description: lists our top 32 players for 'all-time best' analysis in ad-hoc tool
+  - name: player_list_v2
+    description: backup list of players incase we are missing any player names by ID & need to backfill
 
