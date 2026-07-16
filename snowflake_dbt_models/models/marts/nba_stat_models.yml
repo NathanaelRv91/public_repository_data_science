@@ -10,7 +10,7 @@ models:
             - season_id
             - game_id
 
-  - name: nba_player_statistics_all_time
+  - name: int_player_career_totals
     +post-hook: "SELECT * FROM {{('player_list')}} WHERE is_active = 1"
     config:
       tags: "nba_all_time_stats"
