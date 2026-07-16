@@ -9,7 +9,15 @@ SELECT a.*,
        b.city, 
        b.state, 
        b.full_name, 
-       b.year_founded
+       b.year_founded,
+       c.arena, 
+       c.arenacapacity, 
+       c.owner, 
+       c.headcoach, 
+       c.generalmanager,
+       c.instagram AS instagram_link, 
+       c.facebook AS fb_link, 
+       c.twitter AS x_link,
 FROM {{ ref('all_time_player_statistics_source') }} a
 JOIN {{ ref('team_list_soruce') }} b ON a.player_team_id = b.id
 LEFT JOIN {{ ref('team_details_source')}} c
