@@ -32,8 +32,26 @@ LEFT JOIN {{ ref('team_details_source')}} c
 rolled_up_player_perf AS (
        SELECT 
        -- Player name
-    {% for ad_id in ad_units %}
-       SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN attributed_sales ELSE 0 END) AS {{ad_id}}_attributed_sales,
+       full_name, 
+       is_active, 
+       player_id, 
+       teamname, 
+       abbreviation,
+       city, 
+       state, 
+       full_name, 
+       year_founded,
+       arena, 
+       arenacapacity, 
+       owner, 
+       headcoach, 
+       generalmanager,
+       instagram AS instagram_link, 
+       facebook AS fb_link, 
+       twitter AS x_link,
+       DATE_PART(YEAR, game_timestamp) AS year_int,
+    {% for i in ad_units %}
+       SUM(CASE WHEN DATE_PART(YEAR, game_timestamp) = '{{i}}' THEN points ELSE 0 END) AS {{i}}_points,
     {% endfor %}
        {% for ad_id in ad_units %}
        SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN attributed_spend ELSE 0 END) AS {{ad_id}}_attributed_spend,
