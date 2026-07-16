@@ -21,7 +21,7 @@ COUNT(DISTINCT GAME_ID) AS games_played,
 SUM(PF) AS personal_fouls, 
 SUM(TOS) AS turnovers, 
 LISTAGG(comment) AS all_comments_season
-FROM {{ ref('ALL_TIME_PLAYER_STATISTICS')}} 
+FROM {{ ref('ALL_TIME_PLAYER_STATISTICS_SOURCE')}} 
 GROUP BY 1,2,3 ORDER BY 1,2,3
 ),
 
@@ -47,7 +47,7 @@ team_stats AS (
     SUM(FIELDGOALSATTEMPTED) AS team_fga, 
     SUM(FIELDGOALSMADE) AS team_fgm, 
     DIV0(SUM(FIELDGOALSMADE),SUM(FIELDGOALSATTEMPTED)) AS team_pct_fg
-    FROM {{ref('ALL_TIME_TEAM_STATISTICS')}} 
+    FROM {{ref('ALL_TIME_TEAM_STATISTICS_SOURCE')}} 
 GROUP BY 1,2,3
 )
 
