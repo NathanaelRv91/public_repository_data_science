@@ -21,7 +21,7 @@ WITH career_stats as (
     SUM(fg_attemps) as career_fga, 
     SUM(fg_made) AS career_fgm, 
     DIV0(SUM(fg_made),SUM(fg_attempts)) AS career_fg_pct, 
-    SUM(pt3_fga) AS career_pt3_fga, 
+    SUM(pt3_att) AS career_pt3_fga, 
     SUM(pt3_fgm) AS career_pt3_fgm, 
     DIV0(SUM(pt3_fgm),SUM(pt3_fga)) AS career_3pt_pct,
     
