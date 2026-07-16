@@ -1,4 +1,5 @@
-
+{{ config(materialized = 'table', 
+	tags = 'nba_player_reporting') }}
 
 -- CREATE Model for AI Tools -- 
 
