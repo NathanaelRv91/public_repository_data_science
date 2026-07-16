@@ -1,4 +1,4 @@
-snowflake_db_nba_data:
+default:
   target: dev
   outputs:
     dev:
