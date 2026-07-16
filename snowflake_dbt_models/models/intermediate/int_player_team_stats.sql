@@ -26,6 +26,7 @@ SUM(TRB) AS trb,
 COUNT(DISTINCT GAME_ID) AS games_played,
 SUM(PF) AS personal_fouls, 
 SUM(TOS) AS turnovers, 
+WUM(WIN) AS games_won,
 LISTAGG(comment) AS all_comments_season
 FROM {{ ref('ALL_TIME_PLAYER_STATISTICS_SOURCE')}} 
 GROUP BY 1,2,3 ORDER BY 1,2,3
