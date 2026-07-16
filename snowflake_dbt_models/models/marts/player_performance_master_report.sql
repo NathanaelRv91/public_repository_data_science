@@ -8,7 +8,9 @@ SELECT a.*,
        b.team_name,
        b.team_owner_name
 FROM {{ ref('all_time_player_statistics_source') }} a
-JOIN {{ ref('team_details_soruce') }} b ON a.team_id = b.team_id
+JOIN {{ ref('team_list_soruce') }} b ON a.player_team_id = b.id
+LEFT JOIN {{ ref('team_details_source')}} c
+       ON b.id = c.team_id
 ),
 
 rolled_up_player_perf AS (
