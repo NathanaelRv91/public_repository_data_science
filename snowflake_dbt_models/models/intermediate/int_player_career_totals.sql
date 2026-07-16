@@ -6,6 +6,7 @@ WITH career_stats as (
     COUNT(DISTINCT player_team_id) AS teams_played_for, 
     COUNT(DISTINCT YEAR_INT) AS seasons_played,
     SUM(games_played) AS games_played,
+    SUM(games_won) AS career_wins,
   -- total stats --
     SUM(games_played) AS games_played,
     SUM(min_played) AS min_played, 
