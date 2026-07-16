@@ -34,10 +34,25 @@ WITH career_stats as (
   )
 
 SELECT a.*. 
-    b.
+    b.birthdate, 
+    b.bodyweightlbs, 
+    b.heightinches,
+    b.firstname, 
+    b.lastname, 
+    b.firstname || ' ' || b.lastname AS full_name 
+    CASE WHEN b.TOYEAR > 2025 THEN "ACTIVE" ELSE "RETIRED" END AS is_active_player, 
+    b.school, 
+    b.fromyear,
+    b.draftround, 
+    b.draftnumber, 
+    b.jersey, 
+    CASE WHEN b.guard = 1 THEN "YES" ELSE "NO" END AS is_guard, 
+    CASE WHEN b.forward = 1 THEN "YES" ELSE "NO" END AS is_forward, 
+    CASE WHEN b.center = 1 THEN "YES" ELSE "NO" END AS is_center, 
+    CASE WHEN ((b.guard = 1 AND b.forward = 1) OR (b.guard = 1 AND b.center = 1) OR (b.forward = 1 AND b.center = 1)) THEN "YES" ELSE "NO" END AS plays_multiple_positions
 
-  FROM career_stats a 
-    JOIN {{ref('player_details_source')}} b
+FROM career_stats a 
+  JOIN {{ref('player_details_source')}} b
       ON a.player_id = b.personid
 
 
