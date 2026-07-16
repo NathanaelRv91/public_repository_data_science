@@ -25,9 +25,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('player_list')
+              to: ref('player_list_source')
       - name: team_id
         tests:
           - not_null
           - relationships:
-              to: ref('team_list')
+              to: ref('team_list_source')
