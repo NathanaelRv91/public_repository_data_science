@@ -3,11 +3,17 @@ version: 2
 models:
 
   - name: int_player_career_stats
-    tests:
+      tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - player_id
             - full_name
+      columns:
+        - name: player_id
+          data_tests:
+            - relationships:
+                to: ref('player_list_source')
+                field: id
   - name: int_player_team_season_report
     tests:
       - dbt_utils.unique_combination_of_columns:
