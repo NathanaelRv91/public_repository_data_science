@@ -11,7 +11,29 @@ models:
             - game_id
 
   - name: int_player_career_totals
-    +post-hook: "SELECT * FROM {{('player_list')}} WHERE is_active = 1"
+    +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
+    config:
+      tags: "nba_reporting_models"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - team_id
+            - player_id
+            - full_name
+    columns:
+      - name: player_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('player_list_source')
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('team_list_source')
+
+  - name: player_master_report
+    +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
     config:
       tags: "nba_reporting_models"
     tests:
