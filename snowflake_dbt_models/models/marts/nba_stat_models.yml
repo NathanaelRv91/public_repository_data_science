@@ -32,8 +32,10 @@ models:
           - not_null
           - relationships:
               to: ref('player_list_source')
+              field: id
       - name: team_id
         tests:
           - not_null
           - relationships:
               to: ref('team_list_source')
+              field: team_id
