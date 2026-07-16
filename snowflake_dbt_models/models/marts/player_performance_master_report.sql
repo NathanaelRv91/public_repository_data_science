@@ -3,13 +3,12 @@
 --
 --NBA last 3 seasons are used to get the latest player profile stats for ACTIVE players ONLY. 
 --
-WITH team_map AS (
+WITH team_mapped AS (
 SELECT a.*, 
        b.team_name,
        b.team_owner_name
-FROM {{ ref('team_seed') }} a
-JOIN {{ ref('player_master_stat_data') }} b ON a.team_id = b.team_id
-              AND a.season_id = b.season_id
+FROM {{ ref('all_time_player_statistics_source') }} a
+JOIN {{ ref('team_details_soruce') }} b ON a.team_id = b.team_id
 ),
 
 rolled_up_player_perf AS (
@@ -93,7 +92,7 @@ total_asin_sales AS (
    GROUP BY 1,2,3,4,5,6,7,8,9,10,11),
 
 
-SELECT * FROM total_asin_sales
+SELECT * FROM player_season_totals
 UNION ALL
 SELECT * FROM
 rolled_up_perf
