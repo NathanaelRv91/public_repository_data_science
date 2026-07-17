@@ -51,23 +51,51 @@ rolled_up_player_perf AS (
        YEAR_INT,
        --- Pull primary stats for each season --- 
     {% for i in seasons %}
-       SUM(CASE WHEN DATE_PART(YEAR, game_timestamp) = '{{i}}' THEN points ELSE 0 END) AS {{i}}_points,
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN points ELSE 0 END) AS {{i}}_points,
     {% endfor %}
-       {% for ad_id in ad_units %}
-       SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN attributed_spend ELSE 0 END) AS {{ad_id}}_attributed_spend,
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN assists ELSE 0 END) AS {{i}}_assists,
     {% endfor %}
-       SUM(clicks) as clicks,
-    {% for ad_id in ad_units %}
-       SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN clicks ELSE 0 END) AS {{ad_id}}_clicks,
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN blocks ELSE 0 END) AS {{i}}_blocks,
     {% endfor %}
-       SUM(conversions) as conversions,
-    {% for ad_id in ad_units %}
-       SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN conversions ELSE 0 END) AS {{ad_id}}_conversions,
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga ELSE 0 END) AS {{i}}_fga,
     {% endfor %}
-       SUM(impressions) AS impressions,
-    {% for ad_id in ad_units %}
-       SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN impressions ELSE 0 END) AS {{ad_id}}_impressions,
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END) AS {{i}}_fgm,
     {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att ELSE 0 END) AS {{i}}_pt3_att,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END) AS {{i}}_pt3_fgm,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN trb ELSE 0 END) AS {{i}}_trb,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN drb ELSE 0 END) AS {{i}}_drb,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN or orb ELSE 0 END) AS {{i}}_orb,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pf ELSE 0 END) AS {{i}}_pf,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN tos ELSE 0 END) AS {{i}}_turnovers,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga END) AS {{i}}_fg_pct,
+    {% endfor %}
+            {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN ftm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fta END) AS {{i}}_ft_pct,
+    {% endfor %}
+           {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att END) AS {{i}}_pt3_pct,
+    {% endfor %}
+    
 FROM team_mapped
        WHERE is_active = 1
    GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
