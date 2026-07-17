@@ -69,8 +69,17 @@ rolled_up_player_perf AS (
     {% for ad_id in ad_units %}
        SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN impressions ELSE 0 END) AS {{ad_id}}_impressions,
     {% endfor %}
-
 FROM team_mapped
+       WHERE is_active = 1
    GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
        ),
+
+-- All of our player sources (list, details, career_accolades) we use to build the full end-user plofiles have conforming dimensions on the primary key PLAYER_ID --
+player_profiles AS (
+       SELECT 
+
+
+
+) 
+
 
