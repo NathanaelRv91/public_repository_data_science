@@ -1,5 +1,5 @@
 -- This model version provides a view of models with JINJA logic if we want to merge player/team data with historical profiles and more categorical information for our AI model --
-{% set seasons = [2023,2024,2025] %}
+{% set seasons = [2022,2023,2024,2025,2026] %}
 --
 --NBA last 3 seasons are used to get the latest player profile stats for ACTIVE players ONLY.
 -- This report does NOT include player vs team seasonal totals for the analysis. The player pct of team totals can be found in the 'int_player_team_stats' -- 
