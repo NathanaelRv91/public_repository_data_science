@@ -23,7 +23,7 @@ models:
             - YEAR_INT
 
   - name: player_performance_master_report
-    +post-hook: "SELECT * FROM {{('player_list')}} WHERE player_is_active = "YES""
+    +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
     config:
       tags: "nba_reporting_models"
     tests:
@@ -31,7 +31,7 @@ models:
           combination_of_columns:
             - team_id
             - player_id
-            - full_name
+            - player_name
     columns:
       - name: player_id
         tests:
