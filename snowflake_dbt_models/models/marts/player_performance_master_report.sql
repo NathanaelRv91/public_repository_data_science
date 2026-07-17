@@ -86,6 +86,7 @@ rolled_up_player_perf AS (
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_INT = '{{i}}' THEN tos ELSE 0 END) AS {{i}}_turnovers,
     {% endfor %}
+       -- Shooting Percentages -- 
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga END) AS {{i}}_fg_pct,
     {% endfor %}
@@ -93,6 +94,10 @@ rolled_up_player_perf AS (
        SUM(CASE WHEN YEAR_INT = '{{i}}' THEN ftm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fta END) AS {{i}}_ft_pct,
     {% endfor %}
            {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att END) AS {{i}}_pt3_pct,
+    {% endfor %}
+       -- PER GAME STATS
+        {% for i in seasons %}
        SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att END) AS {{i}}_pt3_pct,
     {% endfor %}
     
