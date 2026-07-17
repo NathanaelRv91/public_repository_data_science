@@ -47,7 +47,7 @@ rolled_up_player_perf AS (
        instagram AS instagram_link, 
        facebook AS fb_link, 
        twitter AS x_link,
-       DATE_PART(YEAR, game_timestamp) AS year_int,
+       CASE WHEN DATE_PART(MONTH, game_timestamp) <= 7 THEN DATE_PART(YEAR, game_timestamp) - 1 ELSE DATE_PART(YEAR, game_timestamp) END AS YEAR_INT,
        --- Pull primary stats for each season --- 
     {% for i in ad_units %}
        SUM(CASE WHEN DATE_PART(YEAR, game_timestamp) = '{{i}}' THEN points ELSE 0 END) AS {{i}}_points,
