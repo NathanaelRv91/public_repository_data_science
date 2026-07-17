@@ -67,6 +67,7 @@ team_rolled_up_perf AS (
            fb_link,
            x_link,
            YEAR_TM,
+      ----- TEAM SEASON STATS ----
         {% for i in seasons %}
            SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_points ELSE 0 END) AS tm_points_{{ i }}, {% endfor %}
         {% for i in seasons %}
@@ -98,6 +99,15 @@ team_rolled_up_perf AS (
         {% for i in seasons %}
            SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_season_wins ELSE 0 END) AS tm_wins_{{ i }}, {% endfor %}
       ---- TEAM SHOOTING PERCENTAGES ----
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_3pt_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_3pt_fga END) AS tm_pt3_pct_{{ i }},
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_fga END) AS tm_fg_pct_{{ i }},
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_ftm ELSE 0 END)/SUM(CASE WHEN YEAR_TM = '{{i}}' THEN team_fta END) AS tm_ft_pct_{{ i }},
+    {% endfor %}
     FROM team_mapped
     GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 
