@@ -78,7 +78,7 @@ rolled_up_player_perf AS (
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN drb ELSE 0 END) AS i_drb,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN or orb ELSE 0 END) AS i_orb,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN orb ELSE 0 END) AS i_orb,
     {% endfor %}
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pf ELSE 0 END) AS i_pf,
