@@ -7,7 +7,6 @@ check_cols = ['is_active'],
 invalidate_hard_deletes = True
 )}}
 
-SELECT * FROM {{ref('player_game_data')}}
-
+SELECT * FROM {{ref('int_player_career_stats')}}
 
 {% endsnapshot%}
