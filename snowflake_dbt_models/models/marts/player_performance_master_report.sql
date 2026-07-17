@@ -8,7 +8,7 @@ WITH team_mapped AS (
 SELECT d.full_name,
        d.is_active,
        a.*,
-        CASE WHEN EXTRACT(MONTH FROM a.game_timestamp) <= 7 THEN DATE_PART(YEAR, a.game_timestamp) - 1 ELSE DATE_PART(YEAR, a.game_timestamp) END AS YEAR_INT,
+        CASE WHEN EXTRACT(MONTH FROM a.game_timestamp) <= 7 THEN DATE_PART(YEAR, a.game_timestamp) - 1 ELSE DATE_PART(YEAR, a.game_timestamp) END AS YEAR_SEASON,
        b.abbreviation,
        b.city,
        b.state,
@@ -48,75 +48,71 @@ rolled_up_player_perf AS (
        instagram AS instagram_link,
        facebook AS fb_link,
        twitter AS x_link,
-       YEAR_INT,
+       YEAR_SEASON,
        --- Pull primary stats for each season ---
-    {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN points ELSE 0 END) AS i_points,
+      SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN assists ELSE 0 END) AS i_assists,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN assists ELSE 0 END) AS i_assists,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN blocks ELSE 0 END) AS i_blocks,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN blocks ELSE 0 END) AS i_blocks,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fga ELSE 0 END) AS i_fga,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga ELSE 0 END) AS i_fga,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fgm ELSE 0 END) AS i_fgm,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END) AS i_fgm,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_att ELSE 0 END) AS i_pt3_att,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att ELSE 0 END) AS i_pt3_att,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_fgm ELSE 0 END) AS i_pt3_fgm,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END) AS i_pt3_fgm,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trb ELSE 0 END) AS i_trb,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN trb ELSE 0 END) AS i_trb,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN drb ELSE 0 END) AS i_drb,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN drb ELSE 0 END) AS i_drb,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN or orb ELSE 0 END) AS i_orb,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN or orb ELSE 0 END) AS i_orb,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pf ELSE 0 END) AS i_pf,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pf ELSE 0 END) AS i_pf,
-    {% endfor %}
-        {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN tos ELSE 0 END) AS i_turnovers,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN tos ELSE 0 END) AS i_turnovers,
     {% endfor %}
        -- Shooting Percentages --
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga END) AS i_fg_pct,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fgm ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fga END) AS i_fg_pct,
     {% endfor %}
             {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN ftm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fta END) AS i_ft_pct,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ftm ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fta END) AS i_ft_pct,
     {% endfor %}
            {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att END) AS i_pt3_pct,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_att END) AS i_pt3_pct,
     {% endfor %}
        -- PER GAME STATS
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN points ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_ppg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_ppg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN assists ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_apg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN assists ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_apg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN blocks ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_bpg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN blocks ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_bpg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN steals ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_stlpg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN steals ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_stlpg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN trb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_trbpg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trb ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_trbpg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN drb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_drbpg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN drb ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_drbpg,
     {% endfor %}
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN orb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS i_orbpg,
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN orb ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN 1 END) AS i_orbpg,
     {% endfor %}
 
 FROM team_mapped
