@@ -134,6 +134,7 @@ sources:
           - name: comment
           - name: pos
           - name: game_timestamp
+            description: we split the first months of the year to include data for the previous season year and count Oct-Dec as the next season Starting year. 
           - name: YEAR_INT
             description: we pull the 4 digit year (YYYY) so we can map our game data for players to the team stat table(s)
       - name: game_report
