@@ -88,7 +88,7 @@ rolled_up_player_perf AS (
     {% endfor %}
        -- Shooting Percentages -- 
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fga END) AS {{i}}_fg_pct,
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fgm ELSE 0 END)/COUNT(CASE WHEN YEAR_INT = '{{i}}' THEN fga END) AS {{i}}_fg_pct,
     {% endfor %}
             {% for i in seasons %}
        SUM(CASE WHEN YEAR_INT = '{{i}}' THEN ftm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN fta END) AS {{i}}_ft_pct,
@@ -98,9 +98,27 @@ rolled_up_player_perf AS (
     {% endfor %}
        -- PER GAME STATS
         {% for i in seasons %}
-       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_fgm ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN pt3_att END) AS {{i}}_pt3_pct,
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN points ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_ppg,
     {% endfor %}
-    
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN assists ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_apg,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN blocks ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_bpg,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN steals ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_stlpg,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN trb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_trbpg,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN drb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_drbpg,
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_INT = '{{i}}' THEN orb ELSE 0 END)/SUM(CASE WHEN YEAR_INT = '{{i}}' THEN 1 END) AS {{i}}_orbpg,
+    {% endfor %}
+ 
 FROM team_mapped
        WHERE is_active = 1
    GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
