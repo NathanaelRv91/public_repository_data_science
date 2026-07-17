@@ -69,14 +69,8 @@ rolled_up_player_perf AS (
     {% for ad_id in ad_units %}
        SUM(CASE WHEN product_ad_type = '{{ad_id}}' THEN impressions ELSE 0 END) AS {{ad_id}}_impressions,
     {% endfor %}
-      0 AS total_sales,
-      0 AS units_sold,
-      0 AS total_orders,
-      0 AS total_sessions,
-      0 AS dsp_spend,
-      0 AS dsp_sales,
-      0 AS shipped_pcogs
-FROM all_product_perf
-   GROUP BY 1,2,3,4,5,6,7,8,9,10,11
+
+FROM team_mapped
+   GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
        ),
 
