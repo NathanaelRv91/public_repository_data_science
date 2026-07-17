@@ -2,6 +2,7 @@
 {{ config(materialized = 'view') }}
   
 {% set seasons = [2022,2023,2024,2025,2026] %}
+  
 WITH team_stats AS (
     SELECT TEAMID,
     TEAMNAME,
