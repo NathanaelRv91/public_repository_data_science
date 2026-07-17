@@ -103,10 +103,21 @@ FROM team_mapped
 
 -- All of our player sources (list, details, career_accolades) we use to build the full end-user plofiles have conforming dimensions on the primary key PLAYER_ID --
 player_profiles AS (
-       SELECT 
-
-
-
+SELECT 
+    birthdate,
+    bodyweightlbs,
+    heightinches,
+    firstname,
+    lastname,
+    firstname || ' ' || lastname AS full_name,
+    CASE WHEN TOYEAR > 2025 THEN 'ACTIVE' ELSE 'RETIRED' END AS is_active_player,
+    school,
+    fromyear,
+    draftround,
+    draftnumber,
+    jersey
+FROM {{ ref('player_details_source')}} 
+WHERE toyear >= 2026
 ) 
 
 
