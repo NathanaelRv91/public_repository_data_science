@@ -24,7 +24,7 @@ SELECT d.full_name
 FROM {{ ref('all_time_player_statistics_source') }} a
 JOIN {{ ref('player_list_source')}} d 
        ON a.player_id = b.id
-JOIN {{ ref('team_list_soruce') }} b ON a.player_team_id = b.id
+JOIN {{ ref('team_list_source') }} b ON a.player_team_id = b.id
 LEFT JOIN {{ ref('team_details_source')}} c
        ON b.id = c.team_id
 ),
