@@ -22,7 +22,7 @@ models:
             - team_id
             - YEAR_INT
 
-  - name: player_performance_master_report
+  - name: fct_player_master_stats
     +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
     config:
       tags: "nba_reporting_models"
