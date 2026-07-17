@@ -11,7 +11,6 @@ SELECT d.full_name
        b.abbreviation,
        b.city, 
        b.state, 
-       b.full_name, 
        b.year_founded,
        c.arena, 
        c.arenacapacity, 
@@ -32,14 +31,13 @@ LEFT JOIN {{ ref('team_details_source')}} c
 rolled_up_player_perf AS (
        SELECT 
        -- Player and Team Dimensions --- 
-       full_name, 
+       full_name AS player_name, 
        is_active, 
        player_id, 
-       teamname, 
+       player_team_name AS team_name, 
        abbreviation,
        city, 
        state, 
-       full_name, 
        year_founded,
        arena, 
        arenacapacity, 
