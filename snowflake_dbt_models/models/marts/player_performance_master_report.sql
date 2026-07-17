@@ -50,6 +50,10 @@ rolled_up_player_perf AS (
        twitter AS x_link,
        YEAR_SEASON,
        --- Pull primary stats for each season ---
+       {% for i in seasons %}
+      SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points ELSE 0 END) AS i_points,
+    {% endfor %}
+        {% for i in seasons %}
       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN assists ELSE 0 END) AS i_assists,
     {% endfor %}
         {% for i in seasons %}
