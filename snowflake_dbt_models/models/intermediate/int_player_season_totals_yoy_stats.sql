@@ -3,9 +3,9 @@
 
 /*
   $$ META HEADERS $$
-  Importance:::               Client Reporting
-  Unique Name:::              reporting_mom_ad_unit_performance
-  Location:::                 marts>media>amazon>sponsored_ads
+  Importance:::               Annual YoY% in total statistics
+  Unique Name:::              int_player_season_totals_yoy
+  Location:::                 nba_db>reports>views
 */
 
   {{config(materialized = 'view', 
