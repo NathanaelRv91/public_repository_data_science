@@ -22,15 +22,14 @@ def pull_player_list():
     cursor.execute(SQL_player)
     one_row_player = cursor.fetchall()
     print("Successfully loaded data!:", one_row_player[100])
-finally:
-    cursor.close()
-    conn.close()
+    finally:
+        cursor.close()
+        conn.close()
 
-
-df_player = pd.DataFrame(one_row_player)
-## PLAYER DETAILS LIST ##
-df_player.columns = ['PERSONID','FIRSTNAME','LASTNAME','BIRTHDATE','SCHOOL','COUNTRY','HEIGHTINCHES','BODYWEIGHTLBS','JERSEY','GUARD','FORWARD','CENTER','DLEAGUEFLAG','NBAFLAG','GAMESPLAYEDFLAG','DRAFTYEAR','DRAFTROUND','DRAFTNUMBER','FROMYEAR','TOYEAR']
-return df_player
+    df_player = pd.DataFrame(one_row_player)
+    ## PLAYER DETAILS LIST ##
+    df_player.columns = ['PERSONID','FIRSTNAME','LASTNAME','BIRTHDATE','SCHOOL','COUNTRY','HEIGHTINCHES','BODYWEIGHTLBS','JERSEY','GUARD','FORWARD','CENTER','DLEAGUEFLAG','NBAFLAG','GAMESPLAYEDFLAG','DRAFTYEAR','DRAFTROUND','DRAFTNUMBER','FROMYEAR','TOYEAR']
+    return df_player
 
 
 
@@ -53,12 +52,12 @@ def pull_player_stats():
     cursor.execute(SQL_stats)
     one_row_stats = cursor.fetchall()
     print("Successfully loaded data!:", one_row_stats[100])
-finally:
-    cursor.close()
-    conn.close()
+    finally:
+        cursor.close()
+        conn.close()
 
-df_stats = pd.DataFrame(one_row_stats)
-## PLAYER STATS COLUMNS ##
-df_stats.columns = ['INDEX','FIRST_NAME','LAST_NAME','PLAYER_ID','GAME_ID','GAME_DATE','PLAYER_TEAM_CITY','PLAYER_TEAM_NAME','OPP_TEAM_CITY','OPP_TEAM_NAME','SEASON_TYPE','GM_LABEL','GM_SUBLABEL','GM_NUMBER','WIN','HOME','MIN_PLAYED','POINTS','ASSISTS','BLOCKS','STEALS','FGA','FGM','FG_PCT','PT3_ATT','PT3_FGM','PT3_PCT','FTA','FTM','FT_PCT','DRB','ORB','TRB','PF','TOS','PLUS_MINUS','PLAYER_TEAM_ID','OPP_TEAM_ID','COMMENT','POS','GAME_TIMESTAMP','YEAR_INT']
-return df_stats
+    df_stats = pd.DataFrame(one_row_stats)
+    ## PLAYER STATS COLUMNS ##
+    df_stats.columns = ['INDEX','FIRST_NAME','LAST_NAME','PLAYER_ID','GAME_ID','GAME_DATE','PLAYER_TEAM_CITY','PLAYER_TEAM_NAME','OPP_TEAM_CITY','OPP_TEAM_NAME','SEASON_TYPE','GM_LABEL','GM_SUBLABEL','GM_NUMBER','WIN','HOME','MIN_PLAYED','POINTS','ASSISTS','BLOCKS','STEALS','FGA','FGM','FG_PCT','PT3_ATT','PT3_FGM','PT3_PCT','FTA','FTM','FT_PCT','DRB','ORB','TRB','PF','TOS','PLUS_MINUS','PLAYER_TEAM_ID','OPP_TEAM_ID','COMMENT','POS','GAME_TIMESTAMP','YEAR_INT']
+    return df_stats
 
