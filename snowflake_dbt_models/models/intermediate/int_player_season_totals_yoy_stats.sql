@@ -13,8 +13,8 @@
 
 
  SELECT
-  ABBREVIATION, 
-  ARENA,
+    ABBREVIATION, 
+    ARENA,
     BIRTHDATE, 
     BODYWEIGHTLBS AS BW_LBS, 
     HEIGHTINCHES AS HT_IN, 
@@ -38,15 +38,21 @@
     INSTAGRAM_LINK,
 
     --- Pull primary stats for YOY by season ---
-                              {% for i in seasons %}
-                              SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points ELSE 0 END) AS points_{{ i }},
-                                {% endfor %}
-                           {% for i in seasons %}
-                        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN assists ELSE 0 END) AS assists_{{ i }},
-                            {% endfor %}
-                                {% for i in seasons %}
-       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN blocks ELSE 0 END) AS blocks_{{ i }},
-
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN points_{{i}} AS points_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN assists_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN assists_{{i}} AS assists_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN blocks_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN blocks_{{i}} AS blocks_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN steals_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN steals_{{i}} AS steals_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trb_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN trb_{{i}} AS trb_yoy_{{ i }},
+        {% endfor %}
 
 FROM {{ ref('reporting_ad_unit_perf') }}
 group by 1,2,3,4,5,6,7,8,9,10,11
