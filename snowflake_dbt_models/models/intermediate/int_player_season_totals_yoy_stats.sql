@@ -67,7 +67,13 @@
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fgm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN fgm_{{i}} AS fgm_yoy_{{ i }},
         {% endfor %}
         {% for i in seasons %}
-            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trb_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN trb_{{i}} AS trb_yoy_{{ i }},
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ft_pct_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN ft_pct_{{i}} AS ft_pct_yoy_{{ i }},
+        {% endfor %}
+       {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_att_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN pt3_att_{{i}} AS pt3_att_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_fgm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN pt3_fgm_{{i}} AS pt3_fgm_yoy_{{ i }},
         {% endfor %}
 
 FROM {{ ref('fct_player_master_stats') }}
