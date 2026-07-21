@@ -6,17 +6,31 @@
 */
 
  SELECT
-  suffixless_company_name,
-  geo_company_id,
-  email,
-  country_code,
-  type,
-  campaign_name,
-  asin,
-  title,
-  parent_asin,
-  perpetua_managed,
-  date,
+  ABBREVIATION,
+  ARENA, 
+  BIRTHDATE, 
+  BODYWEIGHTLBS AS BW_LBS, 
+   HEIGHTINCHES AS HT_IN,
+  CITY, 
+  DRAFTNUMBER, 
+  DRAFTROUND, 
+  FIRSTNAME, 
+   FROMYEAR AS FIRST_SEASON, 
+   FULL_NAME, 
+   HEADCOACH AS COACH_NAME, 
+   GENERALMANAGER AS GM_NAME, 
+   OWNER, 
+   IS_ACTIVE_PLAYER, 
+   LASTNAME, 
+   PLAYER_ID, 
+   SCHOOL, 
+   TEAMNAME, 
+   YEAR_SEASON, 
+   FB_LINK, 
+   X_LINK, 
+   INSTAGRAM_LINK, 
+  --CALCULATE YOY VALUES -- 
+   
   sum(attributed_sales) daily_sales,
   sum(attributed_spend) daily_spend,
   sum(conversions) conversions,
@@ -68,7 +82,7 @@ lag(sum(conversions),31,0) OVER(Partition By geo_company_id,suffixless_company_n
   order by date)
   END AS
   last_month_impressions
-FROM {{ ref('reporting_ad_unit_perf') }}
+FROM {{ ref('fct_player_master_stats') }}
 WHERE date >='2024-01-01'
 group by 1,2,3,4,5,6,7,8,9,10,11
 order by 1,2,3,4,5,6,7,8,9,10,11
