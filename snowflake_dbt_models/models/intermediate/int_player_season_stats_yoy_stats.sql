@@ -76,7 +76,6 @@
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ft_pct_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN ft_pct_{{i}} AS ft_pct_yoy_{{ i }},
         {% endfor %}
        {% for i in seasons %}
-       {% for i in seasons %}
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fg_pct_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN fg_pct_{{i}} AS fg_pct_yoy_{{ i }},
         {% endfor %}
        {% for i in seasons %}
@@ -86,6 +85,27 @@
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_fgm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN pt3_fgm_{{i}} AS pt3_fgm_yoy_{{ i }},
         {% endfor %}
         --- Pull primary per game stats for YOY by season ---
+         {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN apg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN apg_{{i}} AS apg_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN bpg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN bpg_{{i}} AS bpg_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN drbpg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN drbpg_{{i}} AS drbpg_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trbpg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN trbpg_{{i}} AS trbpg_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN orbpg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN orbpg_{{i}} AS orbpg_yoy_{{ i }},
+        {% endfor %}
+       {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ppg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN ppg_{{i}} AS ppg_yoy_{{ i }},
+        {% endfor %}
+       {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN stlpg_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN stlpg_{{i}} AS stlpg_yoy_{{ i }},
+        {% endfor %}
 
 FROM {{ ref('fct_player_master_stats') }}
 group by 1,2,3,4,5,6,7,8,9,10,11
