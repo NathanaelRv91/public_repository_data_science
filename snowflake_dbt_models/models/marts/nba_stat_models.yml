@@ -68,3 +68,7 @@ models:
           - relationships:
               to: ref('team_list_source')
               field: team_id
+      - name: is_active_player
+        tests:
+          - accepted_values:
+              values: ['RETIRED', 'ACTIVE'] 
