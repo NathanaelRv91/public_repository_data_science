@@ -1,6 +1,6 @@
 {{ config(materialized = 'view',
-	tags = 'nba_player_reporting') }}
-
+	tags = 'nba_player_reporting', 
+	cluster_by = ['PLAYER_ID','PLAYER_TEAM_ID','YEAR_INT']) }}
 -- CREATE Model for AI Tools --
 -- annual player statistics by team --
 WITH career_stats AS (
