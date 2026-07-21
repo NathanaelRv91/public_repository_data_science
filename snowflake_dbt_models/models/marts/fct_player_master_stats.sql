@@ -1,5 +1,6 @@
 -- This model version provides a view of models with JINJA logic if we want to merge player/team data with historical profiles and more categorical information for our AI model --
-{{ config(materialized = 'view') }}
+{{ config(materialized = 'view',
+       tags = ['player_statistics']) }}
 {% set seasons = [2022,2023,2024,2025,2026] %}
 --
 --NBA last 3 seasons are used to get the latest player profile stats for ACTIVE players ONLY.
