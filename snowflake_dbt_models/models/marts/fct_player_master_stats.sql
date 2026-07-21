@@ -59,6 +59,9 @@ rolled_up_player_perf AS (SELECT
                                 {% for i in seasons %}
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN blocks ELSE 0 END) AS blocks_{{ i }},
     {% endfor %}
+    {% for i in seasons %}
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN steals ELSE 0 END) AS steals_{{ i }},
+    {% endfor %}
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fga ELSE 0 END) AS fga_{{ i }},
     {% endfor %}
