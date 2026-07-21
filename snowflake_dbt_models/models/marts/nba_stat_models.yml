@@ -12,8 +12,8 @@ models:
         - name: player_id
           data_tests:
             - relationships:
-                to: ref('player_list_source')
-                field: id
+                to: ref('player_details_source')
+                field: PERSONID
   - name: int_player_team_stats
     tests:
       - dbt_utils.unique_combination_of_columns:
