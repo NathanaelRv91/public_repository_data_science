@@ -24,4 +24,4 @@
 
 
   - **custom seller account performance from Amazon & Walmart** :chart_with_upwards_trend: Customized Dashboards for clients on contract for YoY%, MoM%, PoP%. Here's an export of a custom dashoard I built for a client that reports on over 100 distinct companies in 7 markets. 
-    [Copy_of_Premium_Advertising_&_Traffic_Report.pdf](https://github.com/user-**attachments/files/30092885/Copy_of_Premium_Advertising_._Traffic_Report.pdf)**
+    **[Copy_of_Premium_Advertising_&_Traffic_Report.pdf](https://github.com/user-attachments/files/30092885/Copy_of_Premium_Advertising_._Traffic_Report.pdf)**
