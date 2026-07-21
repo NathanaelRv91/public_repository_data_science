@@ -67,7 +67,17 @@
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fgm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN fgm_{{i}} AS fgm_yoy_{{ i }},
         {% endfor %}
         {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fta_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN fta_{{i}} AS fta_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ftm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN ftm_{{i}} AS ftm_yoy_{{ i }},
+        {% endfor %}
+        {% for i in seasons %}
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ft_pct_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN ft_pct_{{i}} AS ft_pct_yoy_{{ i }},
+        {% endfor %}
+       {% for i in seasons %}
+       {% for i in seasons %}
+            ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fg_pct_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN fg_pct_{{i}} AS fg_pct_yoy_{{ i }},
         {% endfor %}
        {% for i in seasons %}
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_att_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN pt3_att_{{i}} AS pt3_att_yoy_{{ i }},
