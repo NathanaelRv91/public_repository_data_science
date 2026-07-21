@@ -45,3 +45,27 @@ models:
           - relationships:
               to: ref('team_list_source')
               field: team_id
+
+  - name: int_player_stats_yoy
+    +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
+    config:
+      tags: "nba_streamlit_models"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - team_id
+            - player_id
+            - player_name
+    columns:
+      - name: player_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('player_list_source')
+              field: id
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('team_list_source')
+              field: team_id
