@@ -14,7 +14,7 @@ models:
             - relationships:
                 to: ref('player_list_source')
                 field: id
-  - name: int_player_team_season_report
+  - name: int_player_team_stats
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -25,7 +25,7 @@ models:
   - name: fct_player_master_stats
     +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
     config:
-      tags: "nba_reporting_models"
+      tags: "nba_streamlit_models"
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
