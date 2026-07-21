@@ -46,8 +46,7 @@ models:
               to: ref('team_list_source')
               field: team_id
 
-  - name: int_player_stats_yoy
-    +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
+  - name: int_player_season_stats_yoy
     config:
       tags: "nba_streamlit_models"
     tests:
