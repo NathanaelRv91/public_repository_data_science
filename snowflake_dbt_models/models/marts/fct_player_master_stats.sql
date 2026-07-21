@@ -68,6 +68,12 @@ rolled_up_player_perf AS (SELECT
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fgm ELSE 0 END) AS fgm_{{ i }},
     {% endfor %}
+             {% for i in seasons %}
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN fta ELSE 0 END) AS fta_{{ i }},
+    {% endfor %}
+        {% for i in seasons %}
+       SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN ftm ELSE 0 END) AS ftm_{{ i }},
+    {% endfor %}
         {% for i in seasons %}
        SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_att ELSE 0 END) AS pt3_att_{{ i }},
     {% endfor %}
