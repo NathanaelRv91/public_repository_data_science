@@ -2,7 +2,7 @@ version: 2
 ## All data is available from 1946 through 2026 ##
 models:
 
-  - name: int_player_career_stats
+  - name: int_player_career_total_stats
       tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
