@@ -29,9 +29,10 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - team_id
+            - team_name
             - player_id
             - player_name
+            - YEAR_SEASON
     columns:
       - name: player_id
         tests:
