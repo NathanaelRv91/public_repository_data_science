@@ -1,6 +1,3 @@
-{{config(materialized = 'view') }}
-
-
 /*
   $$ META HEADERS $$
   Importance:::               Annual YoY% in total statistics
