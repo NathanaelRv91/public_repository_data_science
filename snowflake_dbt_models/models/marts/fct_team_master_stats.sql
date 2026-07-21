@@ -1,4 +1,6 @@
-{{ config(materialized = 'view') }}
+{{ config(materialized = 'view', 
+  tags = ['team_statistics'], 
+  cluster_by = ['TEAMID','YEAR_TM']) }}
   
 {% set seasons = [2022,2023,2024,2025,2026] %}
   
