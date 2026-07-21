@@ -15,14 +15,26 @@ seeds:
         test: 
           - unique
           - not_null
-      - name: 
-      - name: 
-      - name: 
-      - name: 
-      - name: 
-      - name: 
-      - name: 
-      - name: 
+      - name: NBA1
+      - name: NBA2
+      - name: NBA3
+      - name: NBA_DEF1
+      - name: NBA_DEF2
+      - name: TOTAL_ALL_NBA
+      - name: SEASONS_PLAYED
+      - name: PLAYOFF_SEASONS
+      - name: ASG
+      - name: MVP_SEASON
+      - name: ROY
+      - name: DPOY
+      - name: NBA_CHAMP
+      - name: FINALS_MVP
+      - name: MOY_6
+      - name: SCORINT_TITLE
+      - name: RB_TITLE
+      - name: STEALS_TITLE
+      - name: ASSISTS_TITLE
+      - name: BLK_TITLE
   - name: player_list_v2
     description: backup list of players incase we are missing any player names by ID & need to backfill
 
