@@ -5,10 +5,24 @@ seeds:
     description: sources our allstar data by player to integrate into regular season stats
     config:
       tags: ['player_profile']
-  - name: player_career_accolade
+  - name: player_career_accolades
     description: lists our top 32 players for 'all-time best' analysis in ad-hoc tool
     config: 
       tags: ['player_profile']
+    columns: 
+      - name: player
+        description: "Full player name as it appears in our player stats reports." 
+        test: 
+          - unique
+          - not_null
+      - name: 
+      - name: 
+      - name: 
+      - name: 
+      - name: 
+      - name: 
+      - name: 
+      - name: 
   - name: player_list_v2
     description: backup list of players incase we are missing any player names by ID & need to backfill
 
