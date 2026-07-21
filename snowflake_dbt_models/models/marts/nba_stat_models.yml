@@ -14,6 +14,7 @@ models:
             - relationships:
                 to: ref('player_details_source')
                 field: PERSONID
+                
   - name: int_player_team_stats
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -21,31 +22,6 @@ models:
             - player_id
             - team_id
             - YEAR_INT
-
-  - name: fct_player_master_stats
-    +post-hook: "SELECT * FROM {{('player_list_source')}} WHERE is_active = 1"
-    config:
-      tags: "nba_streamlit_models"
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - team_name
-            - player_id
-            - player_name
-            - YEAR_SEASON
-    columns:
-      - name: player_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('player_list_source')
-              field: id
-      - name: team_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('team_list_source')
-              field: team_id
 
   - name: int_player_season_stats_yoy
     config:
@@ -73,3 +49,30 @@ models:
         tests:
           - accepted_values:
               values: ['RETIRED', 'ACTIVE'] 
+
+      - name: fct_team_master_stats
+        columns:
+          - name: YEAR_TM
+            tests:
+              - not_null
+            description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - team_id
+                - team_name
+                - YEAR_TM
+
+      - name: fct_player_master_stats
+        columns:
+          - name: YEAR_SEASON
+            tests:
+              - not_null
+            description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - player_id
+                - player_name
+                - YEAR_SEASON
+                - team_name
