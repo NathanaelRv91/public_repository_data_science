@@ -6,7 +6,7 @@
 */
 
   {{config(materialized = 'view', 
-  tag = ['player_total_stats'], 
+  tag = ['player_statistics'], 
   cluster_by = ['team_id','player_id','YEAR_SEASON'])}}
 
   {% set seasons = [2023,2024,2025,2026] %}
