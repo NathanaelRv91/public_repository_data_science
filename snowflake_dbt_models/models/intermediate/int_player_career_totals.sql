@@ -1,5 +1,6 @@
 {{ config(materialized = 'view',
-  tags = 'nba_career_stats')}}
+  tags = ['player_statistics'],
+  cluster_by = ['player_id','is_active_player'])}}
 
 WITH career_stats as (
   SELECT player_id,
