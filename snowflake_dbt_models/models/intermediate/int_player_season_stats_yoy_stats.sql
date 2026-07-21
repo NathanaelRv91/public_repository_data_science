@@ -37,7 +37,7 @@
     X_LINK, 
     INSTAGRAM_LINK,
 
-    --- Pull primary stats for YOY by season ---
+    --- Pull primary total stats for YOY by season ---
         {% for i in seasons %}
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN points_{{i}} AS points_yoy_{{ i }},
         {% endfor %}
@@ -85,6 +85,7 @@
         {% for i in seasons %}
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN pt3_fgm_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN pt3_fgm_{{i}} AS pt3_fgm_yoy_{{ i }},
         {% endfor %}
+        --- Pull primary per game stats for YOY by season ---
 
 FROM {{ ref('fct_player_master_stats') }}
 group by 1,2,3,4,5,6,7,8,9,10,11
