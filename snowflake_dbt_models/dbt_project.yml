@@ -24,8 +24,8 @@ on-run-end: "INSERT INTO NBA_DB.REPORTS.DBT_AUDITS (audit_type) VALUES ('run_end
 
 models:  
 
-  pre-hook: "INSERT INTO RAW.JAFFLE_SHOP.DBT_AUDITS (audit_type) VALUES ('model_start')"
-  post-hook: "INSERT INTO RAW.JAFFLE_SHOP.DBT_AUDITS (audit_type) VALUES ('model_end')"
+  pre-hook: "INSERT INTO NBA_DB.REPORTS.DBT_AUDITS (audit_type) VALUES ('model_start')"
+  post-hook: "INSERT INTO NBA_DB.REPORTS.DBT_AUDITS (audit_type) VALUES ('model_end')"
 
   snowflake_db_nba_data:
     
@@ -33,4 +33,4 @@ models:
       +materialized: view
   
     marts:
-      +materialized: table
+      +materialized: view
