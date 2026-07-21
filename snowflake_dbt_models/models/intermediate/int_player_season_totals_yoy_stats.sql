@@ -60,6 +60,6 @@
             ROUND((SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN trb_{{i}} ELSE 0 END)/SUM(CASE WHEN YEAR_SEASON = {{i}} - 1))-1,3) THEN trb_{{i}} AS trb_yoy_{{ i }},
         {% endfor %}
 
-FROM {{ ref('reporting_ad_unit_perf') }}
+FROM {{ ref('fct_player_master_stats') }}
 group by 1,2,3,4,5,6,7,8,9,10,11
 order by 1,2,3,4,5,6,7,8,9,10,11
