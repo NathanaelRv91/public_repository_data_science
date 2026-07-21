@@ -13,19 +13,31 @@
 
 
  SELECT
-  suffixless_company_name,
-  geo_company_id,
-  email,
-  country_code,
-  type,
-  campaign_name,
-  asin,
-  title,
-  parent_asin,
-  perpetua_managed,
-  date,
+  ABBREVIATION, 
+  ARENA,
+    BIRTHDATE, 
+    BODYWEIGHTLBS AS BW_LBS, 
+    HEIGHTINCHES AS HT_IN, 
+    CITY, 
+    DRAFTNUMBER, 
+    DRAFTROUND, 
+    FIRSTNAME, 
+    FULL_NAME, 
+    LASTNAME, 
+    FROMYEAR AS FIRST_SEASON, 
+    HEADCOACH AS COACH_NAME, 
+    GENERALMANAGER AS GM_NAME, 
+    OWNER, 
+    IS_ACTIVE_PLAYER, 
+    PLAYER_ID, 
+    SCHOOL, 
+    TEAMNAME, 
+    YEAR_SEASON, 
+    FB_LINK, 
+    X_LINK, 
+    INSTAGRAM_LINK,
 
-    --- Pull primary stats for each season ---
+    --- Pull primary stats for YOY by season ---
                               {% for i in seasons %}
                               SUM(CASE WHEN YEAR_SEASON = '{{i}}' THEN points ELSE 0 END) AS points_{{ i }},
                                 {% endfor %}
