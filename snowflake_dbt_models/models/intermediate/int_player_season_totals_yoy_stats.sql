@@ -12,6 +12,7 @@
   tag = ['player_total_stats'], 
   cluster_by = ['team_id','player_id','YEAR_SEASON'])}}
 
+  {% set seasons = [2023,2024,2025,2026] %}
 
 
  SELECT
