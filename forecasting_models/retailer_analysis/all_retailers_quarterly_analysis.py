@@ -9,8 +9,8 @@ import xlsxwriter
 
 ctx = snowflake.connector.connect(
     user='nathanael_richardson',
-    password='my_password',  # YOUR SNOWFLAKE PASSWORD GOES HERE
-    account='mu_account.us-east-1',
+    password='my_password',
+    account='xyz1234-trhresis.us-west-2',
     database='PRODUCTION',
     schema='PUBLIC',
     warehouse='WH_PRODUCTION',
