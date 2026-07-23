@@ -2,77 +2,51 @@ version: 2
 ## All data is available from 1946 through 2026 ##
 models:
 
-  - name: int_player_career_total_stats
-      tests:
+  - name: int_player_career_stats
+    tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - player_id
             - full_name
-      columns:
-        - name: player_id
-          data_tests:
-            - relationships:
-                to: ref('player_details_source')
-                field: PERSONID
-                
-  - name: int_player_team_stats
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - player_id
-            - team_id
-            - YEAR_INT
-
-  - name: int_player_season_stats_yoy
-    config:
-      tags: "nba_streamlit_models"
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - teamname
-            - player_id
-            - player_name
+            - is_active_player
     columns:
       - name: player_id
+        data_tests:
+          - relationships:
+              to: ref('player_details_source')
+              field: PERSONID
+  - name: int_player_team_season_report
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - player_id
+            - player_team_id
+            - TEAMNAME
+            - YEAR_INT
+
+  - name: fct_team_master_stats
+    columns:
+      - name: YEAR_TM
         tests:
           - not_null
-          - relationships:
-              to: ref('player_list_source')
-              field: id
-      - name: team_id
+        description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - team_id
+            - team_name
+            - YEAR_TM
+
+  - name: fct_player_master_stats
+    columns:
+      - name: YEAR_SEASON
         tests:
           - not_null
-          - relationships:
-              to: ref('team_list_source')
-              field: team_id
-      - name: is_active_player
-        tests:
-          - accepted_values:
-              values: ['RETIRED', 'ACTIVE'] 
-
-      - name: fct_team_master_stats
-        columns:
-          - name: YEAR_TM
-            tests:
-              - not_null
-            description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
-        tests:
-          - dbt_utils.unique_combination_of_columns:
-              combination_of_columns:
-                - team_id
-                - team_name
-                - YEAR_TM
-
-      - name: fct_player_master_stats
-        columns:
-          - name: YEAR_SEASON
-            tests:
-              - not_null
-            description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
-        tests:
-          - dbt_utils.unique_combination_of_columns:
-              combination_of_columns:
-                - player_id
-                - player_name
-                - YEAR_SEASON
-                - team_name
+        description: 'We convert this field to the proper season by the year it ends. For example: 2024 means that it is the 2024-2025 season'
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - player_id
+            - player_name
+            - YEAR_SEASON
+            - team_name
