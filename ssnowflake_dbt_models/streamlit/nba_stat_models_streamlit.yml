@@ -1,0 +1,215 @@
+name: NBA_Analytics_Semantic_Model
+
+description: >
+  NBA player and team statistics by season.
+
+tables:
+
+  - name: PLAYER_SEASON_STATS
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: PLAYER_SEASON_STATS
+
+    primary_key:
+      columns:
+        - PLAYER_ID
+        - TEAM_ID
+        - SEASON
+
+    dimensions:
+
+      - name: PLAYER_NAME
+        description: Player full name
+        expr: FULL_NAME
+        data_type: TEXT
+
+      - name: TEAM_NAME
+        description: Team name
+        expr: TEAM_NAME
+        data_type: TEXT
+
+      - name: SEASON
+        description: NBA season ending year
+        expr: YEAR_SEASON
+        data_type: NUMBER
+
+      - name: TEAM_ID
+        description: Team identifier
+        expr: TEAM_ID
+        data_type: NUMBER
+
+      - name: PLAYER_ID
+        description: Individual player identifier
+        expr: PLAYER_ID
+        data_type: NUMBER
+
+    measures:
+
+      - name: POINTS
+        description: Total points scored
+        expr: POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: ASSISTS
+        description: Total assists
+        expr: ASSISTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+  - name: TEAM_SEASON_STATS
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: TEAM_SEASON_STATS
+
+    primary_key:
+      columns:
+        - TEAM_ID
+        - SEASON
+
+    dimensions:
+
+      - name: TEAM_NAME
+        description: NBA team
+        expr: TEAM_NAME
+        data_type: TEXT
+
+      - name: TEAM_ID
+        description: Team identifier
+        expr: TEAM_ID
+        data_type: NUMBER
+
+      - name: SEASON
+        description: Season ending year
+        expr: SEASON
+        data_type: NUMBER
+
+
+    measures:
+
+      - name: TEAM_POINTS
+        description: Team points scored
+        expr: POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: TEAM_WINS
+        description: Team wins
+        expr: WINS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+
+  - name: PLAYER_CAREER_STATS
+
+    description: >
+      NBA player career statistics and biographical information.
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: PLAYER_CAREER_STATS
+
+
+    dimensions:
+
+      - name: PLAYER_NAME
+        description: Player full name
+        expr: FULL_NAME
+        data_type: TEXT
+
+
+      - name: ACTIVE_PLAYER
+        description: Whether player is currently active
+        expr: IS_ACTIVE_PLAYER
+        data_type: TEXT
+
+
+      - name: SCHOOL
+        description: College attended
+        expr: SCHOOL
+        data_type: TEXT
+
+
+      - name: DRAFT_YEAR
+        description: Year drafted
+        expr: FROMYEAR
+        data_type: NUMBER
+
+
+    measures:
+
+      - name: CAREER_POINTS
+        description: Total career points
+        expr: CAREER_POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: CAREER_ASSISTS
+        description: Total career assists
+        expr: CAREER_ASSISTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: CAREER_REBOUNDS
+        description: Total career rebounds
+        expr: CAREER_TRB
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: CAREER_GAMES
+        description: Career games played
+        expr: GAMES_PLAYED
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: CAREER_FIELD_GOAL_PERCENTAGE
+        description: Career field goal percentage
+        expr: CAREER_FG_PCT
+        data_type: NUMBER
+        default_aggregation: avg
+
+relationships:
+
+  - name: player_team_relationship
+
+    left_table: PLAYER_SEASON_STATS
+
+    right_table: TEAM_SEASON_STATS
+
+    relationship_type: many_to_one
+
+    relationship_columns:
+
+      - left_column: TEAM_ID
+        right_column: TEAM_ID
+
+      - left_column: SEASON
+        right_column: SEASON
+
+verified_queries:
+
+  - name: top career scorers
+
+    question:
+      Who are the top 10 NBA career scorers?
+
+    sql:
+      SELECT
+        FULL_NAME,
+        CAREER_POINTS
+      FROM PLAYER_CAREER_STATS
+      ORDER BY CAREER_POINTS DESC
+      LIMIT 10;
