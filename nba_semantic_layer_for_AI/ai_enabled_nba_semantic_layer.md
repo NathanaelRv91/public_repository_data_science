@@ -1,2 +1,4 @@
---SUMMARY FOR MY AI embedded Nba Chatbot with dynamic native-language integrations 
+--SUMMARY FOR AI embedded Nba Chatbot with dynamic native-language integrations:
+
+&rarr; *Ollama LLM to Query our Player Directory: 
 
