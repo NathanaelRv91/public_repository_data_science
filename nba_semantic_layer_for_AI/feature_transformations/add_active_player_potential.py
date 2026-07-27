@@ -1,7 +1,7 @@
 import pandas as pd
 from dataclasses import dataclass
 from smolagents import CodeAgent, ToolCallingAgent, LiteLLMModel,tool
-import snowflake_data as snow
+import nba_eda_functions as snow
 @dataclass
 class DatasetContainer:
     """
