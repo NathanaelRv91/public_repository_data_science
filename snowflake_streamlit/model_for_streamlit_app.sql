@@ -19,7 +19,7 @@ session = get_snowflake_session()
 user_question = st.chat_input("Ask a question about your structured data:")
 
 if user_question:
-    # 1. Target the REST API endpoint inside your Snowflake region
+    # 1. Target the REST API endpoint inside my snowflake region account
     account_host = st.secrets["snowflake"]["account"] + ".snowflakecomputing.com"
     api_url = f"https://{account_host}/api/v2/cortex/analyst/message"
 
