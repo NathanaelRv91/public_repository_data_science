@@ -45,7 +45,7 @@ def pull_player_stats():
 
     cursor = conn.cursor()
     sql_stats = """
-        SELECT * FROM NBA_DB.PLAYER_DATA.ALL_TIME_PLAYERS_STATISTICS
+        SELECT * FROM NBA_DB.REPORTS.ALL_TIME_PLAYERS_STATISTICS
                 WHERE YEAR_INT >= 1976
             """
     try:
