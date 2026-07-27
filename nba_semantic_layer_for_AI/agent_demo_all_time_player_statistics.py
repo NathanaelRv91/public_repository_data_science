@@ -19,6 +19,7 @@ def query_snowflake(sql_query: str) -> str:
         sql_query (str): Write a simple query to pull data
 
     Return:
+        (pd.Series) : return a direct result of the query as a multi-column report of the query result. 
 
     """
     try:
