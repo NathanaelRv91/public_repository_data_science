@@ -1,6 +1,7 @@
 import pandas as pd
 from dataclasses import dataclass
 from smolagents import CodeAgent, ToolCallingAgent, LiteLLMModel,tool
+import snowflake_data as snow
 @dataclass
 class DatasetContainer:
     """
@@ -36,10 +37,10 @@ def DatasetContainertool(name: str,data: pd.DataFrame) -> str:
              summary (pd.Series): Returns the summary data for the dataframe (data).
     """
     for i in range(len(data)):
-        if data.loc[i,'isactive'] == 0:
-            data.loc[i,'potential'] = 0
+        if data.loc[i,'TOYEAR'] < 2025:
+            data.loc[i,'POTENTIAL'] = 0
         else:
-            data.loc[i, 'potential'] = .55
+            data.loc[i, 'POTENTIAL'] = .55
     return f"{data.iloc[2:]}"
 
 
@@ -54,8 +55,9 @@ agent = CodeAgent(
     additional_authorized_imports = ['pandas']
 )
 
-df = pd.read_csv('basic_player_list.csv')
-df = pd.DataFrame(df)
+df = snow.pull_player_list()
+#df = pd.DataFrame(df)
+#df = pull_snowflake_data.pull_players()
 container = DatasetContainertool(name="Players_2026", data=df)
 
 print(container)
