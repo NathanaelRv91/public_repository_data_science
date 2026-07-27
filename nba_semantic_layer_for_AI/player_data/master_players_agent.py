@@ -4,7 +4,7 @@ from langchain.agents import create_agent
 from smolagents import CodeAgent, ToolCallingAgent, LiteLLMModel,tool
 from pydantic import BaseModel, Field
 from langchain import agents
-import nba_eda_snowflake as snow
+import nba_eda_functions as snow
 
 df_stats = snow.pull_player_stats()
 df_players = snow.pull_player_list()
