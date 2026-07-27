@@ -23,10 +23,25 @@ if user_question:
     account_host = st.secrets["snowflake"]["account"] + ".snowflakecomputing.com"
     api_url = f"https://{account_host}/api/v2/cortex/analyst/message"
 
+    # Add Cortex instructions here
+    user_prompt = f"""
+    You are an NBA analytics assistant.
+
+    Instructions:
+    - Answer concisely.
+    - Provide only the key findings.
+    - Use a maximum of 10 rows unless the user asks for more.
+    - Do not explain SQL unless requested.
+    - Use season filters when a season/year is mentioned.
+
+    User question:
+    {user_question}
+    """
+
     # 2. Package request with reference to your semantic model file
     # Ensure you upload your YAML file to a Snowflake stage first (e.g., @MY_STAGE/revenue_timeseries.yaml)
     payload = {
-        "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_stat_models.yml",
+        "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_stat_models_streamlit.yml",
         "messages": [
             {
                 "role": "user",
@@ -78,5 +93,6 @@ if user_question:
             df_results = session.sql(generated_sql).to_pandas()
             st.subheader("Results:")
             st.dataframe(df_results)
+
         else:
             st.error(f"Error {response.status_code}: {response.text}")
