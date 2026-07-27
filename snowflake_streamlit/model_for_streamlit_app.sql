@@ -30,15 +30,15 @@ if user_question:
     Instructions:
     - Answer concisely.
     - Provide only the key findings.
-    - Use a maximum of 10 rows unless the user asks for more.
+    - Use a maximum of 30 rows unless the user asks for more.
     - Do not explain SQL unless requested.
-    - Use season filters when a season/year is mentioned.
+    - Use season filters when a season/year/player is mentioned.
 
     User question:
     {user_question}
     """
 
-    # 2. Package request with reference to your semantic model file
+    # 2. Package request with reference to your the semantic model YAML
     # Ensure you upload your YAML file to a Snowflake stage first (e.g., @MY_STAGE/revenue_timeseries.yaml)
     payload = {
         "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_stat_models_streamlit.yml",
