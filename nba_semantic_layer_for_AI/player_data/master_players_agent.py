@@ -4,9 +4,9 @@ from langchain.agents import create_agent
 from smolagents import CodeAgent, ToolCallingAgent, LiteLLMModel,tool
 from pydantic import BaseModel, Field
 from langchain import agents
-import snowflake_data as snow
+import nba_eda_snowflake as snow
 
-#df_stat = pd.read_csv('all_time_statistics_postmerger.csv')
+df_stats = snow.pull_player_stats()
 df_players = snow.pull_player_list()
 df_players = pd.DataFrame(df_players)
 # 2. Define the local Ollama model using the LiteLLM/OpenAI-compatible wrapper
