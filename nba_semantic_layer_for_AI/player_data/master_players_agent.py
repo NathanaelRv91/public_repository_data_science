@@ -10,14 +10,12 @@ df_stats = snow.pull_player_stats()
 df_players = snow.pull_player_list()
 df_players = pd.DataFrame(df_players)
 # 2. Define the local Ollama model using the LiteLLM/OpenAI-compatible wrapper
-# Ollama serves an OpenAI-compatible endpoint at localhost:11434/v1
 model = LiteLLMModel(
     model_id="ollama/llama3.2",
     api_base="http://localhost:11434",
     api_key="fake-key-not-needed"
 )
 
-# 3. Create a custom tool for the agent to inspect the data frame
 @tool
 def review_data(df_players: pd.DataFrame) -> str:
     """A tool that returns the summary statistics and structure of the dataset for NBA players.
@@ -43,7 +41,6 @@ agent = CodeAgent(
     additional_authorized_imports = ['pandas']
 )
 
-# 5. Query the agent against the dataset
 prompt = (
     "Look at the dataframe of NBA players in this function. "
    "Use the review_data tool to return the list of players who have a firstname that starts with the letter J."
