@@ -11,5 +11,5 @@
 <img width="565" height="323" alt="Screenshot 2026-07-21 130517" src="https://github.com/user-attachments/assets/7f795651-3408-494f-887c-6d010eb2b98f" />
 
 
-  $${\color{red}This\space PROJECT\space is\space NOT\space Finished\space Yet!}$$
+  $${\color{green}This\space PROJECT\space is\space ENABLED\space for\space Dynamic Analysis!}$$
   
