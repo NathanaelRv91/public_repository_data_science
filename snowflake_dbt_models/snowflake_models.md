@@ -12,4 +12,12 @@
 
 
   $${\color{green}This\space PROJECT\space is\space ENABLED\space for\space Dynamic Analysis!}$$
+
+  ```python
+name = streamlit_app.py
+def nba_stats_website(name):
+    print(f"Deployed successfully for public analysis on my website: {name}!")
+
+greet("GitHub")
+```
   
