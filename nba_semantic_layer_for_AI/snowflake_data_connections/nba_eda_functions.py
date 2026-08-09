@@ -1,4 +1,6 @@
 
+
+
 import pandas as pd
 import numpy as np
 import datetime
@@ -6,8 +8,8 @@ import snowflake.connector
 
 def pull_player_list():
     conn = snowflake.connector.connect(
-    user='*********6858841',
-    password='**********027!',
+    user= 'JANDERSON6858841',
+    password='JamesRVandNcr2027!',
     account='MNZAVFE-MM97348',
     warehouse='COMPUTE_WH',
     database='NBA_DB',
@@ -19,16 +21,17 @@ def pull_player_list():
         SELECT * FROM NBA_DB.PLAYER_DATA.PLAYER_DETAILS
             """
     try:
-    cursor.execute(SQL_player)
-    one_row_player = cursor.fetchall()
-    print("Successfully loaded data!:", one_row_player[100])
+        cursor.execute(sql_player)
+        one_row_player = cursor.fetch_pandas_all()
+        print("Successfully loaded data!:", one_row_player.head(5))
     finally:
         cursor.close()
         conn.close()
 
     df_player = pd.DataFrame(one_row_player)
+    df_player.to_csv("load_player_details.csv")
     ## PLAYER DETAILS LIST ##
-    df_player.columns = ['PERSONID','FIRSTNAME','LASTNAME','BIRTHDATE','SCHOOL','COUNTRY','HEIGHTINCHES','BODYWEIGHTLBS','JERSEY','GUARD','FORWARD','CENTER','DLEAGUEFLAG','NBAFLAG','GAMESPLAYEDFLAG','DRAFTYEAR','DRAFTROUND','DRAFTNUMBER','FROMYEAR','TOYEAR']
+    #df_player.columns = ['PERSONID','FIRSTNAME','LASTNAME','BIRTHDATE','SCHOOL','COUNTRY','HEIGHTINCHES','BODYWEIGHTLBS','JERSEY','GUARD','FORWARD','CENTER','DLEAGUEFLAG','NBAFLAG','GAMESPLAYEDFLAG','DRAFTYEAR','DRAFTROUND','DRAFTNUMBER','FROMYEAR','TOYEAR']
     return df_player
 
 
@@ -49,15 +52,16 @@ def pull_player_stats():
                 WHERE YEAR_SEASON >= 1976
             """
     try:
-    cursor.execute(SQL_stats)
-    one_row_stats = cursor.fetchall()
-    print("Successfully loaded data!:", one_row_stats[100])
+        cursor.execute(sql_stats)
+        one_row_stats = cursor.fetch_pandas_all()
+        print(f"Successfully loaded data!:",one_row_stats.head(5))
     finally:
         cursor.close()
         conn.close()
 
     df_stats = pd.DataFrame(one_row_stats)
+    df_stats.to_csv('load_player_statistics_postmerger.csv')
     ## PLAYER STATS COLUMNS ##
-    df_stats.columns = ['INDEX','FIRST_NAME','LAST_NAME','PLAYER_ID','GAME_ID','GAME_DATE','PLAYER_TEAM_CITY','PLAYER_TEAM_NAME','OPP_TEAM_CITY','OPP_TEAM_NAME','SEASON_TYPE','GM_LABEL','GM_SUBLABEL','GM_NUMBER','WIN','HOME','MIN_PLAYED','POINTS','ASSISTS','BLOCKS','STEALS','FGA','FGM','FG_PCT','PT3_ATT','PT3_FGM','PT3_PCT','FTA','FTM','FT_PCT','DRB','ORB','TRB','PF','TOS','PLUS_MINUS','PLAYER_TEAM_ID','OPP_TEAM_ID','COMMENT','POS','GAME_TIMESTAMP','YEAR_INT']
+    #df_stats.columns = ['INDEX','FIRST_NAME','LAST_NAME','PLAYER_ID','GAME_ID','GAME_DATE','PLAYER_TEAM_CITY','PLAYER_TEAM_NAME','OPP_TEAM_CITY','OPP_TEAM_NAME','SEASON_TYPE','GM_LABEL','GM_SUBLABEL','GM_NUMBER','WIN','HOME','MIN_PLAYED','POINTS','ASSISTS','BLOCKS','STEALS','FGA','FGM','FG_PCT','PT3_ATT','PT3_FGM','PT3_PCT','FTA','FTM','FT_PCT','DRB','ORB','TRB','PF','TOS','PLUS_MINUS','PLAYER_TEAM_ID','OPP_TEAM_ID','COMMENT','POS','GAME_TIMESTAMP','YEAR_INT']
     return df_stats
 
