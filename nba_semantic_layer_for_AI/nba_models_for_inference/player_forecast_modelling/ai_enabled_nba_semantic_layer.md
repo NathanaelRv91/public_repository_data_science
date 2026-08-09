@@ -1,4 +1,3 @@
---SUMMARY FOR AI embedded Nba Chatbot with dynamic native-language integrations:
 
 ## *&rarr; EDA & Profile Review to Query our Player Directory:*
 
