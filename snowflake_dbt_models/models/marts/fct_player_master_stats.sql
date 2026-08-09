@@ -131,7 +131,7 @@ rolled_up_player_perf AS (SELECT
     {% endfor %}
 
 FROM team_mapped
-    WHERE is_active = 1
+    WHERE YEAR_SEASON >= 2021
 GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
                  ),
 -- All of our player sources (list, details, career_accolades) we use to build the full end-user plofiles have conforming dimensions on the primary key PLAYER_ID --
