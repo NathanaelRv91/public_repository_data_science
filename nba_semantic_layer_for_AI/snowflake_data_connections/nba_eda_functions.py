@@ -1,8 +1,6 @@
-
-
-
-
-
+"""Snowflake Connector to access main data used by every semantic table in this project.
+Auth uses Snowflake user/pw Credentials.
+"""
 
 import pandas as pd
 import numpy as np
