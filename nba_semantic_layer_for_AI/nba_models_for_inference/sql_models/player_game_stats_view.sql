@@ -22,14 +22,12 @@ CREATE VIEW player_stats_view AS (
        c.instagram AS instagram_link,
        c.facebook AS fb_link,
        c.twitter AS x_link,
-FROM ALL_TIME_PLAYER_STATISTICS a
+FROM ALL_TIME_PLAYERS_STATISTICS a
 JOIN NBA_DB.PLAYER_DATA.PLAYER_LIST d
        ON a.player_id = d.id
 JOIN NBA_DB.TEAM_DATA.TEAM_LIST  b ON a.player_team_id = b.id
 LEFT JOIN TEAM_DETAILS_SOURCE  c
        ON b.id = c.team_id
-  FROM ALL_TIME_PLAYERS_STATISTICS
 ) 
-
 
 
