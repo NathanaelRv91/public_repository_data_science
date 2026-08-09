@@ -4,8 +4,7 @@ USE DATABASE NBA_DB;
 -- with DBT models, we can build our entire ML layer in the REPORTS SCHEMA! -- 
 USE SCHEMA REPORTS;
 
-CREATE OR REPLACE VIEW AS (
-  
+CREATE OR REPLACE TEMPORARY TABLE team_stats_temp AS (
  SELECT TEAMID,
     TEAMNAME,
     CASE WHEN EXTRACT (MONTH FROM GAMEDATE) <= 7 THEN DATE_PART(YEAR, GAMEDATE) - 1 ELSE DATE_PART(YEAR,GAMEDATE) END AS YEAR_TM,
@@ -29,10 +28,10 @@ CREATE OR REPLACE VIEW AS (
     SUM(FIELDGOALSMADE) AS team_fgm,
     DIV0(SUM(FIELDGOALSMADE),SUM(FIELDGOALSATTEMPTED)) AS team_pct_fg
     FROM ALL_TIME_TEAM_STATISTICS
-GROUP BY 1,2,3
-),
+GROUP BY 1,2,3);
 
-team_mapped AS (
+
+CREATE OR REPLACE VIEW team_stats_view AS (
     SELECT
        a.*,
        b.abbreviation,
@@ -47,14 +46,12 @@ team_mapped AS (
        c.instagram           AS instagram_link,
        c.facebook            AS fb_link,
        c.twitter             AS x_link
-FROM team_stats a
+FROM team_stats_temp a
             JOIN TEAM_LIST_SOURCE b
               ON a.teamid = b.id
             LEFT JOIN TEAM_DETAILS_SOURCE c
                ON b.id = c.team_id
-                ),
+                );
 
 
-
-)
 
