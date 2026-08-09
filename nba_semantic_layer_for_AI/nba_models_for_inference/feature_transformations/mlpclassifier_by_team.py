@@ -34,11 +34,11 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 mlp = MLPClassifier(
-    hidden_layer_sizes=(100, 50), # 2 hidden layers: 100 nodes, then 50 nodes
-    activation='relu',            # Rectified Linear Unit activation function
-    solver='adam',                # Optimization algorithm
-    max_iter=300,                 # Maximum number of epochs
-    random_state=42               # Ensures reproducible results
+    hidden_layer_sizes=(100, 50), 
+    activation='relu',           
+    solver='adam',                
+    max_iter=300,               
+    random_state=42           
 )
 
 mlp.fit(X_train_scaled, y_train)
