@@ -1,4 +1,8 @@
+USE ROLE ACCOUNTADMIN;
 
+USE DATABASE NBA_DB;
+-- with DBT models, we can build our entire ML layer in the REPORTS SCHEMA! -- 
+USE SCHEMA REPORTS;
 
 CREATE OR REPLACE VIEW AS (
   
