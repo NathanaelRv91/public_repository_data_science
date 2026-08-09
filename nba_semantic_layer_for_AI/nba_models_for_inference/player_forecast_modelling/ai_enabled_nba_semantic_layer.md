@@ -2,7 +2,7 @@
 
 &rarr; *Ollama LLM to Query our Player Directory: 
 
- [View Script](public_repository_data_science/nba_semantic_layer_for_AI/player_data/explore_player_data.py)
+ [Ollama Agent Explore Players](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/ollama_agent_inspect_snowflake_db.py)
 
  [Player_Exploration](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/feature_transformations/add_active_player_potential.py)
  
