@@ -24,8 +24,8 @@ for i in range(len(nba_data)):
     else: 
         nba_data.loc[i, "POSISION"] = "F"
 
-X = nba_data[['TEAM_NAME','FULL_NAME','YEAR_SEASON','rebounds','steals','assists']]
-y = nba_data['points']
+X = nba_data[['TEAM_NAME','POSITION','YEAR_SEASON','ASSISTS_2026','BLOCKS_2026','DRB_2026','TRB_2026','ORB_2026']]
+y = nba_data['POINTS_2026']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
