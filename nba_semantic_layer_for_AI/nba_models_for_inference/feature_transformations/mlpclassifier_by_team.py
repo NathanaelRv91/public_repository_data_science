@@ -9,7 +9,7 @@ from snowflake_data_connections import nba_eda_functions as nba
 # 2. Load data from the REPORTS SCHEMA and place into our test/train datasets for EDA # 
 nba_data = nba.pull_player_stats()
 
-X = nba_data[['rebounds','steals','assists']]
+X = nba_data[['team_name','YEAR_SEASON','rebounds','steals','assists']]
 y = nba_data['points']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
