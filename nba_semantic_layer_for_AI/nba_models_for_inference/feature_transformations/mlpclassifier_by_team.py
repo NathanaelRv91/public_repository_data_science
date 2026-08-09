@@ -8,8 +8,23 @@ from snowflake_data_connections import nba_eda_functions as nba
 
 # 2. Load data from the REPORTS SCHEMA and place into our test/train datasets for EDA # 
 nba_data = nba.pull_player_stats()
+nba_data = pd.DataFrame(nba_data)
 
-X = nba_data[['TEAM_NAME','YEAR_SEASON','rebounds','steals','assists']]
+for i in range(len(nba_data)):
+    if (nba_data.loc[i,"IS_GUARD"] == 1 & nba_data.loc[i, "IS_FORWARD"] == 1):
+        nba_data.loc[i, "POSITION"] = "G"
+    elif (nba_data.loc[i,"IS_FORWARD"] == 1 & nba_data.loc[i, "IS_CENTER"] == 1):
+        nba_data.loc[i, "POSITION"] = "F"
+    elif nba_data.loc[i,"IS_GUARD"] == 1:
+        nba_data.loc[i, "POSITION"] = "G"
+    elif nba_data.loc[i,"IS_FORWARD"] == 1:
+        nba_data.loc[i, "POSITION"] = "F"
+    elif nba_data.loc[i,"IS_CENTER"] == 1:
+        nba_data.loc[i, "POSITION"] = "C"
+    else: 
+        nba_data.loc[i, "POSISION"] = "F"
+
+X = nba_data[['TEAM_NAME','FULL_NAME','YEAR_SEASON','rebounds','steals','assists']]
 y = nba_data['points']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
