@@ -42,7 +42,7 @@ for i in range(len(nba_data)):
 
 
 season_stats = ['Total_Points','Total_Rebounds','Total_Assists','Total_Blocks','Total_Steals']
-seasons = [2023,2024,2025]
+seasons = [2023,2024,2025,2026]
 
 nba_data = nba_data.groupby(["POSITION","YEAR_SEASON"]).agg(
         Total_Points=('POINTS', 'sum'),
