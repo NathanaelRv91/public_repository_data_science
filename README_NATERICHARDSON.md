@@ -15,7 +15,11 @@
   - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
            &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
             &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build.
-      * Data is funnelled into player per-season stats with totals & averages
+      * Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE BLEOW)
+   
+[streamlit_all_time_player_app.pdf](https://github.com/user-attachments/files/30912627/streamlit_all_time_player_app.pdf)
+
+
       * Data is Transformed into career level stats and merged into static data for: career accolades & player profiles
   - **ad_hoc_analysis** :file_folder: This folder contains my older work that was when I was starting out as an analyst 5 years ago. I have build custom dashboards in Looker, Power BI & Have setup my personal website with Wordpress over the past few years. In this folder you will find:
        * Data for the top 30 NBA players of all time with a weighted/normalized point system. The 30 players are integrated into my full data pipeline for NBA Analysis  &#8659;
