@@ -60,13 +60,17 @@ mlp_pipeline = Pipeline(steps=[
     ('preprocessor', preprocessor),
     ('classifier', MLPClassifier(hidden_layer_sizes=(50,), max_iter=500, random_state=42,activation='relu'))
 ])
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
-print(X_train.head(5))
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+print("Full Preview Training Data: ",X_train.head(5))
 X_train.to_csv('check_x_train.csv')
-print("THEN THIS")
-print(y_train.head(5))
 y_train.to_csv('check_y_train.csv')
+
+mlp_pipeline.fit(X_train, y_train)
+
+# Evaluate final test accuracy
+accuracy = mlp_pipeline.score(X_test, y_test)
+print(f"Test Accuracy: {accuracy:.4f}")
 
 mlp_pipeline.fit(X_train, y_train)
 
