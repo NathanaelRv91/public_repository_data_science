@@ -13,8 +13,8 @@
   - **forecasting_models** :file_folder: Projects for Global Retail Spend (offline vs online) by Market OR Retailer :earth_americas:
       * Data Is sourced from open source APIs from Eurostat, OECD & World Bank ICP Program
   - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
-           &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
-            &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build.
+      &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
+      &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build.
     
       * Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE PDF BELOW)
    
