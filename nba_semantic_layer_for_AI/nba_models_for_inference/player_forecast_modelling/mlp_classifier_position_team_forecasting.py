@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
-import matplotlib as plt
 import datetime as dt
 from sklearn.model_selection import cross_val_score
-import sklearn.metrics
 import nba_eda_functions as nba
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -13,15 +11,18 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, classification_report
 
-nba_data = nba.pull_player_view()
-player_list = nba.pull_player_list()
+#nba_data = nba.pull_player_view()
+#player_list = nba.pull_player_list()
+player_list = pd.read_csv('load_player_details.csv')
+nba_data = pd.read_csv('load_player_statistics_fcast_view.csv')
 nba_data = pd.DataFrame(nba_data)
+nba_data = nba_data[['PLAYER_TEAM_NAME','YEAR_SEASON','ASSISTS','BLOCKS','DRB','TRB','ORB','FGA','FGM','POINTS','PLAYER_ID']]
 player_list = pd.DataFrame(player_list)
 player_list['PLAYER_NAME'] = player_list['FIRSTNAME'] + ' ' + player_list['LASTNAME']
 
 nba_data = pd.merge(nba_data,player_list, how = 'inner', left_on = 'PLAYER_ID', right_on = 'PERSONID')
 print(nba_data.columns)
-nba_data.dropna(subset=['PLAYER_NAME_x'], inplace=True)
+nba_data.dropna(subset=['PLAYER_NAME'], inplace=True)
 
 
 for i in range(len(nba_data)):
@@ -49,17 +50,23 @@ pos_order = ['G','F','C']
 
 preprocessor = ColumnTransformer(
     transformers=[
-        ('ord', OrdinalEncoder(categories=pos_order), ordinal_cols),
-        ('nom', OneHotEncoder(drop='first', sparse_output=False), nominal_cols),
+        ('ord', OrdinalEncoder(), ordinal_cols),
+        ('nom', OneHotEncoder(),nominal_cols),
         ('num', StandardScaler(), numeric_cols)
     ]
 )
 
 mlp_pipeline = Pipeline(steps=[
     ('preprocessor', preprocessor),
-    ('classifier', MLPClassifier(hidden_layer_sizes=(50, 25), max_iter=500, random_state=42))
+    ('classifier', MLPClassifier(hidden_layer_sizes=(50,), max_iter=500, random_state=42,activation='relu'))
 ])
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+print(X_train.head(5))
+X_train.to_csv('check_x_train.csv')
+print("THEN THIS")
+print(y_train.head(5))
+y_train.to_csv('check_y_train.csv')
 
 mlp_pipeline.fit(X_train, y_train)
 
