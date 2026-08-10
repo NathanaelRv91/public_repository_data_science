@@ -41,7 +41,7 @@ for i in range(len(nba_data)):
         nba_data.loc[i, "POSITION"] = "F"
 
 
-position_stats = ['G','F','C']
+season_stats = ['Total_Points','Total_Rebounds','Total_Assists','Total_Blocks','Total_Steals']
 seasons = [2023,2024,2025]
 
 nba_data = nba_data.groupby(["POSITION","YEAR_SEASON"]).agg(
@@ -56,11 +56,10 @@ nba_data = pd.DataFrame(nba_data)
 nba_data.reset_index(inplace = True)
 nba_data.to_csv('check_player_rollup.csv')
 for season in seasons:
-    for j in position_stats:
+    for j in season_stats:
         nba_data_season = nba_data[nba_data.YEAR_SEASON == season]
-        nba_data_season = nba_data_season[nba_data_season.POSITION == j]
-        plt.bar(seasons, nba_data_season['Total_Points'], color='skyblue', width=0.6)
-        plt.title(f"Total Points for {season}")
+        plt.bar(nba_data_season['POSITION'], nba_data_season[j], color='skyblue', width=0.6)
+        plt.title(f"Total Stats for {season}")
         plt.xlabel('Player Position')
-        plt.ylabel('Total Points')
+        plt.ylabel(f" Season Statistics: {j}")
         plt.show()
