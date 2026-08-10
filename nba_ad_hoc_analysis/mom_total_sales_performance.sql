@@ -1,7 +1,7 @@
 /*
   $$ META HEADERS $$
-  Importance:::               Perpetua Base Reporting
-  Query URL or File:::        marts>media>amazon>asin_performance
+  Importance:::               Market Ecomm Analysis Base Reporting
+  Query URL or File:::        marts>media>amazon>performance
   Unique Name:::              mom_total_sales_performance
 */
 
