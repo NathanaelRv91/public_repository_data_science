@@ -19,8 +19,8 @@ st.set_page_config(
 @st.cache_resource
 def init_snowflake_connection():
     ctx = snowflake.connector.connect(
-        user='*****6858841',
-        password='*********2027!',
+        user='JANDERSON6858841',
+        password='JamesRVandNcr2027!',
         account='MNZAVFE-MM97348',
         database="NBA_DB",
         schema='REPORTS')
@@ -65,6 +65,7 @@ st.subheader("Real-time telemetry and reporting driven by Snowflake Data Cloud")
 base_query = "SELECT * FROM NBA_DB.REPORTS.ALL_TIME_TEAM_STATISTICS"
 if team_filter != "All":
     base_query += f" WHERE TEAMNAME = '{team_filter}'"
+base_query += f"ORDER BY GAMEDATE DESC"
 base_query += f" LIMIT {limit_rows};"
 
 # Pull data securely from Snowflake
@@ -80,7 +81,7 @@ if not df.empty:
         # Assuming a numerical metric column exists (e.g., 'revenue' or 'cost')
         numeric_val = df.select_dtypes(include='number').columns[0] if len(
             df.select_dtypes(include='number').columns) > 0 else None
-        st.metric(label="Avg Metric Value", value=round(df[numeric_val].mean(), 2) if numeric_val else "N/A")
+        st.metric(label=f"Avg Points Per Game last {limit_rows} games", value=round(df['TEAMSCORE'].mean(), 2) if numeric_val else "N/A")
     with col3:
         st.metric(label="Cache Lifespan (TTL)", value="10 Mins")
 
