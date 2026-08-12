@@ -7,8 +7,8 @@ import snowflake.connector
 
 # Establish the connection
 conn = snowflake.connector.connect(
-    user='janderson6858841',
-    password='JamesRVandNcr2027!',
+    user='*******6858841',
+    password='*********2027!',
     account='MNZAVFE-MM97348',
     warehouse='COMPUTE_WH',
     database='NBA_DB',
