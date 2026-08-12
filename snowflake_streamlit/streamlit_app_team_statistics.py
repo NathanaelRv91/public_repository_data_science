@@ -1,4 +1,4 @@
-# streamlit_app.py
+# streamlit app for the game summary of the latest games played by the NBA team #
 import streamlit as st
 import pandas as pd
 from snowflake.snowpark import Session
