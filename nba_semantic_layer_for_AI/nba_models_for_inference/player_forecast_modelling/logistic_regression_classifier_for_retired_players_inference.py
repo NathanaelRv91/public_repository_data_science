@@ -20,3 +20,11 @@ y_pred = reg.predict(X_test)
 print(f"Logistic Regression model accuracy: {metrics.accuracy_score(y_test, y_pred) * 100:.2f}%")
 y_pred = pd.DataFrame(y_pred)
 y_pred.to_csv('test_fcast_model_test.csv')
+
+
+-- PASS A random player profile into predict to see if they are likely to retire next season -- 
+reg.predict(['2017','56','.745','355','67','35','89','22'])
+>>> output: NOT RETIRED YET!
+  
+
+  
