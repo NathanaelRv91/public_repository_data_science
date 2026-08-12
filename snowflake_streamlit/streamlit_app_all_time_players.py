@@ -1,4 +1,12 @@
 # streamlit_app.py
+""" 
+This is my basic all-time players app that I built from ad-hoc research for each player from basketball-refrence.
+The top 33 all time players are provided based on my subjective research into who has the most impressive resume. 
+You can review my 'nba_ad_hoc_analysis' folder to supply the point system and source data from my sql that reshaped raw data to combine with: 
+ALL-NBA 1st, 2nd, 3rd Teams, All-NBA Defense 1st & 2nd teams, Rookie & 6MOY, All-Star Games/Playoff Seasons & Season Stat Leader for all 5 major offensive statistics.
+These Awards & Accolades source the point system where I rank each of the top 30 players sequentially. 
+The distribution of my player point system can be found in this Folder: https://github.com/NathanaelRv91/public_repository_data_science/tree/main/nba_semantic_layer_for_AI/nba_models_for_inference/feature_transformations
+"""
 import streamlit as st
 import pandas as pd
 from snowflake.snowpark import Session
