@@ -19,8 +19,8 @@ st.set_page_config(
 @st.cache_resource
 def init_snowflake_connection():
     ctx = snowflake.connector.connect(
-        user='JANDERSON6858841',
-        password='JamesRVandNcr2027!',
+        user='*****6858841',
+        password='*******Ncr2027!',
         account='MNZAVFE-MM97348',
         database="NBA_DB",
         schema='REPORTS')
