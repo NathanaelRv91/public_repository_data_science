@@ -23,7 +23,8 @@ y_pred.to_csv('test_fcast_model_test.csv')
 
 
 -- PASS A random player profile into predict to see if they are likely to retire next season -- 
-reg.predict(['2017','56','.745','355','67','35','89','22'])
+player_pred = reg.predict(['2017','56','.745','355','67','35','89','22'])
+player_fcst = iff(player_pred != "RETIRE", "NOT RETIRED YET","RETIRE")
 >>> output: NOT RETIRED YET!
   
 
