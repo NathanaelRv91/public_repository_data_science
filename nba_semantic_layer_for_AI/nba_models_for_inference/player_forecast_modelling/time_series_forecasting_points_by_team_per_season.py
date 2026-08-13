@@ -1,3 +1,8 @@
+""" A conservative slightly linear model that adds a subtle scoring 'lift' to any of the 30 NBA teams: 
+multiple linear regression model that pulls a cortex AI sentiment function further downstream of scoring performance for each in NBA team from internal snowflake staging! 
+This intermediate forcast is designed to show how we can create a function for this process and feed into a clean Streamlit App. 
+"""
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
