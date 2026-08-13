@@ -8,9 +8,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error,r2_score
+import nba_eda_functions as nba
 
 # 1. Create a dummy time series dataset (e.g., Monthly Sales)
-nba_data = pd.read_csv('NBA_DB_TEAM_STATS.csv')
+nba_data = nba.pull_team_view()
 nba_data = pd.DataFrame(nba_data)
 nba_data = nba_data[nba_data.YEAR_TM >= 2020]
 nba_data.sort_values(by = ['TEAMNAME','YEAR_TM'], inplace = True)
