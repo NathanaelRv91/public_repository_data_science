@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error,r2_score
 
 # 1. Create a dummy time series dataset (e.g., Monthly Sales)
 nba_data = pd.read_csv('NBA_DB_TEAM_STATS.csv')
@@ -53,7 +53,7 @@ df["Lag_pts"] = df["team_points"].shift(1)    # Captures what happened last mont
 df.dropna(inplace=True)
 df.reset_index(inplace = True)
 
-df = df[df['TEAMNAME'] == 'Heat']
+df = df[df['TEAMNAME'] == 'Lakers']
 # 3. Split into Features (X) and Target (y)
 X = df[["Time_Step","Lag_pts",'team_rebounds','team_assists','team_steals','team_blocks']]
 y = df["team_points"]
@@ -73,6 +73,7 @@ y_pred = model.predict(X_test)
 # Calculate Error Metric
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 coeff = model.coef_
+print(f" R2 Score with 6 Features: {r2_score(y_test,y_pred)}")
 print(f"Test Root Mean Squared Error (RMSE): {rmse:.2f}")
 print(f"model coeff: {str(coeff)}")
 
