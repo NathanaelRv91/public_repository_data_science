@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score
 from collections import deque
 from sklearn.preprocessing import StandardScaler
-#from tabulate import tabulate
+from tabulate import tabulate
 
 #player_data = nb.pull_player_list()
 player = pd.read_csv('nba_player_fcast_view.csv')
@@ -96,7 +96,36 @@ list_features = pd.DataFrame(list_features)
 coeff_predictors = pd.concat([list_features, multipliers], axis = 1)
 coeff_predictors.columns = ['Feature_Name','COEFF']
 print(coeff_predictors)
-coeff_predictors.to_csv('coeff_predictors.csv')
-#coeff_predictors = tabulate(table_data, headers=["Feature", "Coeff"])
+
+player_transform = coeff_predictors.iloc[0,1]
+season_transform = coeff_predictors.iloc[1,1]
+steals_transform = coeff_predictors.iloc[2,1]
+blocks_transform = coeff_predictors.iloc[3,1]
+assists_transform = coeff_predictors.iloc[4,1]
+rebounds_transform = coeff_predictors.iloc[5,1]
+wins_transform = coeff_predictors.iloc[6,1]
+
+X_train_fcast.reset_index(inplace = True)
+### RUN Forecasting on 2026 - 2033 Seasons for all Active Players ###
+for i in range(len(X_train_fcast)):
+    if X_train_fcast.loc[i,'YEAR_SEASON'] >= 2025:
+        X_train_fcast.loc[i, 'PLAYER_NAMES'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * player_transform
+        X_train_fcast.loc[i, 'PLAYER_MULT'] = X_train_fcast.loc[i, 'YEAR_SEASON'] * season_transform
+        X_train_fcast.loc[i, 'steals'] = X_train_fcast.loc[i, 'steals'] * steals_transform
+        X_train_fcast.loc[i, 'blocks'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * blocks_transform
+        X_train_fcast.loc[i, 'assists'] = X_train_fcast.loc[i, 'assists'] * assists_transform
+        X_train_fcast.loc[i, 'rebounds'] = X_train_fcast.loc[i, 'rebounds'] * rebounds_transform
+        X_train_fcast.loc[i, 'wins'] = X_train_fcast.loc[i, 'wins'] * wins_transform
+        X_train_fcast['points'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * X_train_fcast.loc[i, 'PLAYER_MULT'] * X_train_fcast.loc[i, 'steals'] * \
+                                        X_train_fcast.loc[i, 'assists'] * X_train_fcast.loc[i, 'rebounds'] * X_train_fcast.loc[i, 'wins']
+
+
+
 y_pred = model.predict(X_test)
-print(f" Model R2: {r2_score(y_test,y_pred)}")
+y_pred = pd.Series(y_pred)
+print(f" Model for Base R2: {r2_score(y_test,y_pred)}")
+
+
+pred_series = pd.Series(y_pred, index=X_test.index, name="Predicted_Value")
+result_df = pd.concat([X_test,pred_series], axis = 1)
+result_df.to_csv('base_model_fcast.csv')
