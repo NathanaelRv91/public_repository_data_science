@@ -10,7 +10,6 @@ from collections import deque
 from sklearn.preprocessing import StandardScaler
 from tabulate import tabulate
 
-
 #player_data = nb.pull_player_list()
 player = pd.read_csv('nba_player_fcast_view.csv')
 print(player.columns)
@@ -112,13 +111,13 @@ for i in range(len(X_train_fcast)):
         X_train_fcast.loc[i, 'PLAYER_NAMES'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * player_transform
         X_train_fcast.loc[i, 'PLAYER_MULT'] = X_train_fcast.loc[i, 'YEAR_SEASON'] * season_transform
         X_train_fcast.loc[i, 'steals'] = X_train_fcast.loc[i, 'steals'] * steals_transform
-        X_train_fcast.loc[i, 'blocks'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * blocks_transform
+        X_train_fcast.loc[i, 'blocks'] = X_train_fcast.loc[i, 'blocks'] * blocks_transform
         X_train_fcast.loc[i, 'assists'] = X_train_fcast.loc[i, 'assists'] * assists_transform
         X_train_fcast.loc[i, 'rebounds'] = X_train_fcast.loc[i, 'rebounds'] * rebounds_transform
-        X_train_fcast.loc[i, 'wins'] = X_train_fcast.loc[i, 'wins'] * wins_transform
-        X_train_fcast['points'] = X_train_fcast.loc[i, 'PLAYER_NAMES'] * X_train_fcast.loc[i, 'PLAYER_MULT'] * X_train_fcast.loc[i, 'steals'] * \
-                                        X_train_fcast.loc[i, 'assists'] * X_train_fcast.loc[i, 'rebounds'] * X_train_fcast.loc[i, 'wins']
+        X_train_fcast.loc[i, 'wins'] = X_train_fcast.loc[i, 'wins'] + wins_transform
 
+X_train_fcast['points'] = X_train_fcast['PLAYER_NAMES'] + X_train_fcast['PLAYER_MULT'] + X_train_fcast['steals'] + \
+                                        X_train_fcast['assists'] + X_train_fcast['rebounds'] + X_train_fcast['wins']
 
 
 y_pred = model.predict(X_test)
@@ -131,3 +130,10 @@ X_test['Trend'] = np.arange(len(X_test))
 result_df = pd.merge(X_test,y_pred,how = 'left', on = "Trend")
 base_fcast = pd.merge(result_df, player_report_map, how = 'left', on = 'PLAYER_NAMES')
 base_fcast.to_csv('base_model_fcast_w_names.csv')
+X_train_fcast = X_train_fcast[['PLAYER_NAMES','YEAR_SEASON','steals','blocks','assists','rebounds','wins','points']]
+X_train_fcast.to_csv('fcast_model_with_names.csv')
+eight_year_fcast = pd.merge(X_train_fcast, player_report_map, how = 'left', on = 'PLAYER_NAMES')
+
+full_model = pd.concat([base_fcast,eight_year_fcast],axis = 0)
+full_model = pd.DataFrame(full_model)
+full_model.describe()
