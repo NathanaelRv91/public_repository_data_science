@@ -10,14 +10,14 @@ from collections import deque
 from sklearn.preprocessing import StandardScaler
 from tabulate import tabulate
 
+
 #player_data = nb.pull_player_list()
 player = pd.read_csv('nba_player_fcast_view.csv')
 print(player.columns)
 player['PLAYER_NAME'] = player['FIRST_NAME'] + ' ' + player['LAST_NAME']
+player_data = player[['PLAYER_NAME','PLAYER_ID','PLAYER_TEAM_NAME','YEAR_SEASON','BLOCKS','STEALS','ASSISTS','TRB','POINTS','FT_PCT','WIN']]
 
-player_data = player[['PLAYER_NAME','PLAYER_TEAM_NAME','YEAR_SEASON','BLOCKS','STEALS','ASSISTS','TRB','POINTS','FT_PCT','WIN']]
-
-player_report = player_data.groupby(['PLAYER_NAME','YEAR_SEASON']).agg(
+player_report = player_data.groupby(['PLAYER_NAME','PLAYER_ID','YEAR_SEASON']).agg(
     points = ('POINTS','sum'),
     steals = ('STEALS','sum'),
     blocks=('BLOCKS', 'sum'),
@@ -33,8 +33,8 @@ print(player_report['YEAR_SEASON'].min())
 player_list = list(player_report['PLAYER_NAME'].unique())
 encoder = OrdinalEncoder(categories=[player_list])
 player_report['PLAYER_NAMES'] = encoder.fit_transform(player_report[['PLAYER_NAME']])
-
-player_report.PLAYER_NAMES.to_csv('player_names.csv')
+player_report_map = player_report[['PLAYER_NAME','PLAYER_NAMES']].drop_duplicates()
+player_report_map.to_csv('player_name_map.csv')
 
 nba_players = pd.DataFrame(player_report['PLAYER_NAMES'].unique())
 nba_players.columns = ['PLAYER_IDs']
@@ -42,7 +42,7 @@ nba_players.columns = ['PLAYER_IDs']
 X = player_report[['PLAYER_NAMES', 'YEAR_SEASON', 'steals', 'blocks','assists', 'rebounds', 'wins']]
 y = player_report['points']
 
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = .2,random_state =42,shuffle = True)
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = .2,random_state =42,shuffle = False)
 
 date_range = range(2022,2034,1)
 date_range = pd.DataFrame(date_range)
@@ -122,10 +122,12 @@ for i in range(len(X_train_fcast)):
 
 
 y_pred = model.predict(X_test)
-y_pred = pd.Series(y_pred)
-print(f" Model for Base R2: {r2_score(y_test,y_pred)}")
-
-
-pred_series = pd.Series(y_pred, index=X_test.index, name="Predicted_Value")
-result_df = pd.concat([X_test,pred_series], axis = 1)
-result_df.to_csv('base_model_fcast.csv')
+y_pred = pd.DataFrame(y_pred)
+y_pred.columns = ['points']
+y_pred.reset_index(inplace = True)
+y_pred["Trend"] = np.arange(len(y_pred))
+X_test['Trend'] = np.arange(len(X_test))
+#pred_series = pd.Series(y_pred, index=X_test.index, name="Predicted_Value")
+result_df = pd.merge(X_test,y_pred,how = 'left', on = "Trend")
+base_fcast = pd.merge(result_df, player_report_map, how = 'left', on = 'PLAYER_NAMES')
+base_fcast.to_csv('base_model_fcast_w_names.csv')
