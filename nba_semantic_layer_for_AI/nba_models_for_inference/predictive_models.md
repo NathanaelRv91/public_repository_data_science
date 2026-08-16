@@ -9,5 +9,7 @@
 
 &rarr; [PLAYER MODELING to Predict POSITION from Game Statistics](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/mlp_classifier_position_team_forecasting.py)
 
+&rarr; [Player Points Per Season 8 Year Forecast](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/player_points_forecasting_with_ordinal_encoding.py)
+
 
 ## NBA All-Time Player Rankings (Point System) ## 
