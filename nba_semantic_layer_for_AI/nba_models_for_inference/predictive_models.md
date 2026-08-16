@@ -11,6 +11,10 @@
 
 &rarr; [Player Points Per Season 8 Year Forecast](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/player_points_forecasting_with_ordinal_encoding.py)
 
+*I Have conducted predictions analysis using 2 specific strategies. First I used a 80/20 train-test split to fit 10 years of data for all players in the NBA since 2015. Then I used my fitted model with 7 distinct predictors to forecast total season points to over 80% model accuracy (SEE BELOW)* 
+
+<img width="1219" height="784" alt="Screenshot (2739)" src="https://github.com/user-attachments/assets/bb06d87c-0e86-493f-b481-3945d0e28f55" />
+
 
 ## NBA All-Time Player Rankings (Point System) ## 
 
