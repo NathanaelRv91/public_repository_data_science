@@ -1,6 +1,6 @@
 ## NBA Team Forecasting ## 
 
-*Multiple-Linear Regression for a conservative 8-year NBA TEAM Season Points Prediction*
+*Multiple-Linear Regression for a conservative 8-year NBA TEAM Season Points Prediction (DENVER NUGGETS)*
 <img width="718" height="374" alt="Screenshot (2735)" src="https://github.com/user-attachments/assets/04aa8400-9359-4bef-80df-a7f514479447" />
 
 **These models execute the sequential phases of the ML Lifecycle**
