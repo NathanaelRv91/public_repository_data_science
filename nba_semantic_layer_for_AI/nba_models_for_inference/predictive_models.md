@@ -18,7 +18,10 @@
 
 ## NBA All-Time Player Rankings (Point System) ## 
 
-*Basic Player Stats Rankings for all statistics by per game and season totals since 2015*
+*Basic Player Stats Rankings for all statistics by per game and season totals since 1946*
+
+&rarr; You can reference the following analyses in my workspace to see how I built a comprehensive all-time player ranking system: 
+  - [ALL-TIME PLAYER LISTS Breakdown!] (https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_ad_hoc_analysis/2025%20NBA%20All%20Time%20Player%20List.pptx)
 
 
 
