@@ -13,7 +13,7 @@
 
 *I Have conducted predictions analysis using 2 specific strategies. First I used a 80/20 train-test split to fit 10 years of data for all players in the NBA since 2015. Then I used my fitted model with 7 distinct predictors to forecast total season points to over 80% model accuracy (SEE BELOW)* 
 
-<img width="1219" height="784" alt="Screenshot (2739)" src="https://github.com/user-attachments/assets/bb06d87c-0e86-493f-b481-3945d0e28f55" />
+<img width="919" height="584" alt="Screenshot (2739)" src="https://github.com/user-attachments/assets/bb06d87c-0e86-493f-b481-3945d0e28f55" />
 
 
 ## NBA All-Time Player Rankings (Point System) ## 
