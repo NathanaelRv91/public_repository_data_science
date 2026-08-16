@@ -22,6 +22,7 @@
 
 &rarr; You can reference the following analyses in my workspace to see how I built a comprehensive all-time player ranking system: 
   - [ALL-TIME PLAYER LISTS Breakdown!] (https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_ad_hoc_analysis/2025%20NBA%20All%20Time%20Player%20List.pptx)
+  - [Top 30 Data Report](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_ad_hoc_analysis/Player_Statistics_Master_Top30_Report.xlsx)
 
 
 
