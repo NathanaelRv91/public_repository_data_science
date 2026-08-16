@@ -13,3 +13,9 @@
 
 
 ## NBA All-Time Player Rankings (Point System) ## 
+
+*Basic Player Stats Rankings for all statistics by per game and season totals since 2015*
+
+
+
+
