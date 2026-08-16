@@ -1,3 +1,9 @@
+"""
+THIS is a Basic Multi-Linear Regression Model that uses a snowflake connector to pull NBA stats for the past 5 years for any active player; 
+The data is split chronologically so that the model trains all player data from 2021-2024 and predicts 2025 to set up for recursion using the coefficients 
+for forecasting through 2033 later on. 
+
+"""
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
