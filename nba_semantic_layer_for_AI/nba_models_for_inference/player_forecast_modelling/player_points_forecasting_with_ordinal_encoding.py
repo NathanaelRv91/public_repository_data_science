@@ -50,8 +50,20 @@ date_players = date_players[['YEAR','PLAYER_ID']]
 date_players.to_csv('check_cross_nba.csv')
 player_report.to_csv('check_player_report.csv')
 
-fcast_train = pd.merge(date_players,player_report, how = 'inner', left_on = ['YEAR','PLAYER_ID'], right_on = ['YEAR_SEASON','PLAYER_NAMES'])
+fcast_train = pd.merge(date_players,player_report, how = 'left', left_on = ['YEAR','PLAYER_ID'], right_on = ['YEAR_SEASON','PLAYER_NAMES'])
 fcast_train.to_csv('setup_player_fcast.csv')
+
+## ADD benchmark for players based on career averages (last 10 seasons) ##
+player_bmark = player_report.groupby(['PLAYER_NAME']).agg(
+points = ('points','mean'),
+    steals = ('steals','mean'),
+    blocks=('blocks', 'mean'),
+    assists=('assists', 'mean'),
+    rebounds=('rebounds', 'mean'),
+    wins=('wins', 'mean'),
+    seasons = ('YEAR_SEASON','count')
+).reset_index()
+
 
 fcast_base = fcast_train[fcast_train.YEAR_SEASON <= 2025]
 fcast_x_train = fcast_base[fcast_base.PLAYER_ID <= 900]
