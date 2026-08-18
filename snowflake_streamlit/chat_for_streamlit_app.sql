@@ -19,7 +19,7 @@ session = get_snowflake_session()
 user_question = st.chat_input("Ask a question about your structured data:")
 
 if user_question:
-    # 1. Target the REST API endpoint inside my snowflake region account
+    # 1. Target the REST API endpoint inside your Snowflake region
     account_host = st.secrets["snowflake"]["account"] + ".snowflakecomputing.com"
     api_url = f"https://{account_host}/api/v2/cortex/analyst/message"
 
@@ -30,18 +30,18 @@ if user_question:
     Instructions:
     - Answer concisely.
     - Provide only the key findings.
-    - Use a maximum of 30 rows unless the user asks for more.
+    - Use a maximum of 10 rows unless the user asks for more.
     - Do not explain SQL unless requested.
-    - Use season filters when a season/year/player is mentioned.
+    - Use season filters when a season/year is mentioned.
 
     User question:
     {user_question}
     """
 
-    # 2. Package request with reference to your the semantic model YAML
+    # 2. Package request with reference to your semantic model file
     # Ensure you upload your YAML file to a Snowflake stage first (e.g., @MY_STAGE/revenue_timeseries.yaml)
     payload = {
-        "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_stat_models_streamlit.yml",
+        "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_semantic_models_new/nba_semantic_models.yml",
         "messages": [
             {
                 "role": "user",
