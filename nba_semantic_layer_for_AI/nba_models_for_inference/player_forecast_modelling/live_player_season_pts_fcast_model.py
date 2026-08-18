@@ -75,6 +75,8 @@ for i in range(len(fcast_players)):
         if pd.isna(fcast_players.loc[i-1,'YEAR_SEASON']):
             pass
         else:
+            fcast_players.loc[i, 'seasons'] = fcast_players.loc[i - 1, 'seasons'] + 1
+            fcast_players.loc[i, 'multiplier'] = np.where(fcast_players.loc[i, 'seasons'] <= 8, 1.03, .88)
             fcast_players.loc[i,'steals_y'] = fcast_players.loc[i - 1,'steals_y']
             fcast_players.loc[i, 'blocks_y'] = fcast_players.loc[i - 1, 'blocks_y']
             fcast_players.loc[i, 'assists_y'] = fcast_players.loc[i - 1, 'assists_y']
@@ -91,17 +93,15 @@ fcast_players.dropna(subset = ['PLAYER_NAME'], inplace = True)
 fcast_players.reset_index(inplace = True)
 for i in range(len(fcast_players)):
     if fcast_players.loc[i, 'YEAR'] > 2025:
-        fcast_players.loc[i, 'steals_x'] = .7 * fcast_players.loc[i - 1, 'steals_x'] + .3 * fcast_players.loc[i,'steals_y']
-        fcast_players.loc[i, 'blocks_x'] = .7 * fcast_players.loc[i - 1, 'blocks_x'] + .3 * fcast_players.loc[
-            i, 'blocks_y']
-        fcast_players.loc[i, 'assists_x'] = .7 * fcast_players.loc[i - 1, 'assists_x'] + .3 * fcast_players.loc[
-            i, 'assists_y']
-        fcast_players.loc[i, 'rebounds_x'] = .7 * fcast_players.loc[i - 1, 'rebounds_x'] + .3 * fcast_players.loc[
-            i, 'rebounds_y']
+        fcast_players.loc[i, 'steals_x'] = (.7 * fcast_players.loc[i - 1, 'steals_x'] + .3 * fcast_players.loc[i,'steals_y']) * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'blocks_x'] = (.7 * fcast_players.loc[i - 1, 'blocks_x'] + .3 * fcast_players.loc[
+            i, 'blocks_y']) * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'assists_x'] = (.7 * fcast_players.loc[i - 1, 'assists_x'] + .3 * fcast_players.loc[
+            i, 'assists_y']) * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'rebounds_x'] = (.7 * fcast_players.loc[i - 1, 'rebounds_x'] + .3 * fcast_players.loc[
+            i, 'rebounds_y']) * fcast_players.loc[i,'multiplier']
         fcast_players.loc[i, 'wins_x'] = .7 * fcast_players.loc[i - 1, 'wins_x'] + .3 * fcast_players.loc[
             i, 'wins_y']
-        fcast_players.loc[i,'seasons'] = fcast_players.loc[i - 1,'seasons'] + 1
-        fcast_players.loc[i,'multiplier'] = np.where(fcast_players.loc[i,'seasons'] <= 8,1.05,.9)
 
 fcast_players.to_csv('101_nba_model_final_SETUP.csv')
 
@@ -174,12 +174,12 @@ print(assists_transform)
 for i in range(len(fcast_players)):
     if fcast_players.loc[i,'YEAR'] > 2025:
         fcast_players.loc[i, 'PLAYER_NAMES'] = fcast_players.loc[i, 'PLAYER_NAMES'] * player_transform
-        fcast_players.loc[i,'YEAR_SEASON'] = fcast_players.loc[i, 'YEAR_SEASON'] * season_transform
-        fcast_players.loc[i, 'steals_x'] = fcast_players.loc[i, 'steals_x'] * steals_transform
-        fcast_players.loc[i, 'blocks_x'] = fcast_players.loc[i, 'blocks_x'] * blocks_transform
-        fcast_players.loc[i, 'assists_x'] = fcast_players.loc[i, 'assists_x'] * assists_transform
-        fcast_players.loc[i, 'rebounds_x'] = fcast_players.loc[i, 'rebounds_x'] * rebounds_transform
-        fcast_players.loc[i, 'wins_x'] = fcast_players.loc[i, 'wins_x'] + wins_transform
+        fcast_players.loc[i,'YEAR_SEASON'] = fcast_players.loc[i, 'YEAR_SEASON'] * season_transform * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'steals_x'] = fcast_players.loc[i, 'steals_x'] * steals_transform * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'blocks_x'] = fcast_players.loc[i, 'blocks_x'] * blocks_transform * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'assists_x'] = fcast_players.loc[i, 'assists_x'] * assists_transform * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'rebounds_x'] = fcast_players.loc[i, 'rebounds_x'] * rebounds_transform * fcast_players.loc[i,'multiplier']
+        fcast_players.loc[i, 'wins_x'] = fcast_players.loc[i, 'wins_x'] + wins_transform * fcast_players.loc[i,'multiplier']
 
 fcast_players['points_x'] = np.where(fcast_players['YEAR'] > 2025,fcast_players['PLAYER_NAMES'] + fcast_players['YEAR_SEASON'] + fcast_players['steals_x'] + \
                                         fcast_players['assists_x'] + fcast_players['rebounds_x'] + fcast_players['wins_x'],fcast_players['points_x'])
