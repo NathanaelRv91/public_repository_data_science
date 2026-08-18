@@ -184,9 +184,15 @@ fcast_players['points_x'] = np.where(fcast_players['YEAR'] > 2025,fcast_players[
                                         fcast_players['assists_x'] + fcast_players['rebounds_x'] + fcast_players['wins_x'],fcast_players['points_x'])
 
 
+fcast_players = fcast_players[['YEAR','PLAYER_ID','PLAYER_NAME','points_x','steals_x','blocks_x','assists_x','rebounds_x','wins_x','seasons']]
+fcast_players.columns = ['YEAR','PLAYER_ID','PLAYER_NAME','POINTS','STEALS','BLOCKS','ASSISTS','REBOUNDS','SEASON_WINS','CAREER_SEASONS_PLAYED']
 
-print(f" Model Preview: "\n"
-  f"fcast_players[fcast_players.PLAYER_ID == 6]")
-
-
-
+session.write_pandas(
+    df= mass_merch_model, 
+    table_name = "PLAYER_POINTS_FORECASTING", 
+    database = "NBA_DB",
+    schema = "REPORTS",
+    auto_create_table = False,
+    overwrite = True,
+    use_logical_type = True
+)
