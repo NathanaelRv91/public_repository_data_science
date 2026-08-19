@@ -8,3 +8,13 @@ import snowflake.connector as sconn
 
 from snowflake.snowpark.context import get_active_session
 session = get_active_session()
+
+
+def feature_scaling_nba(session:Session,
+                        ordinal_cols: list,
+                        one_hot_cols: list,
+                        scaled_cols: list,
+                        minmax_cols: list | None) -> T.Variant:
+
+  
+                        
