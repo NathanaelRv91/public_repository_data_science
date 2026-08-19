@@ -1,4 +1,3 @@
-from imbalance.over_sampling import SMOTE
 import snowflake.snowpark.functions as F
 import snowflake.snowpark.types as T
 from snowflake.ml.modeling.preprocessing import *
