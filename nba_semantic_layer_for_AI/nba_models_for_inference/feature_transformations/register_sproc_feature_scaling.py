@@ -8,3 +8,5 @@ sproc_oversample_smote = session.sproc.register(func=sproc_oversample_smote,
                                                           f'pandas==2.2.3])
 
 
+print(f"Current Database and schema: {session.get_fully_qualified_current_schema()}")
+print(f"Current Warehouse: {session.get_current_warehouse()}")
