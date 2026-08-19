@@ -2,27 +2,16 @@
 
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.compose import ColumnTransformer
+import datetime as dt 
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, MinMaxScaler
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import r2_score
-from collections import deque
-from sklearn.preprocessing import StandardScaler
-from tabulate import tabulate
-import nba_eda_functions as nba
-
-from datetime import date
-from datetime import time 
-from snowflake.connector.pandas_tools import write_pandas
-import snowflake.connector as sconn
-
 from snowflake.snowpark.context import get_active_session
 session = get_active_session()
 
-player_data = nb.pull_player_list()
-player_data = player_data.to_pandas()
+
+session.sql('USE DATABASE NBA_DB').collect()
+session.sql('USE SCHEMA REPORTS').collect()
+player = session.table('NBA_DB.REPORTS.PLAYER_STATS_VIEW')
+player = player.to_pandas()
 player['PLAYER_NAME'] = player['FIRST_NAME'] + ' ' + player['LAST_NAME']
 player_data = player[['PLAYER_NAME','PLAYER_TEAM_NAME','YEAR_SEASON','BLOCKS','STEALS','ASSISTS','TRB','POINTS','FT_PCT','WIN']]
 
@@ -41,7 +30,6 @@ encoder = OrdinalEncoder(categories=[player_list])
 player_report['PLAYER_NAMES'] = encoder.fit_transform(player_report[['PLAYER_NAME']])
 player_report['PLAYER_NAMES'] = player_report['PLAYER_NAMES'].astype(int)
 player_report.reset_index(inplace = True)
-player_report.to_csv('evaluate_player_report.csv')
 
 nba_players = pd.DataFrame(player_report['PLAYER_NAMES'].unique())
 nba_players.columns = ['PLAYER_ID']
@@ -69,13 +57,15 @@ points = ('points','mean'),
     seasons = ('YEAR_SEASON','count')
 ).reset_index()
 
+print(player_bmark.columns)
 fcast_players = pd.merge(fcast_base, player_bmark, how = 'left', on = 'PLAYER_NAME')
 fcast_players['last_season'].fillna(2025,inplace = True)
 fcast_players = fcast_players[fcast_players.last_season == 2025]
-fcast_players.drop(columns = ['level_0'], inplace = True)
-fcast_players.sort_values(by = ['PLAYER_ID','YEAR'], ascending = True)
+fcast_players = fcast_players[['YEAR','PLAYER_ID','PLAYER_NAME','YEAR_SEASON','points_x','steals_x','blocks_x','assists_x','rebounds_x','wins_x','PLAYER_NAMES','points_y','steals_y','blocks_y','assists_y','rebounds_y','wins_y','last_season','seasons']]
+fcast_players['PLAYER_ID'] = fcast_players['PLAYER_ID'].astype(int)
+fcast_players.sort_values(by = ['PLAYER_ID','YEAR'], inplace = True)
+fcast_players.to_csv('fcast_players.csv')
 fcast_players.reset_index(inplace = True)
-
 for i in range(len(fcast_players)):
     if fcast_players.loc[i,'YEAR'] > 2025:
         if pd.isna(fcast_players.loc[i-1,'YEAR_SEASON']):
@@ -93,6 +83,8 @@ for i in range(len(fcast_players)):
             fcast_players.loc[i,'YEAR_SEASON'] = fcast_players.loc[i-1,'YEAR_SEASON'] + 1
 
 fcast_players.dropna(subset = ['PLAYER_NAME'], inplace = True)
+fcast_players.to_csv('102_nba_model_final_SETUP.csv')
+#PLAYER_ID', inplace = True)
 fcast_players.reset_index(inplace = True)
 for i in range(len(fcast_players)):
     if fcast_players.loc[i, 'YEAR'] > 2025:
@@ -105,6 +97,8 @@ for i in range(len(fcast_players)):
             i, 'rebounds_y']) * fcast_players.loc[i,'multiplier']
         fcast_players.loc[i, 'wins_x'] = .7 * fcast_players.loc[i - 1, 'wins_x'] + .3 * fcast_players.loc[
             i, 'wins_y']
+
+fcast_players.to_csv('101_nba_model_final_SETUP.csv')
 
 fcast_base = fcast_base[fcast_base.YEAR_SEASON <= 2025]
 fcast_x_train = fcast_base[fcast_base.PLAYER_ID <= 900]
@@ -135,6 +129,7 @@ y_pred = model.predict(X_test)
 #y_pred = pd.DataFrame(y_pred)
 #X_test = pd.DataFrame(X_test)
 full_model = pd.concat([X_test, pd.Series(y_pred, name='points', index=X_test.index)], axis=1)
+full_model.to_csv('full_model.csv')
 
 multipliers = list(model.coef_)
 multipliers = [[x] for x in multipliers]
@@ -144,11 +139,11 @@ list_features = [[x] for x in list_features]
 list_features = pd.DataFrame(list_features)
 coeff_predictors = pd.concat([list_features, multipliers], axis = 1)
 coeff_predictors.columns = ['Feature_Name','COEFF']
+print(coeff_predictors)
 
 y_pred_train = model.predict(fcast_x_set)
 full_model_2 = pd.concat([fcast_x_set, pd.Series(y_pred_train, name='points', index=fcast_x_set.index)], axis=1)
 
-full_model_2.to_csv('full_model_2.csv')
 r2 = r2_score(fcast_y_set, y_pred_train)
 print(f"R2 for train test group 1: {r2}")
 
@@ -184,15 +179,16 @@ fcast_players['points_x'] = np.where(fcast_players['YEAR'] > 2025,fcast_players[
                                         fcast_players['assists_x'] + fcast_players['rebounds_x'] + fcast_players['wins_x'],fcast_players['points_x'])
 
 
+
 fcast_players = fcast_players[['YEAR','PLAYER_ID','PLAYER_NAME','points_x','steals_x','blocks_x','assists_x','rebounds_x','wins_x','seasons']]
 fcast_players.columns = ['YEAR','PLAYER_ID','PLAYER_NAME','POINTS','STEALS','BLOCKS','ASSISTS','REBOUNDS','SEASON_WINS','CAREER_SEASONS_PLAYED']
+print(fcast_players[fcast_players.PLAYER_ID == 6])
+
+fcast_players.to_csv('nba_fcast_model_check_2026.csv')
 
 session.write_pandas(
-    df= mass_merch_model, 
-    table_name = "PLAYER_POINTS_FORECASTING", 
-    database = "NBA_DB",
-    schema = "REPORTS",
-    auto_create_table = False,
-    overwrite = True,
-    use_logical_type = True
+    df=fcast_players,
+    table_name="PLAYER_POINTS_FORECAST",
+    auto_create_table=True,
+    overwrite=True
 )
