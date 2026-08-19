@@ -4,5 +4,7 @@ sproc_oversample_smote = session.sproc.register(func=sproc_oversample_smote,
                                                 replace=True,
                                                 stage_location='@ML_NBA',
                                                 packages=[f'snowflake-snowpark-context',
-                                                          f'skicit-learn==0.0.3'])
+                                                          f'skicit-learn==1.5.0',
+                                                          f'pandas==2.2.3])
+
 
