@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, MinMaxScaler
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, MinMaxScaler, RobustScaler
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score
 from collections import deque
@@ -31,7 +31,6 @@ encoder = OrdinalEncoder(categories=[player_list])
 player_report['PLAYER_NAMES'] = encoder.fit_transform(player_report[['PLAYER_NAME']])
 player_report['PLAYER_NAMES'] = player_report['PLAYER_NAMES'].astype(int)
 player_report.reset_index(inplace = True)
-player_report.to_csv('evaluate_player_report.csv')
 
 nba_players = pd.DataFrame(player_report['PLAYER_NAMES'].unique())
 nba_players.columns = ['PLAYER_ID']
@@ -44,11 +43,8 @@ date_range.columns = ['index','YEAR']
 date_players = pd.merge(date_range, nba_players, how = 'cross').reset_index()
 date_players['PLAYER_ID'] = date_players['PLAYER_ID'].astype(int)
 date_players = date_players[['YEAR','PLAYER_ID']]
-date_players.to_csv('check_cross_nba.csv')
-player_report.to_csv('check_player_report.csv')
 
 fcast_base = pd.merge(date_players,player_report, how = 'left', left_on = ['YEAR','PLAYER_ID'], right_on = ['YEAR_SEASON','PLAYER_NAMES'])
-#fcast_train.to_csv('setup_player_fcast.csv')
 
 ## ADD benchmark for players based on career averages (last 10 seasons) ##
 player_bmark = player_report.groupby(['PLAYER_NAME']).agg(
@@ -66,17 +62,18 @@ print(player_bmark.columns)
 fcast_players = pd.merge(fcast_base, player_bmark, how = 'left', on = 'PLAYER_NAME')
 fcast_players['last_season'].fillna(2025,inplace = True)
 fcast_players = fcast_players[fcast_players.last_season == 2025]
-fcast_players.drop(columns = ['level_0'], inplace = True)
-fcast_players.sort_values(by = 'PLAYER_ID', ascending = True)
+fcast_players = fcast_players[['YEAR','PLAYER_ID','PLAYER_NAME','YEAR_SEASON','points_x','steals_x','blocks_x','assists_x','rebounds_x','wins_x','PLAYER_NAMES','points_y','steals_y','blocks_y','assists_y','rebounds_y','wins_y','last_season','seasons']]
+fcast_players['PLAYER_ID'] = fcast_players['PLAYER_ID'].astype(int)
+fcast_players.sort_values(by = ['PLAYER_ID','YEAR'], inplace = True)
 fcast_players.reset_index(inplace = True)
-fcast_players = pd.read_csv('101_nba_setup_final.csv')
+get_multiplier = lambda seasons: 1.0275 if seasons <= 8 else (.915 if seasons <= 12 else .815)
 for i in range(len(fcast_players)):
     if fcast_players.loc[i,'YEAR'] > 2025:
         if pd.isna(fcast_players.loc[i-1,'YEAR_SEASON']):
             pass
         else:
             fcast_players.loc[i, 'seasons'] = fcast_players.loc[i - 1, 'seasons'] + 1
-            fcast_players.loc[i, 'multiplier'] = np.where(fcast_players.loc[i, 'seasons'] <= 8, 1.03, .88)
+            fcast_players.loc[i, 'multiplier'] = get_multiplier(fcast_players.loc[i, 'seasons'])
             fcast_players.loc[i,'steals_y'] = fcast_players.loc[i - 1,'steals_y']
             fcast_players.loc[i, 'blocks_y'] = fcast_players.loc[i - 1, 'blocks_y']
             fcast_players.loc[i, 'assists_y'] = fcast_players.loc[i - 1, 'assists_y']
@@ -87,9 +84,8 @@ for i in range(len(fcast_players)):
             fcast_players.loc[i,'YEAR_SEASON'] = fcast_players.loc[i-1,'YEAR_SEASON'] + 1
 
 fcast_players.dropna(subset = ['PLAYER_NAME'], inplace = True)
-#fcast_players.to_csv('nba_model_final_SETUP.csv')
+fcast_players.to_csv('102_nba_model_final_SETUP.csv')
 #PLAYER_ID', inplace = True)
-#fcast_players.sort_values(by = 'PLAYER_ID', inplace = True)
 fcast_players.reset_index(inplace = True)
 for i in range(len(fcast_players)):
     if fcast_players.loc[i, 'YEAR'] > 2025:
@@ -121,11 +117,18 @@ y = player_report['points']
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = .2,random_state =42,shuffle = False)
 
 model_scaler = MinMaxScaler()
+robust = StandardScaler()
 X_train['YEAR_SEASON'] = model_scaler.fit_transform(pd.DataFrame(X_train['YEAR_SEASON']))
 X_test['YEAR_SEASON'] = model_scaler.fit_transform(pd.DataFrame(X_test['YEAR_SEASON']))
 
 fcast_x_set['YEAR_SEASON'] = model_scaler.fit_transform(pd.DataFrame(fcast_x_set['YEAR_SEASON']))
 fcast_x_set2['YEAR_SEASON'] = model_scaler.fit_transform(pd.DataFrame(fcast_x_set2['YEAR_SEASON']))
+
+#X_train['rebounds'] = robust.fit_transform(pd.DataFrame(X_train['rebounds']))
+#X_test['rebounds'] = robust.fit_transform(pd.DataFrame(X_test['rebounds']))
+
+#fcast_x_set['rebounds'] = robust.fit_transform(pd.DataFrame(fcast_x_set['rebounds']))
+#fcast_x_set2['rebounds'] = robust.fit_transform(pd.DataFrame(fcast_x_set2['rebounds']))
 
 model = LinearRegression()
 model.fit(X_train,y_train)
@@ -149,7 +152,6 @@ print(coeff_predictors)
 y_pred_train = model.predict(fcast_x_set)
 full_model_2 = pd.concat([fcast_x_set, pd.Series(y_pred_train, name='points', index=fcast_x_set.index)], axis=1)
 
-full_model_2.to_csv('full_model_2.csv')
 r2 = r2_score(fcast_y_set, y_pred_train)
 print(f"R2 for train test group 1: {r2}")
 
@@ -181,7 +183,15 @@ for i in range(len(fcast_players)):
         fcast_players.loc[i, 'rebounds_x'] = fcast_players.loc[i, 'rebounds_x'] * rebounds_transform * fcast_players.loc[i,'multiplier']
         fcast_players.loc[i, 'wins_x'] = fcast_players.loc[i, 'wins_x'] + wins_transform * fcast_players.loc[i,'multiplier']
 
+fcast_players.to_csv('nba_correlation_matrix.csv')
+
 fcast_players['points_x'] = np.where(fcast_players['YEAR'] > 2025,fcast_players['PLAYER_NAMES'] + fcast_players['YEAR_SEASON'] + fcast_players['steals_x'] + \
                                         fcast_players['assists_x'] + fcast_players['rebounds_x'] + fcast_players['wins_x'],fcast_players['points_x'])
 
+
+fcast_players = fcast_players[['YEAR','PLAYER_ID','PLAYER_NAME','points_x','steals_x','blocks_x','assists_x','rebounds_x','wins_x','seasons']]
+fcast_players.columns = ['YEAR','PLAYER_ID','PLAYER_NAME','POINTS','STEALS','BLOCKS','ASSISTS','REBOUNDS','SEASON_WINS','CAREER_SEASONS_PLAYED']
+
+## CHECK Aaron Gordon's Profile for Veteran Data Quality ##
 print(fcast_players[fcast_players.PLAYER_ID == 6])
+
