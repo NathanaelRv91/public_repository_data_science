@@ -18,6 +18,11 @@
 *This full-scale LIVE Model can run inference on any nba players from 2016-2025 that we upload to our Snowflake DB* 
 &rarr; [NBA PLAYER Points Forecasting by Season](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/live_player_season_pts_fcast_model.py)
 
+&rarr; [NBA PLAYER Correlation Matrix for 7-Feature Forecasting Model](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/server_side_forecasting/player_points_forecasts.py)
+
+<img width="600" height="420" alt="myplot" src="https://github.com/user-attachments/assets/0b3042fc-f791-46f7-94b9-d8a97485dd7b" />
+
+
 ## NBA All-Time Player Rankings (Point System) ## 
 
 *Basic Player Stats Rankings for all statistics by per game and season totals since 1946*
