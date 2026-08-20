@@ -1,0 +1,490 @@
+name: NBA_Analytics_Semantic_Model
+
+description: >
+  NBA player and team statistics by season.
+
+tables:
+
+  - name: PLAYER_STATS_VIEW
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: PLAYER_STATS_VIEW
+
+    primary_key:
+      columns:
+        - PLAYER_ID
+        - PLAYER_TEAM_NAME
+        - YEAR_SEASON
+
+    dimensions:
+
+      - name: PLAYER_NAME
+        description: Player full name
+        expr: PLAYER_NAME
+        data_type: TEXT
+
+      - name: POS
+        description: Position of player. Can be G, F, C, G-F or F-C
+        expr: POS
+        data_type: TEXT
+
+      - name: YEAR_SEASON
+        description: NBA season ending year
+        expr: YEAR_SEASON
+        data_type: NUMBER
+
+      - name: HEADCOACH
+        description: The name of the Coach on the player's team
+        expr: HEADCOACH
+        data_type: TEXT
+
+      - name: SCHOOL
+        description: Place where the player went to School
+        expr: SCHOOL
+        data_type: TEXT
+
+      - name: ABBREVIATION
+        description: The three letter abbreviation of the team name
+        expr: ABBREVIATION
+        data_type: TEXT
+
+      - name: FROMYEAR
+        description: The first year the player started playing in the league
+        expr: FIRST_YEAR
+        data_type: NUMBER
+
+      - name: INSTAGRAM_LINK
+        description: The link to the team's official instagram page online.
+        expr: INSTAGRAM_LINK
+        data_type: TEXT
+
+    measures:
+
+      - name: POINTS
+        description: Total points scored
+        expr: POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+
+      - name: ASSISTS
+        description: Total assists
+        expr: ASSISTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: STEALS
+        description: Total steals
+        expr: STEALS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TRB
+        description: Total rebounds
+        expr: TOTAL_REBOUNDS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: BLOCKS
+        description: Total Blocks
+        expr: BLOCKS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: ORB
+        description: Offensive Rebounds
+        expr: OFFENSIVE_REBOUNDS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: FGM
+        description: Field Goals Made
+        expr: FIELD_GOALS_MADE
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: DRB
+        description: Defensive Rebounds
+        expr: DEFENSIVE_REBOUNDS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: FTM
+        description: Total free throws made
+        expr: FREE_THROWS_MADE
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: FT_PCT
+        description: Percentage of free throws made
+        expr: FREE_THROW_PERCENTAGE
+        data_type: NUMBER(2,4)
+        default_aggregation: avg
+
+      - name: PT3_PCT
+        description: Percentage of three point shots made
+        expr: THREE_POINT_PERCENTAGE
+        data_type: NUMBER(2,4)
+        default_aggregation: avg
+
+      - name: WIN
+        description: Total games won by the player's team
+        expr: GAMES_WON
+        data_type: NUMBER
+        default_aggregation: sum
+
+  - name: TEAM_STATS_VIEW
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: TEAM_STATS_VIEW
+
+    primary_key:
+      columns:
+        - TEAMID
+        - TEAMNAME
+        - YEAR_TM
+
+    dimensions:
+
+      - name: TEAMNAME
+        description: NBA team
+        expr: TEAMNAME
+        data_type: TEXT
+
+      - name: TEAMID
+        description: Team identifier
+        expr: TEAMID
+        data_type: NUMBER
+
+      - name: CITY
+        description: City where the team is from
+        expr: TEAM_CITY
+        data_type: TEXT
+
+      - name: HEADCOACH
+        description: Name of the team's head coach
+        expr: HEADCOACH
+        data_type: TEXT
+
+      - name: ARENA
+        description: Name of the facility where the team plays their games
+        expr: ARENA
+        data_type: TEXT
+
+      - name: OWNER
+        description: Team identifier
+        expr: OWNER
+        data_type: TEXT
+
+      - name: YEAR_FOUNDED
+        description: The year that the team was first founded
+        expr: YEAR_FOUNDED
+        data_type: TEXT
+
+      - name: STATE
+        description: The name of the U.S state where the team is located
+        expr: STATE
+        data_type: TEXT
+
+      - name: X_LINK
+        description: The link to the publix X page for the team
+        expr: X_LINK
+        data_type: TEXT
+
+      - name: FB_LINK
+        description: The link to the public Facebook page for the team
+        expr: FB_LINK
+        data_type: TEXT
+
+
+    measures:
+
+      - name: TEAM_POINTS
+        description: Team points scored
+        expr: TEAM_POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_SEASON_WINS
+        description: Number of games the team won in a season
+        expr: SEASON_WINS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_STEALS
+        description: total steals
+        expr: TEAM_STEALS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_BLOCKS
+        description: total blocks
+        expr: TEAM_BLOCKS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_ASSISTS
+        description: total assists
+        expr: TEAM_ASSISTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_TRB
+        description: total rebounds for the team
+        expr: TEAM_TRB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_ORB
+        description: total offensive rebounds for the team
+        expr: TEAM_ORB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_DRB
+        description: total defensive rebounds for the team
+        expr: TEAM_DRB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_TURNOVERS
+        description: total turnovers for the team
+        expr: TEAM_TURNOVERS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_FTM
+        description: total free throws made for the team
+        expr: TEAM_FTM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_FGM
+        description: total field goals made for the team
+        expr: TEAM_FGM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_3PT_FGM
+        description: total three point field goals made for the team
+        expr: TEAM_3PT_FGM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: TEAM_PCT_3PT
+        description: three point field goal percentage for the team
+        expr: TEAM_PCT_3PT
+        data_type: NUMBER(2,4)
+        default_aggregation: avg
+
+
+  - name: INT_PLAYER_CAREER_STATS
+
+    base_table:
+      database: NBA_DB
+      schema: REPORTS
+      table: INT_PLAYER_CAREER_STATS
+
+    primary_key:
+      columns:
+        - PLAYER_ID
+
+    dimensions:
+
+      - name: FIRSTNAME
+        description: First name of nba player
+        expr: FIRSTNAME
+        data_type: TEXT
+
+      - name: LASTNAME
+        description: Last name of nba player
+        expr: LASTNAME
+        data_type: TEXT
+
+      - name: FULL_NAME
+        description: Full name of nba player
+        expr: FULL_NAME
+        data_type: TEXT
+
+      - name: PLAYER_ID
+        description: Unique Identifier for the nba player
+        expr: PLAYER_ID
+        data_type: NUMBER
+
+      - name: PLAYS_MULTIPLE_POSITIONS
+        description: A binary indicator of whether or not the player plays multiple positions. YES means true.
+        expr: PLAYS_MULTIPLE_POSITIONS
+        data_type: TEXT
+
+      - name: IS_CENTER
+        description: A binary indicator of whether or not the player plays the center position. YES means true.
+        expr: IS_CENTER
+        data_type: TEXT
+
+      - name: IS_FORWARD
+        description: A binary indicator of whether or not the player plays the forward position. YES means true.
+        expr: IS_FORWARD
+        data_type: TEXT
+
+      - name: IS_GUARD
+        description: A binary indicator of whether or not the player plays the guard position. YES means true.
+        expr: IS_GUARD
+        data_type: TEXT
+
+    measures:
+
+      - name: CAREER_POINTS
+        description: Total career points scored
+        expr: CAREER_POINTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_ASSISTS
+        description: Total career assists
+        expr: CAREER_ASSISTS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_BLOCKS
+        description: Total career blocks
+        expr: CAREER_BLOCKS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_DRB
+        description: Total career defensive rebounds
+        expr: CAREER_DRB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_TRB
+        description: Total career rebounds
+        expr: CAREER_TRB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_ORB
+        description: Total career offensive rebounds
+        expr: CAREER_ORB
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_WINS
+        description: Number of games the player won in their career
+        expr: CAREER_WINS
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_FTM
+        description: Total free throws made in career
+        expr: CAREER_FTM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_FG_PCT
+        description: Percentage of field goals made for career
+        expr: CAREER_FTM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_FT_PCT
+        description: percentage of free throws made for career
+        expr: CAREER_FTM
+        data_type: NUMBER(3,4)
+        default_aggregation: sum
+
+      - name: CAREER_3PT_PCT
+        description: percentage of three point shots made for career
+        expr: CAREER_3PT_PCT
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: CAREER_FGM
+        description: Total field goals made in career
+        expr: CAREER_FGM
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: HEIGHTINCHES
+        description: Height of the player in inches
+        expr: HEIGHTINCHES
+        data_type: NUMBER(3,3)
+        default_aggregation: sum
+
+      - name: BODYWEIGHTLBS
+        description: Height of the player in inches
+        expr: BODYWEIGHTLBS
+        data_type: NUMBER(3,3)
+        default_aggregation: sum
+
+      - name: BIRTHDATE
+        description: Height of the player in inches
+        expr: BIRTHDATE
+        data_type: DATE
+        default_aggregation: max
+
+
+  - name: PLAYER_DETAILS
+
+    description: >
+      NBA player profiles and biographical information.
+
+    base_table:
+      database: NBA_DB
+      schema: PLAYER_DATA
+      table: PLAYER_DETAILS
+
+    dimensions:
+
+      - name: FIRST_NAME
+        description: Player full name
+        expr: FIRST_NAME
+        data_type: TEXT
+
+      - name: LAST_NAME
+        description: Player last name
+        expr: LAST_NAME
+        data_type: TEXT
+
+      - name: PERSONID
+        description: Unique player identifier
+        expr: PERSONID
+        data_type: NUMBER
+
+      - name: SCHOOL
+        description: College attended
+        expr: SCHOOL
+        data_type: TEXT
+
+      - name: DRAFT_YEAR
+        description: Year drafted
+        expr: DRAFTYEAR
+        data_type: NUMBER
+
+      - name: FROM_YEAR
+        description: Year drafted
+        expr: FROM_YEAR
+        data_type: NUMBER
+
+      - name: TO_YEAR
+        description: Year drafted
+        expr: TO_YEAR
+        data_type: NUMBER
+
+
+verified_queries:
+
+  - name: player schools
+
+    question:
+      What are all the schools the players are from?
+
+    sql:
+      SELECT DISTINCT
+        SCHOOL
+      FROM PLAYER_DETAILS
+      ORDER BY SCHOOL ASC;
