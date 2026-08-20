@@ -20,7 +20,8 @@
 
 &rarr; [NBA PLAYER Correlation Matrix for 7-Feature Forecasting Model](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_semantic_layer_for_AI/nba_models_for_inference/player_forecast_modelling/server_side_forecasting/player_points_forecasts.py)
 
-<img width=600" height="410" alt="myplot_corr_matrix" src="https://github.com/user-attachments/assets/cc52fd47-39a9-4b14-807a-50e005bbdf16" />
+<img width="800" height="600" alt="myplot_corr_matrix" src="https://github.com/user-attachments/assets/2ab2033d-7dda-4772-ac61-39ff0e71a559" />
+
 
 
 
