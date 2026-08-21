@@ -38,8 +38,6 @@ if user_question:
     {user_question}
     """
 
-    # 2. Package request with reference to your semantic model file
-    # Ensure you upload your YAML file to a Snowflake stage first (e.g., @MY_STAGE/revenue_timeseries.yaml)
     payload = {
         "semantic_model_file": "@NBA_DB.REPORTS.NBA_STAGE/nba_semantic_models_new/nba_semantic_models.yml",
         "messages": [
