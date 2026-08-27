@@ -3,9 +3,10 @@ from sklearn import datasets, linear_model, metrics
 import pandas as pd
 import numpy as np
 import array
+import nba_eda_functions AS nba
 
 ## Predict if a player will retire --
-nba_data = pd.read_csv('nba_10_year_player_report.csv')
+nba_data = nba.pull_10_year_report()
 nba_data['NUMBER_TM'] = nba_data['NUMBER_TM'].fillna("NONE")
 
 X = nba_data[['FROMYEAR','FGM','FT_PCT','POINTS','FTM','TOS','DRB','ORB']]
