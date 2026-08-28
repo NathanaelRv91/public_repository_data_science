@@ -10,8 +10,7 @@ from collections import deque
 from sklearn.preprocessing import StandardScaler
 from tabulate import tabulate
 
-#player_data = nb.pull_player_list()
-player = pd.read_csv('NBA_DB_PLAYER_STATS.csv')
+player = nb.pull_player_list()
 print(player.columns)
 player['PLAYER_NAME'] = player['FIRST_NAME'] + ' ' + player['LAST_NAME']
 player_data = player[['PLAYER_NAME','PLAYER_TEAM_NAME','YEAR_SEASON','BLOCKS','STEALS','ASSISTS','TRB','POINTS','FT_PCT','WIN']]
