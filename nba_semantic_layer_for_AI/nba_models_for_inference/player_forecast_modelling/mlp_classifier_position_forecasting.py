@@ -11,10 +11,8 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, classification_report
 
-#nba_data = nba.pull_player_view()
-#player_list = nba.pull_player_list()
-player_list = pd.read_csv('load_player_details.csv')
-nba_data = pd.read_csv('load_player_statistics_fcast_view.csv')
+nba_data = nba.pull_player_view()
+player_list = nba.pull_player_list()
 nba_data = pd.DataFrame(nba_data)
 nba_data = nba_data[['PLAYER_TEAM_NAME','YEAR_SEASON','ASSISTS','BLOCKS','DRB','TRB','ORB','FGA','FGM','POINTS','PLAYER_ID']]
 player_list = pd.DataFrame(player_list)
