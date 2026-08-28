@@ -3,10 +3,11 @@ from sklearn import datasets, linear_model, metrics
 import pandas as pd
 import numpy as np
 import array
-import nba_eda_functions AS nba
+import shap
+import nba_eda_functions as nba
 
 ## Predict if a player will retire --
-nba_data = nba.pull_10_year_report()
+nba_data = nba.pull_player_statistics()
 nba_data['NUMBER_TM'] = nba_data['NUMBER_TM'].fillna("NONE")
 
 X = nba_data[['FROMYEAR','FGM','FT_PCT','POINTS','FTM','TOS','DRB','ORB']]
@@ -29,6 +30,11 @@ print(y_pred.head())
 ## PASS A random player profile into predict to see if they are likely to retire next season --
 y_pred['player_fcst'] = np.where(y_pred['RETIRED'] == 1, "RETIRED", "NOT RETIRED YET!")
 print(y_pred)
-  
+
+explainer = shap.Explainer(reg, X_train)
+shap_values = explainer(X_test)
+
+#shap.plots.beeswarm(shap_values)
+shap.plots.waterfall(shap_values[25])
 
   
