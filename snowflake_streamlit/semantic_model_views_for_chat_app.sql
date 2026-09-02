@@ -136,3 +136,97 @@ SELECT
     CAREER_FT_PCT
 
 FROM NBA_DB.REPORTS.INT_PLAYER_CAREER_STATS;
+
+
+USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE COMPUTE_WH;
+USE DATABASE NBA_DB;
+USE SCHEMA REPORTS;
+
+-- To demonstrate the invokation of both a DBT source model with validations in dbt testing AND raw data inclusion of our model views for player data --
+
+CREATE OR REPLACE VIEW player_stats_view AS (
+  SELECT d.full_name AS player_name,
+       d.is_active,
+       a.*,
+        CASE WHEN EXTRACT(MONTH FROM a.game_timestamp) <= 7 THEN DATE_PART(YEAR, a.game_timestamp) - 1 ELSE DATE_PART(YEAR, a.game_timestamp) END AS YEAR_SEASON,
+       b.abbreviation,
+       b.city,
+       b.state,
+       b.year_founded,
+       c.arena,
+       c.arenacapacity,
+       c.owner,
+       c.headcoach,
+       c.generalmanager,
+       c.instagram AS instagram_link,
+       c.facebook AS fb_link,
+       c.twitter AS x_link,
+FROM ALL_TIME_PLAYERS_STATISTICS a
+JOIN NBA_DB.PLAYER_DATA.PLAYER_LIST d
+       ON a.player_id = d.id
+JOIN NBA_DB.TEAM_DATA.TEAM_LIST  b ON a.player_team_id = b.id
+LEFT JOIN TEAM_DETAILS_SOURCE  c
+       ON b.id = c.team_id
+);
+
+
+-- Second set for NBA Chatbot (NLP Application) -- 
+
+CREATE OR REPLACE TABLE team_stats_temp AS (
+ SELECT TEAMID,
+    TEAMNAME,
+    CASE WHEN EXTRACT (MONTH FROM game_date) <= 7 THEN DATE_PART(YEAR, game_date) - 1 ELSE DATE_PART(YEAR,game_date) END AS YEAR_TM,
+    COUNT(DISTINCT GAMEID) AS team_games_played,
+    SUM(REBOUNDSDEFENSIVE) AS team_drb,
+    SUM(REBOUNDSOFFENSIVE) AS team_orb,
+    SUM(REBOUNDSTOTAL) AS team_trb,
+    SUM(STEALS)AS team_steals,
+    SUM(ASSISTS) AS team_assists,
+    SUM(BLOCKS) AS team_blocks,
+    SUM(TURNOVERS) AS team_turnovers,
+    SUM(Q1POINTS + Q2POINTS + Q3POINTS + Q4POINTS) AS team_points,
+    SUM(THREEPOINTERSATTEMPTED) AS team_3pt_fga,
+    SUM(THREEPOINTERSMADE) AS team_3pt_fgm,
+    DIV0(SUM(THREEPOINTERSMADE),SUM(THREEPOINTERSATTEMPTED)) AS team_pct_3pt,
+    SUM(FREETHROWSATTEMPTED) AS team_fta,
+    SUM(FREETHROWSMADE) AS team_ftm,
+    DIV0(SUM(FREETHROWSMADE),SUM(FREETHROWSATTEMPTED)) AS team_pct_ft,
+    SUM(WIN) AS team_season_wins,
+    SUM(FIELDGOALSATTEMPTED) AS team_fga,
+    SUM(FIELDGOALSMADE) AS team_fgm,
+    DIV0(SUM(FIELDGOALSMADE),SUM(FIELDGOALSATTEMPTED)) AS team_pct_fg
+    FROM ALLTIME_TEAM_STATISTICS
+GROUP BY 1,2,3);
+
+
+CREATE OR REPLACE VIEW team_stats_view AS (
+    SELECT
+       a.*,
+       b.abbreviation,
+       b.city,
+       b.state,
+       b.year_founded,
+       c.arena,
+       c.arenacapacity,
+       c.owner,
+       c.headcoach,
+       c.generalmanager,
+       c.instagram           AS instagram_link,
+       c.facebook            AS fb_link,
+       c.twitter             AS x_link
+FROM team_stats_temp a
+            JOIN NBA_DB.TEAM_DATA.TEAM_LIST b
+              ON a.teamid = b.team_id
+            LEFT JOIN NBA_DB.TEAM_DATA.TEAM_DETAILS c
+               ON b.team_id = c.team_id
+                );
+
+
+-- PULL DATA FROM DBT Views -- 
+CREATE OR REPLACE VIEW PLAYER_VIEW AS (
+   SELECT FIRSTNAME || ' ' || LASTNAME AS PLAYERNAME, 
+   * 
+   FROM NBA_DB.PLAYER_DATA.PLAYER_DETAILS 
+)
+
