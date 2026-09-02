@@ -8,3 +8,6 @@
   - Interpolation for all data points by using sophisticated benchmark tools I added as supporting objects to call in the main models.
   - GDP-Driven performance that uses Region-Specific assumptions to map high-level data to over 10 distinct product categories of local spend.
   - Python APIs, Timeseries packages & custom object-oriented functions to dynamically update the client-facing report every quarter or when new source data is available.
+  - Retail Subcategories with specific quantities of total sales within a parent category. See image below...
+    [SUBCATEGORY for GROCERIES]<img width="588" height="367" alt="Screenshot (2612)" src="https://github.com/user-attachments/assets/06f3e69e-9d09-4395-8605-a8c0cda2ba92" />
+
