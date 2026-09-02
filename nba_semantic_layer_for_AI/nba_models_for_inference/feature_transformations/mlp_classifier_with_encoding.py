@@ -1,10 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib as plt
-import sklearn.metrics
 import nba_eda_functions as nba
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
