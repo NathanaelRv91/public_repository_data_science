@@ -28,7 +28,7 @@
 
           <img width="487" height="353" alt="Screenshot (2714)" src="https://github.com/user-attachments/assets/f7b2fd8f-3ac5-477e-8230-85965fa1387c" />
 
-      Player Point system for multi-dimensional rankings. The simple Microsoft Excel export with my final analysis can be found [HERE!](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_ad_hoc_analysis/Player_Statistics_Master_Top30_Report.xlsx)
+Player Point system for multi-dimensional rankings. The simple Microsoft Excel export with my final analysis can be found [HERE!](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/nba_ad_hoc_analysis/Player_Statistics_Master_Top30_Report.xlsx)
 
   - **custom seller account performance from Amazon & Walmart** :chart_with_upwards_trend: Customized Dashboards for clients on contract for YoY%, MoM%, PoP%. Here's an export of a custom dashoard I built for a client that reports on over 100 distinct companies in 7 markets. 
     **[Copy_of_Premium_Advertising_&_Traffic_Report.pdf](https://github.com/user-attachments/files/30092885/Copy_of_Premium_Advertising_._Traffic_Report.pdf)**
