@@ -20,7 +20,7 @@
    
   [streamlit_all_time_player_app.pdf](https://github.com/user-attachments/files/30912627/streamlit_all_time_player_app.pdf)
 
-      - Data is Transformed into career level stats and merged into static data for: career accolades & player profiles
+**Data is Transformed into career level stats and merged into static data for: career accolades & player profiles**
       
   - **ad_hoc_analysis** :file_folder: This folder contains my older work that was when I was starting out as an analyst 5 years ago. I have build custom dashboards in Looker, Power BI & Have setup my personal website with Wordpress over the past few years. In this folder you will find:
   - 
