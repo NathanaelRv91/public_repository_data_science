@@ -16,7 +16,7 @@
       &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
       &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build: Logistic Regression, Label Encoding (Ordinal & One-hot), Feature Scaling & Server-Side Engineering with Snowlfake. :snowflake:
     
-      * Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE PDF BELOW)
+    - Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE PDF BELOW)
    
   [streamlit_all_time_player_app.pdf](https://github.com/user-attachments/files/30912627/streamlit_all_time_player_app.pdf)
 
