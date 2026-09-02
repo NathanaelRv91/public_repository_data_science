@@ -1,3 +1,4 @@
+## THIS IS a stored procedure in Snowflake for Feature Transformations to predict player points per season -- 
 import snowflake.snowpark.functions as F
 import snowflake.snowpark.types as T
 from snowflake.ml.modeling.preprocessing import *
