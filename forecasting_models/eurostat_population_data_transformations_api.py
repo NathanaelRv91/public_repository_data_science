@@ -4,7 +4,6 @@ import pandas as pd
 
 # call Eurostat API
 df = eurostat.get_data_df('demo_pjangroup')
-df.to_csv('demo_pjangroup.csv')
 df = pd.DataFrame(df)
 df.drop('unit', axis=1, inplace=True)
 df.drop('freq', axis=1, inplace=True)
@@ -15,7 +14,6 @@ df = pd.melt(df, id_vars=['age','MARKET'], var_name='Year',value_name = 'populat
 df = pd.DataFrame(df)
 df.reset_index(inplace = True)
 df= df[df.Year.isin(['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'])]
-df.to_csv('test_population_grouping.csv')
 
 ## Create Age 0 - 24 Model ##
 df_total = df[df.age == 'TOTAL']
@@ -56,7 +54,6 @@ df_final.columns = ['MARKET','Year','total_population','population_0_24_count','
 df_final['Population_0_24'] = df_final['population_0_24_count']/df_final['total_population']
 df_final['Population_25_64'] = df_final['population_25_64_count']/df_final['total_population']
 df_final['Population_65_plus'] = df_final['population_65_plus_count']/df_final['total_population']
-map = pd.read_csv('map.csv')
+map = euro_data.pull_map()
 df_final = df_final.merge(map, how = 'inner', on = 'MARKET')
 df_final = df_final.iloc[:,[11,10,0,1,2,6,7,8]]
-df_final.to_csv('raw_population_report.csv')
