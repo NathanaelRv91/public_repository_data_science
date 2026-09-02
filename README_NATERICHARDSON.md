@@ -30,5 +30,5 @@
   - **custom seller account performance from Amazon & Walmart** :chart_with_upwards_trend: Customized Dashboards for clients on contract for YoY%, MoM%, PoP%. Here's an export of a custom dashoard I built for a client that reports on over 100 distinct companies in 7 markets. 
     **[Copy_of_Premium_Advertising_&_Traffic_Report.pdf](https://github.com/user-attachments/files/30092885/Copy_of_Premium_Advertising_._Traffic_Report.pdf)**
 
-    - **NLP Applications with Streamlit & Ollama Chat** :file_folder:
+- **NLP Applications with Streamlit & Ollama Chat** :file_folder:
       [streamlit chat app with 10 minute data cache](https://github.com/NathanaelRv91/public_repository_data_science/blob/main/snowflake_streamlit/chat_for_streamlit_app.sql)
