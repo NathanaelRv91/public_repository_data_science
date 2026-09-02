@@ -31,7 +31,6 @@ for i in range(len(nba_data)):
         nba_data.loc[i,'team_points'] = 1.035 * nba_data.loc[i-1,'team_points']
     else:
         pass
-nba_data.to_csv('check_team_agg.csv')
 np.random.seed(42)
 print(nba_data['YEAR_TM'].min())
 date_range = range(2016,2034,1)
@@ -39,16 +38,13 @@ date_range = pd.DataFrame(date_range)
 date_range.reset_index(inplace = True)
 date_range.columns = ['index','YEAR']
 print(date_range.columns)
-pd.DataFrame(date_range).to_csv('date_range_check.csv')
 #nba_data['YEAR_SEASON'] = pd.to_datetime(nba_data['YEAR_SEASON'])
 df = pd.merge(date_range, nba_data, how = 'left', left_on = 'YEAR', right_on = 'YEAR_TM')
-#sales_trend = np.linspace(10, 50, 36)  # Linear upward trend
-#noise = np.random.normal(0, 2, 36)     # Random fluctuations
 nba_data.sort_values(by = ['TEAMNAME','YEAR_TM'])
 nba_data.to_csv('nba_mapped_to_time_series.csv')
 # 2. Feature Engineering: Time Step & Lag Features
-df["Time_Step"] = np.arange(len(df))  # Captures linear trend (0, 1, 2...)
-df["Lag_pts"] = df["team_points"].shift(1)    # Captures what happened last month
+df["Time_Step"] = np.arange(len(df)) 
+df["Lag_pts"] = df["team_points"].shift(1)
 
 # Drop rows with NaN values caused by shifting
 df.dropna(inplace=True)
@@ -58,7 +54,7 @@ df = df[df['TEAMNAME'] == 'Nuggets']
 # 3. Split into Features (X) and Target (y)
 X = df[["Time_Step","Lag_pts",'team_rebounds','team_assists','team_steals','team_blocks']]
 y = df["team_points"]
-pd.DataFrame(X).head(14).to_csv('check_train_data.csv')
+
 
 # 4. Train-Test Split (Chronological split to prevent data leakage)
 train_size = int(len(df) * 0.9)
