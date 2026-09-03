@@ -48,5 +48,7 @@ response = agent.invoke(
     {"messages": [{"role": "user", "content": "What are the names of the tables in the NBA_DB.REPORTS Schema?"}]},
 )
 print(response)
-
+for key, value in response.items():
+    print(f"{key}: {value}")
+    
 
