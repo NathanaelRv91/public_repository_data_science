@@ -1,5 +1,3 @@
-<img width="600" height="600" alt="dbt_logo" src="https://github.com/user-attachments/assets/1e8ea064-e469-46af-93f4-2f1f02a0b85d" />
-
 <img width="255" height="255" alt="family" src="https://github.com/user-attachments/assets/cad8dda6-db31-4e8d-bde6-c60ef9bfbccf" />
 <img width="255" height="255" alt="Vasa_Summer_2024" src="https://github.com/user-attachments/assets/dabdc83b-5dd2-4b66-a120-5dc0e9902e53" /> 
 
