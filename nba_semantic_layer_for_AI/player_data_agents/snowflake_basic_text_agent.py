@@ -8,9 +8,9 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 
 # Connect to Snowflake
 conn = snowflake.connector.connect(
-    user="shaunatwater91",
-    password="JamesRVandNcr2029!",
-    account="UCXMQBT-AJ89853",
+    user="******91",
+    password="********2029!",
+    account="*******-AJ89853",
     warehouse="COMPUTE_WH",
     database="NBA_DB",
     schema="REPORTS"
