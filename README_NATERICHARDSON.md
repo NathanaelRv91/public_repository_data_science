@@ -20,7 +20,8 @@
     
     - Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE PDF BELOW)
    
-  [streamlit_all_time_player_app.pdf](https://github.com/user-attachments/files/30912627/streamlit_all_time_player_app.pdf)
+  [streamlit_all_time_player_app.pdf]([Snowflake NBA Data Dashboard.pdf](https://github.com/user-attachments/files/31804127/Snowflake.NBA.Data.Dashboard.pdf)
+)
 
 **Data is Transformed into career level stats and merged into static data for: career accolades & player profiles**
       
