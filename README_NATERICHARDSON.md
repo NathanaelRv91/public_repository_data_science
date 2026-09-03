@@ -13,7 +13,8 @@
   - **forecasting_models** :file_folder: Projects for Global Retail Spend (offline vs online) by Market OR Retailer :earth_americas:
       * Data Is sourced from open source APIs from Eurostat, OECD & World Bank ICP Program
 
-    ![dbt](https://shields.io)
+ <img src="https://githubusercontent.com" alt="dbt Logo" width="300">
+
 
   - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
       &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
