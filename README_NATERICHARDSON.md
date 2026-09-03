@@ -15,6 +15,7 @@
   - **snowflake_dbt_models** :file_folder: Complete Pipeline for NBA Player & Team Data :basketball:
       &rarr; Tracks individual player career stats + historical player lists that are interactive in a public STREAMLIT APP and
       &rarr; Includes the codespace for a predictive player career model that integrates REST API data with a recursive weighted model build: Logistic Regression, Label Encoding (Ordinal & One-hot), Feature Scaling & Server-Side Engineering with Snowlfake. :snowflake:
+      &rarr; Pre-Hook, Post-Hook executions with tests, snapshots and seeds for player research to feed my LLM Agent that uses ##*claude-sonnet* to explore the entire semantic layer in a native chat interface on Streamlit. 
     
     - Data is funnelled into player per-season stats with totals & averages for ML inference and Streamlit App Deployment (SEE PDF BELOW)
    
