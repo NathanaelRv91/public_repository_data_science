@@ -19,6 +19,6 @@ response = requests.post(url, json=payload, headers=headers)
 data_response = response.json()
 for key, value in data_response.items():
     if key == 'data':
-        print(f"FOUND DATA!: {value}")
+        print(f"DATA: {value}")
     else:
         pass
