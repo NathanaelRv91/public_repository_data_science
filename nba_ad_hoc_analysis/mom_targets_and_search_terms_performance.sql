@@ -2,7 +2,7 @@
   $$ META HEADERS $$
   Importance:::               Client Reporting
   Unique Name:::              mom_targets_and_search_terms_performance
-  Location:::                 marts>media>amazon>traffic_reporting
+  Location:::                 marts>media>retailer_data>traffic_reporting
 */
 
 
