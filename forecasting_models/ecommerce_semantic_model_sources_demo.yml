@@ -1,0 +1,247 @@
+version: 2
+
+sources:
+  - name: marketing_schema
+    config:
+      freshness:
+        warn_after: { count: 12, period: hour }
+        error_after: { count: 24, period: hour }
+      loaded_at_field: last_updated
+    description: source tables for our marketing data etl ingestion.
+    database: 'marketing_db'
+    schema: marketing_schema
+    tables:
+      - name: sbv4_ads
+      - name: sbv4_campaigns
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - campaign_id
+                - company_id
+      - name: sbv4_keywords
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - campaign_id
+                - company_id
+                - keyword_id
+      - name: sd_target_performance
+      - name: demand_side_platform_campaign_performance
+        description: '{{ doc("dsp_campaign_performance") }}'
+        columns:
+          - name: date
+            description: date     
+          - name: last_updated
+            description: last_updated
+          - name: advertiser_id
+            description: advertiserId       
+          - name: order_id
+            description: orderId
+          - name: line_item_id
+            description: lineItemId
+          - name: creative_id
+            description: creativeId  
+          - name: creative_size
+            description: creativeSize
+          - name: total_cost
+            description: totalCost. Advertiser spend
+          - name: impressions
+            description: impressions. How many times your display ad was served       
+          - name: click_throughs
+            description: clickThroughs. How many times users clicked on the display ad
+          - name: revenue
+            description: COALESCE ( CASE WHEN COALESCE (sales14d, 0) > 0 THEN sales14d WHEN COALESCE (salesUSD14d, 0) > 0 THEN salesUSD14d WHEN COALESCE (salesGBP14d, 0) > 0 THEN salesGBP14d WHEN COALESCE (salesJPY14d, 0) > 0 THEN salesJPY14d ELSE NULL END,0)
+          - name: new_to_brand_purchases
+            description: newToBrandPurchases14d 
+          - name: new_to_brand_purchases_views
+            description: newToBrandPurchasesViews14d
+          - name: new_to_brand_purchases_clicks
+            description: newToBrandPurchasesClicks14d
+          - name: dpv
+            description: dpv14d. Detail page view. How many times a person viewed or clicked your Amazon DSP ad and then visited your advertised ASIN’s product page       
+          - name: dpv_views
+            description: dpvViews14d
+          - name: dpv_clicks
+            description: dpvClicks14d
+          - name: purchases
+            description: purchases14d. How many transactions of the advertised ASIN occurred after a user viewed or clicked your Amazon DSP ad  
+          - name: purchases_views
+            description: purchasesViews14d
+          - name: purchases_clicks
+            description: purchasesClicks14d
+          - name: viewable_impressions
+            description: viewableImpressions. How many times your ad was served and viewable (IAB viewability definition)       
+          - name: measurable_impressions
+            description: measurableImpressions. Number of impressions that were measured for viewability.  
+          - name: snss
+            description: newSubscribeAndSave14d. New Subscribe And Save
+          - name: snss_views
+            description: newSubscribeAndSaveViews14d
+          - name: snss_clicks
+            description: newSubscribeAndSaveClicks14d  
+          - name: units_sold
+            description: unitsSold14d. Number of units that were sold of the advertised ASIN during their purchase
+          - name: total_units_sold
+            description: totalUnitsSold14d
+          - name: total_sales
+            description: Value of the total Sales of the brands products after a user had viewed or clicked on your Amazon DSP ad. COALESCE ( CASE WHEN COALESCE (totalSales14d, 0) > 0 THEN totalSales14d WHEN COALESCE (totalSalesUSD14d, 0) > 0 THEN totalSalesUSD14d WHEN COALESCE (totalSalesGBP14d, 0) > 0 THEN totalSalesGBP14d WHEN COALESCE (totalSalesJPY14d, 0) > 0 THEN totalSalesJPY14d ELSE NULL END, 0)       
+          - name: total_snss
+            description: totalSnSS 
+          - name: total_snss_views
+            description: totalSnSSViews
+          - name: total_snss_clicks
+            description: totalSnSSClicks  
+          - name: new_to_brand_product_sales
+            description: COALESCE ( CASE WHEN COALESCE (newToBrandProductSales14d, 0) > 0 THEN newToBrandProductSales14d WHEN COALESCE (newToBrandProductSalesUSD14d, 0) > 0 THEN newToBrandProductSalesUSD14d WHEN COALESCE (newToBrandProductSalesGBP14d, 0) > 0 THEN newToBrandProductSalesGBP14d WHEN COALESCE (newToBrandProductSalesJPY14d, 0) > 0 THEN newToBrandProductSalesJPY14d ELSE NULL END, 0)
+          - name: new_to_brand_units_sold
+            description: newToBrandUnitsSold14d
+          - name: total_new_to_brand_units_sold
+            description: totalNewToBrandUnitsSold14d       
+          - name: total_new_to_brand_purchases
+            description: totalNewToBrandPurchases14d. How many transactions of the advertised ASIN or any other ASIN product detail page in your brand’s catalog occurred after a user viewed or clicked your Amazon DSP ad AND the user had not purchased previously  
+          - name: total_new_to_brand_purchases_clicks
+            description: notalNewToBrandPurchasesClicks14d
+          - name: total_new_to_brand_purchases_views
+            description: totalNewToBrandPurchasesViews14d
+          - name: total_new_to_brand_product_sales
+            description: COALESCE ( CASE WHEN COALESCE (totalNewToBrandProductSales14d, 0) > 0 THEN totalNewToBrandProductSales14d WHEN COALESCE (totalNewToBrandProductSalesUSD14d, 0) > 0 THEN totalNewToBrandProductSalesUSD14d WHEN COALESCE (totalNewToBrandProductSalesGBP14d, 0) > 0 THEN totalNewToBrandProductSalesGBP14d WHEN COALESCE (totalNewToBrandProductSalesJPY14d, 0) > 0 THEN totalNewToBrandProductSalesJPY14d ELSE NULL END, 0)  
+          - name: total_dpv
+            description: totalDPV
+          - name: total_dpv_clicks
+            description: totalDPVClicks
+          - name: total_dpv_views
+            description: totalDPVViews
+          - name: total_purchases
+            description: totalPurchases14d. How many transactions of the advertised ASIN or any other ASIN product detail page in your brand’s catalog occurred after a user viewed or clicked your Amazon DSP ad.
+          - name: atc
+            description: atc14d.  Added to cart. How many times a person viewed or clicked your Amazon DSP ad and then added the advertised ASIN to their cart in Amazon
+          - name: atc_clicks
+            description: atcClicks14d 
+          - name: atc_views
+            description: atcViews14d
+          - name: total_atc
+            description: totalATC  
+          - name: total_atc_views
+            description: totalATCViews
+          - name: total_atc_clicks
+            description: totalATCClicks 
+          - name: video_complete
+            description: videoComplete. The number of times a video ad played to completion. If rewind occurred, completion was calculated on the total percentage of unduplicated video viewed. 
+          - name: video_start
+            description: videoStart. The number of times a video ad was started.
+          - name: homepage_visit_fires
+            description: homepageVisitFires14d
+          - name: marketing_landing_page_fires
+            description: marketingLandingPageFires14d 
+          - name: purchase_button_fires
+            description: purchaseButtonFires14d
+          - name: thank_you_page_fires
+            description: thankYouPageFires14d  
+          - name: amc_fee
+            description: 3p fee for service.
+      - name: performance__sponsord_brand__campaigns__placement
+      - name: brands_query_performance
+        columns:
+          - name: keyword_id
+            tests:
+              - not_null
+          - name: query
+            tests:
+              - not_null
+      - name: performance__sponsored_brand__ads
+        columns:
+          - name: campaign_id
+            tests:
+              - not_null
+          - name: report_date
+            tests:
+              - not_null
+      - name: display_ad_performance_ts
+      - name: display_ad_group_ads
+      - name: branded_campaign_keywords
+      - name: campaign_config
+        columns:
+          - name: campaign_id
+            tests:
+              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - company_id
+                - campaign_id
+                - start_date
+      - name: campaign_performance
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - company_id
+                - campaign_id
+                - date
+                - placement
+                - site
+        columns:
+            - name: date
+              tests:
+                - not_null
+      - name: display_campaign_performance_ts
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - geo_company_id
+                - campaign_id
+                - display_campaign_id
+                - date
+        columns:
+            - name: date
+              tests:
+                - not_null
+      - name: sd_campaign
+      - name: keyword_config
+        columns:
+          - name: keyword_id
+            tests:
+              - not_null
+      - name: display_target_config_ts
+        columns:
+          - name: target_id
+            tests:
+              - not_null
+      - name: branded_keyword_config_ts
+        columns:
+          - name: keyword_id
+            tests:
+              - not_null
+      - name: display_campaign_config_id
+        columns:
+          - name: campaign_id
+            tests:
+              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - geo_company_id
+                - campaign_id
+                - date
+      - name: branded_campaign_config_ts
+        columns:
+          - name: campaign_id
+            tests:
+              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - company_id
+                - campaign_id
+                - date
+
+      - name: campaign_configuration
+        columns:
+          - name: campaign_id
+            tests:
+              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - company_id
+                - campaign_id
+                - date
