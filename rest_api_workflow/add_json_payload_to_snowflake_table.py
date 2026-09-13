@@ -9,7 +9,6 @@ url = "https://jsonplaceholder.typicode.com/todos/1"
 response = requests.get(url)
 json_data = response.json()  # This returns a Python dictionary or list
 
-# 2. Establish the Snowflake Connection
 # Ensure your environment variables or credentials are set securely
 conn = snowflake.connector.connect(
     account='UCXMQBT-AJ89853',
@@ -23,7 +22,6 @@ conn = snowflake.connector.connect(
 cursor = conn.cursor()
 
 try:
-    # 3. Serialize Python object to a string format for safe parsing
     json_string = json.dumps(json_data)
 
     # 4. Insert data using PARSE_JSON to safely bind to the VARIANT column
