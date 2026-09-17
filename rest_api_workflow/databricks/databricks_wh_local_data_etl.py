@@ -22,7 +22,8 @@ sql_statement = f"""
 COPY INTO {catalog}.{schema}.{table_name}
 FROM '{volume_dest_path}'
 FILEFORMAT = CSV
-FORMAT_OPTIONS ('header' = 'true', 'inferSchema' = 'true');
+FORMAT_OPTIONS ('header' = 'true', 'inferSchema' = 'true')
+COPY_OPTIONS ('mergeSchema' = 'true');
 """
 
 print(f"Ingesting file into table {catalog}.{schema}.{table_name}...")
