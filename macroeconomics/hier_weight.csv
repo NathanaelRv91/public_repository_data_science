@@ -1,0 +1,201 @@
+MarketClass,Category1,Category2,Category3,Category4,Weight
+HIGH INCOME,Clothing and footwear,Clothing,11.03.11.0,NA,0.04
+HIGH INCOME,Clothing and footwear,Clothing,11.03.12.0,NA,0.95
+HIGH INCOME,Clothing and footwear,Clothing,11.03.14.0,NA,0.01
+HIGH INCOME,Clothing and footwear,Footwear,11.03.21.0,NA,0.99
+HIGH INCOME,Clothing and footwear,Footwear,11.03.22.0,NA,0.01
+HIGH INCOME,Miscellaneous goods and services,Personal care,11.12.11.0,NA,0.5
+HIGH INCOME,Miscellaneous goods and services,Personal care,11.12.12.0,NA,0.5
+HIGH INCOME,Miscellaneous goods and services,Personal effects,11.12.31.0,NA,0.5
+HIGH INCOME,Miscellaneous goods and services,Personal effects,11.12.32.0,NA,0.5
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.1,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.2,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.3,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.9,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.12.0,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.1,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.2,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.3,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.4,0.97
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.14.0,NA,0.01
+HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.15.0,NA,0.02
+HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,NA,0.98
+HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.21.0,0.98
+HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.22.0,0.98
+HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.23.0,NA,0.02
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.31.0,NA,0.25
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,NA,0.7
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.1,0.7
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.2,0.7
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.34.0,0.7
+HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.35.0,NA,0.05
+LOW INCOME,Clothing and footwear,Clothing,11.03.11.0,NA,0.04
+LOW INCOME,Clothing and footwear,Clothing,11.03.12.0,NA,0.95
+LOW INCOME,Clothing and footwear,Clothing,11.03.14.0,NA,0.01
+LOW INCOME,Clothing and footwear,Footwear,11.03.21.0,NA,0.99
+LOW INCOME,Clothing and footwear,Footwear,11.03.22.0,NA,0.01
+LOW INCOME,Miscellaneous goods and services,Personal care,11.12.11.0,NA,0.5
+LOW INCOME,Miscellaneous goods and services,Personal care,11.12.12.0,NA,0.5
+LOW INCOME,Miscellaneous goods and services,Personal effects,11.12.31.0,NA,0.5
+LOW INCOME,Miscellaneous goods and services,Personal effects,11.12.32.0,NA,0.5
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.1,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.2,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.3,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.9,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.12.0,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.1,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.2,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.3,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.4,0.97
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.14.0,NA,0.01
+LOW INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.15.0,NA,0.02
+LOW INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,NA,0.98
+LOW INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.21.0,0.98
+LOW INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.22.0,0.98
+LOW INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.23.0,NA,0.02
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.31.0,NA,0.25
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,NA,0.7
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.1,0.7
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.2,0.7
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.34.0,0.7
+LOW INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.35.0,NA,0.05
+LOWER MID INCOME,Clothing and footwear,Clothing,11.03.11.0,NA,0.04
+LOWER MID INCOME,Clothing and footwear,Clothing,11.03.12.0,NA,0.95
+LOWER MID INCOME,Clothing and footwear,Clothing,11.03.14.0,NA,0.01
+LOWER MID INCOME,Clothing and footwear,Footwear,11.03.21.0,NA,0.99
+LOWER MID INCOME,Clothing and footwear,Footwear,11.03.22.0,NA,0.01
+LOWER MID INCOME,Miscellaneous goods and services,Personal care,11.12.11.0,NA,0.5
+LOWER MID INCOME,Miscellaneous goods and services,Personal care,11.12.12.0,NA,0.5
+LOWER MID INCOME,Miscellaneous goods and services,Personal effects,11.12.31.0,NA,0.5
+LOWER MID INCOME,Miscellaneous goods and services,Personal effects,11.12.32.0,NA,0.5
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.1,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.2,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.3,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.9,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.12.0,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.1,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.2,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.3,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.4,0.97
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.14.0,NA,0.01
+LOWER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.15.0,NA,0.02
+LOWER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,NA,0.98
+LOWER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.21.0,0.98
+LOWER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.22.0,0.98
+LOWER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.23.0,NA,0.02
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.31.0,NA,0.25
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,NA,0.7
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.1,0.7
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.2,0.7
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.34.0,0.7
+LOWER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.35.0,NA,0.05
+UPPER MID INCOME,Clothing and footwear,Clothing,11.03.11.0,NA,0.04
+UPPER MID INCOME,Clothing and footwear,Clothing,11.03.12.0,NA,0.95
+UPPER MID INCOME,Clothing and footwear,Clothing,11.03.14.0,NA,0.01
+UPPER MID INCOME,Clothing and footwear,Footwear,11.03.21.0,NA,0.99
+UPPER MID INCOME,Clothing and footwear,Footwear,11.03.22.0,NA,0.01
+UPPER MID INCOME,Miscellaneous goods and services,Personal care,11.12.11.0,NA,0.5
+UPPER MID INCOME,Miscellaneous goods and services,Personal care,11.12.12.0,NA,0.5
+UPPER MID INCOME,Miscellaneous goods and services,Personal effects,11.12.31.0,NA,0.5
+UPPER MID INCOME,Miscellaneous goods and services,Personal effects,11.12.32.0,NA,0.5
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.1,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.2,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.3,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.9,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.12.0,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.1,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.2,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.3,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.4,0.97
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.14.0,NA,0.01
+UPPER MID INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.15.0,NA,0.02
+UPPER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,NA,0.98
+UPPER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.21.0,0.98
+UPPER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.22.0,0.98
+UPPER MID INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.23.0,NA,0.02
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.31.0,NA,0.25
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,NA,0.7
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.1,0.7
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.2,0.7
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.34.0,0.7
+UPPER MID INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.35.0,NA,0.05
+VERY HIGH INCOME,Clothing and footwear,Clothing,11.03.11.0,NA,0.04
+VERY HIGH INCOME,Clothing and footwear,Clothing,11.03.12.0,NA,0.95
+VERY HIGH INCOME,Clothing and footwear,Clothing,11.03.14.0,NA,0.01
+VERY HIGH INCOME,Clothing and footwear,Footwear,11.03.21.0,NA,0.99
+VERY HIGH INCOME,Clothing and footwear,Footwear,11.03.22.0,NA,0.01
+VERY HIGH INCOME,Miscellaneous goods and services,Personal care,11.12.11.0,NA,0.5
+VERY HIGH INCOME,Miscellaneous goods and services,Personal care,11.12.12.0,NA,0.5
+VERY HIGH INCOME,Miscellaneous goods and services,Personal effects,11.12.31.0,NA,0.5
+VERY HIGH INCOME,Miscellaneous goods and services,Personal effects,11.12.32.0,NA,0.5
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.1,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.2,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.3,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.11.9,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.12.0,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.1,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.2,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.3,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.11.0,EU A.09.13.4,0.97
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.14.0,NA,0.01
+VERY HIGH INCOME,Recreation and culture,"Audio-visual, photographic and information processing equipment",11.09.15.0,NA,0.02
+VERY HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,NA,0.98
+VERY HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.21.0,0.98
+VERY HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.21.0,EU A.09.22.0,0.98
+VERY HIGH INCOME,Recreation and culture,Other major durables for recreation and culture,11.09.23.0,NA,0.02
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.31.0,NA,0.25
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,NA,0.7
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.1,0.7
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.33.2,0.7
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.33.0,EU A.09.34.0,0.7
+VERY HIGH INCOME,Recreation and culture,"Other recreational items and equipment, gardens and pets",11.09.35.0,NA,0.05
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.11.0,NA,0.97
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.12.0,NA,0.02
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.13.0,NA,0.01
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.11.0,NA,0.97
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.12.0,NA,0.02
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.13.0,NA,0.01
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.11.0,NA,0.97
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.12.0,NA,0.02
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.13.0,NA,0.01
+LOW INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.11.0,NA,0.97
+LOW INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.12.0,NA,0.02
+LOW INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.13.0,NA,0.01
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.11.0,NA,0.97
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.12.0,NA,0.02
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",11.05.13.0,NA,0.01
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.31.0,NA,0.96
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.32.0,NA,0.03
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.33.0,NA,0.01
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.31.0,NA,0.96
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.32.0,NA,0.03
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.33.0,NA,0.01
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.31.0,NA,0.96
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.32.0,NA,0.03
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.33.0,NA,0.01
+LOW INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.31.0,NA,0.96
+LOW INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.32.0,NA,0.03
+LOW INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.33.0,NA,0.01
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.31.0,NA,0.96
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.32.0,NA,0.03
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Household appliances,11.05.33.0,NA,0.01
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.61.0,NA,0.98
+VERY HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.62.0,NA,0.02
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.61.0,NA,0.98
+UPPER MID INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.62.0,NA,0.02
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.61.0,NA,0.98
+LOWER MID INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.62.0,NA,0.02
+LOW INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.61.0,NA,0.98
+LOW INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.62.0,NA,0.02
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.61.0,NA,0.98
+HIGH INCOME,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,11.05.62.0,NA,0.02
+VERY HIGH INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.31.0,NA,0.95
+VERY HIGH INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.32.0,NA,0.05
+UPPER MID INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.31.0,NA,0.95
+UPPER MID INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.32.0,NA,0.05
+LOWER MID INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.31.0,NA,0.95
+LOWER MID INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.32.0,NA,0.05
+LOW INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.31.0,NA,0.95
+LOW INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.32.0,NA,0.05
+HIGH INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.31.0,NA,0.95
+HIGH INCOME,"Housing, water, electricity, gas and other fuels",Maintenance and repair of the dwelling,11.04.32.0,NA,0.05

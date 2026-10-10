@@ -1,0 +1,206 @@
+MarketClass,Series,Code,Desc,Weight,Remove,Product Category
+HIGH INCOME,Clothing,11.03.11.0,"Clothing materials, other articles of clothing and clothing accessories (clothing materials of natural fibres, of man-made fibres and of their mixtures. Excludes furnishing fabrics) ",0.04,,
+HIGH INCOME,Clothing,11.03.12.0,Garments ,0.95,,
+HIGH INCOME,Clothing,11.03.14.0,"Cleaning, repair and hire of clothing ",0.01,YES,
+HIGH INCOME,Footwear,11.03.21.0,Shoes and other footwear ,0.99,,
+HIGH INCOME,Footwear,11.03.22.0,Repair and hire of footwear ,0.01,,
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.11.0,"Furniture and furnishings (HH furniture, garden furniture, lighting baby furniture) (inferred weights)",0.97,,Home & DIY
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.12.0,"Carpets and other floor coverings (loose carpets, rugs, mats and other such movable floor coverings; fitted carpets) (inferred weights)",0.02,,Home & DIY
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.13.0,"Repair of furniture, furnishings and floor coverings ",0.01,,
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.31.0,"Major household appliances whether electric or not (Refrigerators, clothes washing machines, ovens, air conditioners, vacuum cleaners, safes, sewing machines, knitting machines, water softeners (non electric appliances) (implied weights)",0.96,,Electricals
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.32.0,"Small electric household appliances (coffee-makers, juice extractors, can openers, food mixers, deep fryers, meat grills, knives, toasters) (implied weights)",0.03,,Electricals
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.33.0,Repair of household appliances ,0.01,,
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.61.0,"Non-durable household goods (soaps, washing powders, washing liquids, scouring powders, detergents, brooms, scrubbing brushes, dust pans and dust brushes, dusters, tea towels, floor cloths) ",0.98,,Household care
+HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.62.0,"Domestic services and household services (butlers, cooks, maids, cleaners, drivers, gardeners, babysitters) ",0.02,,
+HIGH INCOME,"Housing, water, electricity, gas and other fuels",11.04.31.0,"Materials for the maintenance and repair of the dwelling (paints, wallpapers, cement, putty, wallpaper pastes, plumbing items, floor boards, ceramic tiles, brushes and scrapers for paint purchased for minor maintenance and repair of the dwelling) ",0.95,,Home & DIY
+HIGH INCOME,"Housing, water, electricity, gas and other fuels",11.04.32.0,"Services for the maintenance and repair of the dwelling (services of plumbers, electricians, carpenters (cost of labour and the cost of materials are covered) ",0.05,,
+HIGH INCOME,Miscellaneous goods and services,11.12.11.0,"Hairdressing salons and personal grooming establishments (services of hairdressing salons; facial beauty treatments, body care) ",0.5,,
+HIGH INCOME,Miscellaneous goods and services,11.12.12.0,"Appliances, articles and products for personal care (electric appliances for personal care: s; articles for personal hygiene and wellness, esoteric products and beauty products: Toilet soap)",0.5,,Health & Beauty
+HIGH INCOME,Miscellaneous goods and services,11.12.31.0,Jewellery and watches,0.5,,Fashion & Apparel
+HIGH INCOME,Miscellaneous goods and services,11.12.32.0,Other personal items,0.5,,Other retail products
+HIGH INCOME,Recreation and culture,11.09.11.0,"Audio-visual, photographic and information processing equipment",0.97,,
+HIGH INCOME,Recreation and culture,11.09.14.0,"Recording media (records, CDs, tapes, pre-recorded or not) ",0.01,,Leisure & Entertainment
+HIGH INCOME,Recreation and culture,11.09.15.0,"Repair of audio-visual, photographic and information processing equipment ",0.02,,
+HIGH INCOME,Recreation and culture,11.09.21.0,Major durables for outdoor and indoor recreation,0.98,,
+HIGH INCOME,Recreation and culture,11.09.23.0,Maintenance and repair of other major durables for recreation and culture ,0.02,,
+HIGH INCOME,Recreation and culture,11.09.31.0,"Other recreational items and equipment (Card games, parlour games, chess sets, video-g….)",0.25,,Leisure & Entertainment
+HIGH INCOME,Recreation and culture,11.09.33.0,Gardens and pets,0.7,,
+HIGH INCOME,Recreation and culture,11.09.35.0,Veterinary and other services for pets ,0.05,,
+HIGH INCOME,Recreation and culture,EU A.09.11.1,"Equipment for the reception, recording and reproduction of sound (radio, stereo equipment, speakers) ",0.01,,Electricals
+HIGH INCOME,Recreation and culture,EU A.09.11.2,"Equipment for the reception, recording and reproduction of sound and vision (TVs, home theatre systems) ",0.375,,Electricals
+HIGH INCOME,Recreation and culture,EU A.09.11.3,Portable sound and vision devices ,0.01,,Electricals
+HIGH INCOME,Recreation and culture,EU A.09.11.9,"Other equipment for the reception, recording and reproduction of sound and picture (earphones, e-books, digital photo frames) ",0.07,,Electricals
+HIGH INCOME,Recreation and culture,EU A.09.12.0,"Photographic and cinematographic equipment and optical instruments cameras (cameras, enlargers and film processing equipment, telescopes and compasses) ",0.05,,Electricals
+HIGH INCOME,Recreation and culture,EU A.09.13.1,"Personal computers (laptops, desktops, tablets) ",0.375,,Office
+HIGH INCOME,Recreation and culture,EU A.09.13.2,"Accessories for information processing equipment (keyboards, scanners, monitors, printers) ",0.05,,Office
+HIGH INCOME,Recreation and culture,EU A.09.13.3,Software ,0.05,,Office
+HIGH INCOME,Recreation and culture,EU A.09.13.4,Calculators and other information processing equipment (pocket calculators and electronic calendars) ,0.01,,
+HIGH INCOME,Recreation and culture,EU A.09.21.0,"Major durables for outdoor recreation (camper caravans, boats, horses) ",0.4,,Other retail products
+HIGH INCOME,Recreation and culture,EU A.09.22.0,"Musical instruments and major durables for indoor recreation (drums, trumpets, billiard tables, ping-pong tables, pin-ball machines, gaming machines, etc. excludes toys) ",0.6,,Leisure & Entertainment
+HIGH INCOME,Recreation and culture,EU A.09.33.1,"Garden products (soils, composts, garden peat, turf for lawns, fertilizers, pots) ",0.35,,Home & DIY
+HIGH INCOME,Recreation and culture,EU A.09.33.2,Plants and flowers ,0.15,,Home & DIY
+HIGH INCOME,Recreation and culture,EU A.09.34.0,"Pets and related products: Pets, pet foods, veterinary and grooming products for pets ",0.5,,Pet care
+LOW INCOME,Clothing,11.03.11.0,"Clothing materials, other articles of clothing and clothing accessories (clothing materials of natural fibres, of man-made fibres and of their mixtures. Excludes furnishing fabrics) ",0.04,,
+LOW INCOME,Clothing,11.03.12.0,Garments ,0.95,,
+LOW INCOME,Clothing,11.03.14.0,"Cleaning, repair and hire of clothing ",0.01,,
+LOW INCOME,Footwear,11.03.21.0,Shoes and other footwear ,0.99,,
+LOW INCOME,Footwear,11.03.22.0,Repair and hire of footwear ,0.01,,
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.11.0,"Furniture and furnishings (HH furniture, garden furniture, lighting baby furniture) (inferred weights)",0.97,,Home & DIY
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.12.0,"Carpets and other floor coverings (loose carpets, rugs, mats and other such movable floor coverings; fitted carpets) (inferred weights)",0.02,,Home & DIY
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.13.0,"Repair of furniture, furnishings and floor coverings ",0.01,,
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.31.0,"Major household appliances whether electric or not (Refrigerators, clothes washing machines, ovens, air conditioners, vacuum cleaners, safes, sewing machines, knitting machines, water softeners (non electric appliances) (implied weights)",0.96,,Electricals
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.32.0,"Small electric household appliances (coffee-makers, juice extractors, can openers, food mixers, deep fryers, meat grills, knives, toasters) (implied weights)",0.03,,Electricals
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.33.0,Repair of household appliances ,0.01,,
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.61.0,"Non-durable household goods (soaps, washing powders, washing liquids, scouring powders, detergents, brooms, scrubbing brushes, dust pans and dust brushes, dusters, tea towels, floor cloths) ",0.98,,Household care
+LOW INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.62.0,"Domestic services and household services (butlers, cooks, maids, cleaners, drivers, gardeners, babysitters) ",0.02,,
+LOW INCOME,"Housing, water, electricity, gas and other fuels",11.04.31.0,"Materials for the maintenance and repair of the dwelling (paints, wallpapers, cement, putty, wallpaper pastes, plumbing items, floor boards, ceramic tiles, brushes and scrapers for paint purchased for minor maintenance and repair of the dwelling) ",0.95,,Home & DIY
+LOW INCOME,"Housing, water, electricity, gas and other fuels",11.04.32.0,"Services for the maintenance and repair of the dwelling (services of plumbers, electricians, carpenters (cost of labour and the cost of materials are covered) ",0.05,,
+LOW INCOME,Miscellaneous goods and services,11.12.11.0,"Hairdressing salons and personal grooming establishments (services of hairdressing salons; facial beauty treatments, body care) ",0.5,,
+LOW INCOME,Miscellaneous goods and services,11.12.12.0,"Appliances, articles and products for personal care (electric appliances for personal care: s; articles for personal hygiene and wellness, esoteric products and beauty products: Toilet soap)",0.5,,Health & Beauty
+LOW INCOME,Miscellaneous goods and services,11.12.31.0,Jewellery and watches,0.5,,Fashion & Apparel
+LOW INCOME,Miscellaneous goods and services,11.12.32.0,Other personal items,0.5,,Other retail products
+LOW INCOME,Recreation and culture,11.09.11.0,"Audio-visual, photographic and information processing equipment",0.97,,
+LOW INCOME,Recreation and culture,11.09.14.0,"Recording media (records, CDs, tapes, pre-recorded or not) ",0.01,,Leisure & Entertainment
+LOW INCOME,Recreation and culture,11.09.15.0,"Repair of audio-visual, photographic and information processing equipment ",0.02,,
+LOW INCOME,Recreation and culture,11.09.21.0,Major durables for outdoor and indoor recreation,0.98,,
+LOW INCOME,Recreation and culture,11.09.23.0,Maintenance and repair of other major durables for recreation and culture ,0.02,,
+LOW INCOME,Recreation and culture,11.09.31.0,"Other recreational items and equipment (Card games, parlour games, chess sets, video-g….)",0.25,,Leisure & Entertainment
+LOW INCOME,Recreation and culture,11.09.33.0,Gardens and pets,0.7,,
+LOW INCOME,Recreation and culture,11.09.35.0,Veterinary and other services for pets ,0.05,,
+LOW INCOME,Recreation and culture,EU A.09.11.1,"Equipment for the reception, recording and reproduction of sound (radio, stereo equipment, speakers) ",0.01,,Electricals
+LOW INCOME,Recreation and culture,EU A.09.11.2,"Equipment for the reception, recording and reproduction of sound and vision (TVs, home theatre systems) ",0.375,,Electricals
+LOW INCOME,Recreation and culture,EU A.09.11.3,Portable sound and vision devices ,0.01,,Electricals
+LOW INCOME,Recreation and culture,EU A.09.11.9,"Other equipment for the reception, recording and reproduction of sound and picture (earphones, e-books, digital photo frames) ",0.07,,Electricals
+LOW INCOME,Recreation and culture,EU A.09.12.0,"Photographic and cinematographic equipment and optical instruments cameras (cameras, enlargers and film processing equipment, telescopes and compasses) ",0.05,,Electricals
+LOW INCOME,Recreation and culture,EU A.09.13.1,"Personal computers (laptops, desktops, tablets) ",0.375,,Office
+LOW INCOME,Recreation and culture,EU A.09.13.2,"Accessories for information processing equipment (keyboards, scanners, monitors, printers) ",0.05,,Office
+LOW INCOME,Recreation and culture,EU A.09.13.3,Software ,0.05,,Office
+LOW INCOME,Recreation and culture,EU A.09.13.4,Calculators and other information processing equipment (pocket calculators and electronic calendars) ,0.01,,
+LOW INCOME,Recreation and culture,EU A.09.21.0,"Major durables for outdoor recreation (camper caravans, boats, horses) ",0.4,,Other retail products
+LOW INCOME,Recreation and culture,EU A.09.22.0,"Musical instruments and major durables for indoor recreation (drums, trumpets, billiard tables, ping-pong tables, pin-ball machines, gaming machines, etc. excludes toys) ",0.6,,Leisure & Entertainment
+LOW INCOME,Recreation and culture,EU A.09.33.1,"Garden products (soils, composts, garden peat, turf for lawns, fertilizers, pots) ",0.35,,Home & DIY
+LOW INCOME,Recreation and culture,EU A.09.33.2,Plants and flowers ,0.15,,Home & DIY
+LOW INCOME,Recreation and culture,EU A.09.34.0,"Pets and related products: Pets, pet foods, veterinary and grooming products for pets ",0.5,,Pet care
+LOWER MID INCOME,Clothing,11.03.11.0,"Clothing materials, other articles of clothing and clothing accessories (clothing materials of natural fibres, of man-made fibres and of their mixtures. Excludes furnishing fabrics) ",0.04,,
+LOWER MID INCOME,Clothing,11.03.12.0,Garments ,0.95,,
+LOWER MID INCOME,Clothing,11.03.14.0,"Cleaning, repair and hire of clothing ",0.01,,
+LOWER MID INCOME,Footwear,11.03.21.0,Shoes and other footwear ,0.99,,
+LOWER MID INCOME,Footwear,11.03.22.0,Repair and hire of footwear ,0.01,,
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.11.0,"Furniture and furnishings (HH furniture, garden furniture, lighting baby furniture) (inferred weights)",0.97,,Home & DIY
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.12.0,"Carpets and other floor coverings (loose carpets, rugs, mats and other such movable floor coverings; fitted carpets) (inferred weights)",0.02,,Home & DIY
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.13.0,"Repair of furniture, furnishings and floor coverings ",0.01,,
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.31.0,"Major household appliances whether electric or not (Refrigerators, clothes washing machines, ovens, air conditioners, vacuum cleaners, safes, sewing machines, knitting machines, water softeners (non electric appliances) (implied weights)",0.96,,Electricals
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.32.0,"Small electric household appliances (coffee-makers, juice extractors, can openers, food mixers, deep fryers, meat grills, knives, toasters) (implied weights)",0.03,,Electricals
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.33.0,Repair of household appliances ,0.01,,
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.61.0,"Non-durable household goods (soaps, washing powders, washing liquids, scouring powders, detergents, brooms, scrubbing brushes, dust pans and dust brushes, dusters, tea towels, floor cloths) ",0.98,,Household care
+LOWER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.62.0,"Domestic services and household services (butlers, cooks, maids, cleaners, drivers, gardeners, babysitters) ",0.02,,
+LOWER MID INCOME,"Housing, water, electricity, gas and other fuels",11.04.31.0,"Materials for the maintenance and repair of the dwelling (paints, wallpapers, cement, putty, wallpaper pastes, plumbing items, floor boards, ceramic tiles, brushes and scrapers for paint purchased for minor maintenance and repair of the dwelling) ",0.95,,Home & DIY
+LOWER MID INCOME,"Housing, water, electricity, gas and other fuels",11.04.32.0,"Services for the maintenance and repair of the dwelling (services of plumbers, electricians, carpenters (cost of labour and the cost of materials are covered) ",0.05,,
+LOWER MID INCOME,Miscellaneous goods and services,11.12.11.0,"Hairdressing salons and personal grooming establishments (services of hairdressing salons; facial beauty treatments, body care) ",0.5,,
+LOWER MID INCOME,Miscellaneous goods and services,11.12.12.0,"Appliances, articles and products for personal care (electric appliances for personal care: s; articles for personal hygiene and wellness, esoteric products and beauty products: Toilet soap)",0.5,,Health & Beauty
+LOWER MID INCOME,Miscellaneous goods and services,11.12.31.0,Jewellery and watches,0.5,,Fashion & Apparel
+LOWER MID INCOME,Miscellaneous goods and services,11.12.32.0,Other personal items,0.5,,Other retail products
+LOWER MID INCOME,Recreation and culture,11.09.11.0,"Audio-visual, photographic and information processing equipment",0.97,,
+LOWER MID INCOME,Recreation and culture,11.09.14.0,"Recording media (records, CDs, tapes, pre-recorded or not) ",0.01,,Leisure & Entertainment
+LOWER MID INCOME,Recreation and culture,11.09.15.0,"Repair of audio-visual, photographic and information processing equipment ",0.02,,
+LOWER MID INCOME,Recreation and culture,11.09.21.0,Major durables for outdoor and indoor recreation,0.98,,
+LOWER MID INCOME,Recreation and culture,11.09.23.0,Maintenance and repair of other major durables for recreation and culture ,0.02,,
+LOWER MID INCOME,Recreation and culture,11.09.31.0,"Other recreational items and equipment (Card games, parlour games, chess sets, video-g….)",0.25,,Leisure & Entertainment
+LOWER MID INCOME,Recreation and culture,11.09.33.0,Gardens and pets,0.7,,
+LOWER MID INCOME,Recreation and culture,11.09.35.0,Veterinary and other services for pets ,0.05,,
+LOWER MID INCOME,Recreation and culture,EU A.09.11.1,"Equipment for the reception, recording and reproduction of sound (radio, stereo equipment, speakers) ",0.01,,Electricals
+LOWER MID INCOME,Recreation and culture,EU A.09.11.2,"Equipment for the reception, recording and reproduction of sound and vision (TVs, home theatre systems) ",0.375,,Electricals
+LOWER MID INCOME,Recreation and culture,EU A.09.11.3,Portable sound and vision devices ,0.01,,Electricals
+LOWER MID INCOME,Recreation and culture,EU A.09.11.9,"Other equipment for the reception, recording and reproduction of sound and picture (earphones, e-books, digital photo frames) ",0.07,,Electricals
+LOWER MID INCOME,Recreation and culture,EU A.09.12.0,"Photographic and cinematographic equipment and optical instruments cameras (cameras, enlargers and film processing equipment, telescopes and compasses) ",0.05,,Electricals
+LOWER MID INCOME,Recreation and culture,EU A.09.13.1,"Personal computers (laptops, desktops, tablets) ",0.375,,Office
+LOWER MID INCOME,Recreation and culture,EU A.09.13.2,"Accessories for information processing equipment (keyboards, scanners, monitors, printers) ",0.05,,Office
+LOWER MID INCOME,Recreation and culture,EU A.09.13.3,Software ,0.05,,Office
+LOWER MID INCOME,Recreation and culture,EU A.09.13.4,Calculators and other information processing equipment (pocket calculators and electronic calendars) ,0.01,,
+LOWER MID INCOME,Recreation and culture,EU A.09.21.0,"Major durables for outdoor recreation (camper caravans, boats, horses) ",0.4,,Other retail products
+LOWER MID INCOME,Recreation and culture,EU A.09.22.0,"Musical instruments and major durables for indoor recreation (drums, trumpets, billiard tables, ping-pong tables, pin-ball machines, gaming machines, etc. excludes toys) ",0.6,,Leisure & Entertainment
+LOWER MID INCOME,Recreation and culture,EU A.09.33.1,"Garden products (soils, composts, garden peat, turf for lawns, fertilizers, pots) ",0.35,,Home & DIY
+LOWER MID INCOME,Recreation and culture,EU A.09.33.2,Plants and flowers ,0.15,,Home & DIY
+LOWER MID INCOME,Recreation and culture,EU A.09.34.0,"Pets and related products: Pets, pet foods, veterinary and grooming products for pets ",0.5,,Pet care
+UPPER MID INCOME,Clothing,11.03.11.0,"Clothing materials, other articles of clothing and clothing accessories (clothing materials of natural fibres, of man-made fibres and of their mixtures. Excludes furnishing fabrics) ",0.04,,
+UPPER MID INCOME,Clothing,11.03.12.0,Garments ,0.95,,
+UPPER MID INCOME,Clothing,11.03.14.0,"Cleaning, repair and hire of clothing ",0.01,,
+UPPER MID INCOME,Footwear,11.03.21.0,Shoes and other footwear ,0.99,,
+UPPER MID INCOME,Footwear,11.03.22.0,Repair and hire of footwear ,0.01,,
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.11.0,"Furniture and furnishings (HH furniture, garden furniture, lighting baby furniture) (inferred weights)",0.97,,Home & DIY
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.12.0,"Carpets and other floor coverings (loose carpets, rugs, mats and other such movable floor coverings; fitted carpets) (inferred weights)",0.02,,Home & DIY
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.13.0,"Repair of furniture, furnishings and floor coverings ",0.01,,
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.31.0,"Major household appliances whether electric or not (Refrigerators, clothes washing machines, ovens, air conditioners, vacuum cleaners, safes, sewing machines, knitting machines, water softeners (non electric appliances) (implied weights)",0.96,,Electricals
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.32.0,"Small electric household appliances (coffee-makers, juice extractors, can openers, food mixers, deep fryers, meat grills, knives, toasters) (implied weights)",0.03,,Electricals
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.33.0,Repair of household appliances ,0.01,,
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.61.0,"Non-durable household goods (soaps, washing powders, washing liquids, scouring powders, detergents, brooms, scrubbing brushes, dust pans and dust brushes, dusters, tea towels, floor cloths) ",0.98,,Household care
+UPPER MID INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.62.0,"Domestic services and household services (butlers, cooks, maids, cleaners, drivers, gardeners, babysitters) ",0.02,,
+UPPER MID INCOME,"Housing, water, electricity, gas and other fuels",11.04.31.0,"Materials for the maintenance and repair of the dwelling (paints, wallpapers, cement, putty, wallpaper pastes, plumbing items, floor boards, ceramic tiles, brushes and scrapers for paint purchased for minor maintenance and repair of the dwelling) ",0.95,,Home & DIY
+UPPER MID INCOME,"Housing, water, electricity, gas and other fuels",11.04.32.0,"Services for the maintenance and repair of the dwelling (services of plumbers, electricians, carpenters (cost of labour and the cost of materials are covered) ",0.05,,
+UPPER MID INCOME,Miscellaneous goods and services,11.12.11.0,"Hairdressing salons and personal grooming establishments (services of hairdressing salons; facial beauty treatments, body care) ",0.5,,
+UPPER MID INCOME,Miscellaneous goods and services,11.12.12.0,"Appliances, articles and products for personal care (electric appliances for personal care: s; articles for personal hygiene and wellness, esoteric products and beauty products: Toilet soap)",0.5,,Health & Beauty
+UPPER MID INCOME,Miscellaneous goods and services,11.12.31.0,Jewellery and watches,0.5,,Fashion & Apparel
+UPPER MID INCOME,Miscellaneous goods and services,11.12.32.0,Other personal items,0.5,,Other retail products
+UPPER MID INCOME,Recreation and culture,11.09.11.0,"Audio-visual, photographic and information processing equipment",0.97,,
+UPPER MID INCOME,Recreation and culture,11.09.14.0,"Recording media (records, CDs, tapes, pre-recorded or not) ",0.01,,Leisure & Entertainment
+UPPER MID INCOME,Recreation and culture,11.09.15.0,"Repair of audio-visual, photographic and information processing equipment ",0.02,,
+UPPER MID INCOME,Recreation and culture,11.09.21.0,Major durables for outdoor and indoor recreation,0.98,,
+UPPER MID INCOME,Recreation and culture,11.09.23.0,Maintenance and repair of other major durables for recreation and culture ,0.02,,
+UPPER MID INCOME,Recreation and culture,11.09.31.0,"Other recreational items and equipment (Card games, parlour games, chess sets, video-g….)",0.25,,Leisure & Entertainment
+UPPER MID INCOME,Recreation and culture,11.09.33.0,Gardens and pets,0.7,,
+UPPER MID INCOME,Recreation and culture,11.09.35.0,Veterinary and other services for pets ,0.05,,
+UPPER MID INCOME,Recreation and culture,EU A.09.11.1,"Equipment for the reception, recording and reproduction of sound (radio, stereo equipment, speakers) ",0.01,,Electricals
+UPPER MID INCOME,Recreation and culture,EU A.09.11.2,"Equipment for the reception, recording and reproduction of sound and vision (TVs, home theatre systems) ",0.375,,Electricals
+UPPER MID INCOME,Recreation and culture,EU A.09.11.3,Portable sound and vision devices ,0.01,,Electricals
+UPPER MID INCOME,Recreation and culture,EU A.09.11.9,"Other equipment for the reception, recording and reproduction of sound and picture (earphones, e-books, digital photo frames) ",0.07,,Electricals
+UPPER MID INCOME,Recreation and culture,EU A.09.12.0,"Photographic and cinematographic equipment and optical instruments cameras (cameras, enlargers and film processing equipment, telescopes and compasses) ",0.05,,Electricals
+UPPER MID INCOME,Recreation and culture,EU A.09.13.1,"Personal computers (laptops, desktops, tablets) ",0.375,,Office
+UPPER MID INCOME,Recreation and culture,EU A.09.13.2,"Accessories for information processing equipment (keyboards, scanners, monitors, printers) ",0.05,,Office
+UPPER MID INCOME,Recreation and culture,EU A.09.13.3,Software ,0.05,,Office
+UPPER MID INCOME,Recreation and culture,EU A.09.13.4,Calculators and other information processing equipment (pocket calculators and electronic calendars) ,0.01,,
+UPPER MID INCOME,Recreation and culture,EU A.09.21.0,"Major durables for outdoor recreation (camper caravans, boats, horses) ",0.4,,Other retail products
+UPPER MID INCOME,Recreation and culture,EU A.09.22.0,"Musical instruments and major durables for indoor recreation (drums, trumpets, billiard tables, ping-pong tables, pin-ball machines, gaming machines, etc. excludes toys) ",0.6,,Leisure & Entertainment
+UPPER MID INCOME,Recreation and culture,EU A.09.33.1,"Garden products (soils, composts, garden peat, turf for lawns, fertilizers, pots) ",0.35,,Home & DIY
+UPPER MID INCOME,Recreation and culture,EU A.09.33.2,Plants and flowers ,0.15,,Home & DIY
+UPPER MID INCOME,Recreation and culture,EU A.09.34.0,"Pets and related products: Pets, pet foods, veterinary and grooming products for pets ",0.5,,Pet care
+VERY HIGH INCOME,Clothing,11.03.11.0,"Clothing materials, other articles of clothing and clothing accessories (clothing materials of natural fibres, of man-made fibres and of their mixtures. Excludes furnishing fabrics) ",0.04,,
+VERY HIGH INCOME,Clothing,11.03.12.0,Garments ,0.95,,
+VERY HIGH INCOME,Clothing,11.03.14.0,"Cleaning, repair and hire of clothing ",0.01,,
+VERY HIGH INCOME,Footwear,11.03.21.0,Shoes and other footwear ,0.99,,
+VERY HIGH INCOME,Footwear,11.03.22.0,Repair and hire of footwear ,0.01,,
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.11.0,"Furniture and furnishings (HH furniture, garden furniture, lighting baby furniture) (inferred weights)",0.97,,Home & DIY
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.12.0,"Carpets and other floor coverings (loose carpets, rugs, mats and other such movable floor coverings; fitted carpets) (inferred weights)",0.02,,Home & DIY
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.13.0,"Repair of furniture, furnishings and floor coverings ",0.01,,
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.31.0,"Major household appliances whether electric or not (Refrigerators, clothes washing machines, ovens, air conditioners, vacuum cleaners, safes, sewing machines, knitting machines, water softeners (non electric appliances) (implied weights)",0.96,,Electricals
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.32.0,"Small electric household appliances (coffee-makers, juice extractors, can openers, food mixers, deep fryers, meat grills, knives, toasters) (implied weights)",0.03,,Electricals
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.33.0,Repair of household appliances ,0.01,,
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.61.0,"Non-durable household goods (soaps, washing powders, washing liquids, scouring powders, detergents, brooms, scrubbing brushes, dust pans and dust brushes, dusters, tea towels, floor cloths) ",0.98,,Household care
+VERY HIGH INCOME,"Furnishings, households equipment and routine maintenance of the house",11.05.62.0,"Domestic services and household services (butlers, cooks, maids, cleaners, drivers, gardeners, babysitters) ",0.02,,
+VERY HIGH INCOME,"Housing, water, electricity, gas and other fuels",11.04.31.0,"Materials for the maintenance and repair of the dwelling (paints, wallpapers, cement, putty, wallpaper pastes, plumbing items, floor boards, ceramic tiles, brushes and scrapers for paint purchased for minor maintenance and repair of the dwelling) ",0.95,,Home & DIY
+VERY HIGH INCOME,"Housing, water, electricity, gas and other fuels",11.04.32.0,"Services for the maintenance and repair of the dwelling (services of plumbers, electricians, carpenters (cost of labour and the cost of materials are covered) ",0.05,,
+VERY HIGH INCOME,Miscellaneous goods and services,11.12.11.0,"Hairdressing salons and personal grooming establishments (services of hairdressing salons; facial beauty treatments, body care) ",0.5,,
+VERY HIGH INCOME,Miscellaneous goods and services,11.12.12.0,"Appliances, articles and products for personal care (electric appliances for personal care: s; articles for personal hygiene and wellness, esoteric products and beauty products: Toilet soap)",0.5,,Health & Beauty
+VERY HIGH INCOME,Miscellaneous goods and services,11.12.31.0,Jewellery and watches,0.5,,Fashion & Apparel
+VERY HIGH INCOME,Miscellaneous goods and services,11.12.32.0,Other personal items,0.5,,Other retail products
+VERY HIGH INCOME,Recreation and culture,11.09.11.0,"Audio-visual, photographic and information processing equipment",0.97,,
+VERY HIGH INCOME,Recreation and culture,11.09.14.0,"Recording media (records, CDs, tapes, pre-recorded or not) ",0.01,,Leisure & Entertainment
+VERY HIGH INCOME,Recreation and culture,11.09.15.0,"Repair of audio-visual, photographic and information processing equipment ",0.02,,
+VERY HIGH INCOME,Recreation and culture,11.09.21.0,Major durables for outdoor and indoor recreation,0.98,,
+VERY HIGH INCOME,Recreation and culture,11.09.23.0,Maintenance and repair of other major durables for recreation and culture ,0.02,,
+VERY HIGH INCOME,Recreation and culture,11.09.31.0,"Other recreational items and equipment (Card games, parlour games, chess sets, video-g….)",0.25,,Leisure & Entertainment
+VERY HIGH INCOME,Recreation and culture,11.09.33.0,Gardens and pets,0.7,,
+VERY HIGH INCOME,Recreation and culture,11.09.35.0,Veterinary and other services for pets ,0.05,,
+VERY HIGH INCOME,Recreation and culture,EU A.09.11.1,"Equipment for the reception, recording and reproduction of sound (radio, stereo equipment, speakers) ",0.01,,Electricals
+VERY HIGH INCOME,Recreation and culture,EU A.09.11.2,"Equipment for the reception, recording and reproduction of sound and vision (TVs, home theatre systems) ",0.375,,Electricals
+VERY HIGH INCOME,Recreation and culture,EU A.09.11.3,Portable sound and vision devices ,0.01,,Electricals
+VERY HIGH INCOME,Recreation and culture,EU A.09.11.9,"Other equipment for the reception, recording and reproduction of sound and picture (earphones, e-books, digital photo frames) ",0.07,,Electricals
+VERY HIGH INCOME,Recreation and culture,EU A.09.12.0,"Photographic and cinematographic equipment and optical instruments cameras (cameras, enlargers and film processing equipment, telescopes and compasses) ",0.05,,Electricals
+VERY HIGH INCOME,Recreation and culture,EU A.09.13.1,"Personal computers (laptops, desktops, tablets) ",0.375,,Office
+VERY HIGH INCOME,Recreation and culture,EU A.09.13.2,"Accessories for information processing equipment (keyboards, scanners, monitors, printers) ",0.05,,Office
+VERY HIGH INCOME,Recreation and culture,EU A.09.13.3,Software ,0.05,,Office
+VERY HIGH INCOME,Recreation and culture,EU A.09.13.4,Calculators and other information processing equipment (pocket calculators and electronic calendars) ,0.01,,
+VERY HIGH INCOME,Recreation and culture,EU A.09.21.0,"Major durables for outdoor recreation (camper caravans, boats, horses) ",0.4,,Other retail products
+VERY HIGH INCOME,Recreation and culture,EU A.09.22.0,"Musical instruments and major durables for indoor recreation (drums, trumpets, billiard tables, ping-pong tables, pin-ball machines, gaming machines, etc. excludes toys) ",0.6,,Leisure & Entertainment
+VERY HIGH INCOME,Recreation and culture,EU A.09.33.1,"Garden products (soils, composts, garden peat, turf for lawns, fertilizers, pots) ",0.35,,Home & DIY
+VERY HIGH INCOME,Recreation and culture,EU A.09.33.2,Plants and flowers ,0.15,,Home & DIY
+VERY HIGH INCOME,Recreation and culture,EU A.09.34.0,"Pets and related products: Pets, pet foods, veterinary and grooming products for pets ",0.5,,Pet care
