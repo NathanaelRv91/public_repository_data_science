@@ -1,0 +1,89 @@
+Transaction,Category1,Category2,Code1,Code2,Code3,Code4
+Food and non-alcoholic beverages,Food and non-alcoholic beverages,,CP01,CP01,,
+Non-alcoholic beverages,Food and non-alcoholic beverages,Non-alcoholic beverages,CP01,CP012,,
+Food,Food and non-alcoholic beverages,Food,CP01,CP011,,
+"Alcoholic beverages, tobacco and narcotics","Alcoholic beverages, tobacco and narcotics",,CP02,CP02,,
+Alcoholic beverages,"Alcoholic beverages, tobacco and narcotics",Alcoholic beverages,CP02,CP021,,
+Tobacco,"Alcoholic beverages, tobacco and narcotics",Tobacco,CP02,CP022,,
+Narcotics,"Alcoholic beverages, tobacco and narcotics",Narcotics,CP02,CP024,,
+Clothing and footwear,Clothing and footwear,,CP03,CP03,,
+"Housing, water, electricity, gas and other fuels",Housing,,CP04,CP04,,
+Actual rentals for housing,Housing,Actual rentals for housing,CP04,CP041,,
+Imputed rentals for housing,Housing,Imputed rentals for housing,CP04,CP042,,
+Maintenance and repair of the dwelling,Housing,Maintenance and repair of the dwelling,CP04,CP043,,
+Maintenance and repair of the dwelling,Housing,Maintenance and repair of the dwelling,CP04,CP043,11.04.31.0,EU A.04.31.0
+Maintenance and repair of the dwelling,Housing,Maintenance and repair of the dwelling,CP04,CP043,11.04.32.0,EU A.04.32.0
+Water supply and miscellaneous services relating to the dwelling,Housing,Water supply and miscellaneous services relating to the dwelling,CP04,CP044,,
+"Electricity, gas and other fuels",Housing,"Electricity, gas and other fuels",CP04,CP045,,
+"Furnishings, household equipment and routine household maintenance","Furnishings, household equipment and routine household maintenance",,CP05,CP05,,
+"Furniture and furnishings, carpets and other floor coverings","Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",CP05,CP051,,
+"Furniture and furnishings, carpets and other floor coverings","Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",CP05,CP051,11.05.11.0,
+"Furniture and furnishings, carpets and other floor coverings","Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",CP05,CP051,11.05.12.0,
+"Furniture and furnishings, carpets and other floor coverings","Furnishings, household equipment and routine household maintenance","Furniture and furnishings, carpets and other floor coverings",CP05,CP051,11.05.13.0,
+Household textiles,"Furnishings, household equipment and routine household maintenance",Household textiles,CP05,CP052,,
+Household appliances,"Furnishings, household equipment and routine household maintenance",Household appliances,CP05,CP053,,
+Household appliances,"Furnishings, household equipment and routine household maintenance",Household appliances,CP05,CP053,11.05.31.0,
+Household appliances,"Furnishings, household equipment and routine household maintenance",Household appliances,CP05,CP053,11.05.32.0,
+Household appliances,"Furnishings, household equipment and routine household maintenance",Household appliances,CP05,CP053,11.05.33.0,
+"Glassware, tableware and household utensils","Furnishings, household equipment and routine household maintenance","Glassware, tableware and household utensils",CP05,CP054,,
+Tools and equipment for house and garden,"Furnishings, household equipment and routine household maintenance",Tools and equipment for house and garden,CP05,CP055,,
+Goods and services for routine household maintenance,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,CP05,CP056,,
+Goods and services for routine household maintenance,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,CP05,CP056,11.05.61.0,
+Goods and services for routine household maintenance,"Furnishings, household equipment and routine household maintenance",Goods and services for routine household maintenance,CP05,CP056,11.05.62.0,
+Health,Health,,CP06,CP06,,
+"Medical products, appliances and equipment",Health,"Medical products, appliances and equipment",CP06,CP061,,
+Out-patient services,Health,Outpatient services,CP06,CP062,,
+Hospital services,Health,Hospital services,CP06,CP063,,
+Transport,Transport,,CP07,CP07,,
+Purchase of vehicles,Transport,Purchase of vehicles,CP07,CP071,,
+Operation of personal transport equipment,Transport,Operation of personal transport equipment,CP07,CP072,,
+Transport services,Transport,Transport services,CP07,CP073,,
+Communications,Communications,,CP08,CP08,,
+Postal services,Communications,Postal services,CP08,CP081,,
+Telephone and telefax equipment,Communications,Telephone and telefax equipment,CP08,CP082,,
+Telephone and telefax services,Communications,Telephone and telefax services,CP08,CP083,,
+Recreation and culture,Recreation,,CP09,CP09,,
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,,
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.11.1
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.11.2
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.11.3
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.11.9
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.12.0
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.13.1
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.13.2
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.13.3
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.11.0,EU A.09.13.4
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.14.0,
+"Audio-visual, photographic and information processing equipment",Recreation,"Audio-visual, photographic and information processing equipment",CP09,CP091,11.09.15.0,
+Other major durables for recreation and culture,Recreation,Other major durables for recreation and culture,CP09,CP092,,
+Other major durables for recreation and culture,Recreation,Other major durables for recreation and culture,CP09,CP092,11.09.21.0,
+Other major durables for recreation and culture,Recreation,Other major durables for recreation and culture,CP09,CP092,11.09.21.0,EU A.09.21.0
+Other major durables for recreation and culture,Recreation,Other major durables for recreation and culture,CP09,CP092,11.09.21.0,EU A.09.22.0
+Other major durables for recreation and culture,Recreation,Other major durables for recreation and culture,CP09,CP092,11.09.23.0,
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,,
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.31.0,
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.33.0,
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.33.0,EU A.09.33.1
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.33.0,EU A.09.33.2
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.33.0,EU A.09.34.0
+"Other recreational items and equipment, gardens and pets",Recreation,"Other recreational items and equipment, gardens and pets",CP09,CP093,11.09.35.0,
+Recreational and cultural services,Recreation,Recreational and cultural services,CP09,CP094,,
+"Newspapers, books and stationery",Recreation,"Newspapers, books and stationery",CP09,CP095,,
+Package holidays,Recreation,Package holidays,CP09,CP096,,
+Education,Education,,CP10,CP10,,
+Restaurants and hotels,Restaurants and hotels,,CP11,CP11,,
+Catering services,Restaurants and hotels,Catering services,CP11,CP111,,
+Accommodation services,Restaurants and hotels,Accommodation services,CP11,CP112,,
+Miscellaneous goods and services,MiscGoods,,CP12,CP12,,
+Personal care,MiscGoods,Personal care,CP12,CP121,,
+Personal care,MiscGoods,Personal care,CP12,CP121,11.12.11.0,
+Personal care,MiscGoods,Personal care,CP12,CP121,11.12.12.0,
+Prostitution,MiscGoods,Prostitution,CP12,CP122_127,,
+Personal effects,MiscGoods,Personal effects,CP12,CP123,,
+Personal effects,MiscGoods,Personal effects,CP12,CP123,11.12.31.0,
+Personal effects,MiscGoods,Personal effects,CP12,CP123,11.12.32.0,
+Social protection,MiscGoods,Social protection,CP12,CP124,,
+Insurance,MiscGoods,Insurance,CP12,CP125,,
+Financial services n. e. c.,MiscGoods,Financial services n. e. c.,CP12,CP126,,
+Other services n. e. c.,MiscGoods,Other services n. e. c.,CP12,CP127,,
